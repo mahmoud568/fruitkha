@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './main-pages/header/header.component';
-import { HomeComponent } from './main-pages/home/home.component';
+import { HeaderComponent } from './pages/header/header.component';
+import { HomeComponent } from './pages/home/home.component';
 import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
