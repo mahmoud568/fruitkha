@@ -1,4 +1,54 @@
-<div class="contaner">
-    <div class="btn btn-primary">something</div>
- something
-</div>
+<section class="section">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand item-1" id="navbar-brand" href="#"><img class="logoImg" src="assets\img\logo.png"
+        alt="logo"></a>
+    <ul class="navbar-nav item-2 hide-md">
+      <li class="nav-item active" routerLinkActive="active">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/">About</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/">Pages</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/">News</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/">Contact</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/">Shop</a>
+      </li>
+    </ul>
+    <div class="item-3 hide-md">
+      <a class="btn">
+        <span class="material-icons">paid</span>
+      </a>
+      <a class="btn">
+        <span class="material-icons">language</span>
+      </a>
+      <a class="btn">
+        <span class="material-icons">invert_colors</span>
+      </a>
+    </div>
+    <div class="item-4">
+      <a class="btn">
+        <span class="material-icons hide-md">
+          shopping_cart
+        </span>
+      </a>
+      <a class="btn search">
+        <span class="material-icons">search</span>
+      </a>
+    </div>
+    <span class="material-icons navbar-toggler" (click)="openMenuBar()" *ngIf="!isMenuBarOpen">
+      density_medium
+    </span>
+    <span class="material-icons navbar-toggler" (click)="openMenuBar()" *ngIf="isMenuBarOpen">
+      close
+    </span>
+  </nav>
+
+</section>

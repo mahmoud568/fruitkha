@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,10 @@ import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    NgbPaginationModule, NgbAlertModule
+    NgbPaginationModule,
+    NgbAlertModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

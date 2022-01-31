@@ -1,0 +1,14 @@
+img{
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.dark-over-image{
+    position: absolute;
+    z-index: 2;
+    background-color: #07212e;
+    height: 120%;
+    width: 100%;
+    opacity: .6;
+}
