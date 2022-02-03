@@ -8,12 +8,16 @@ import { HomeComponent } from './pages/home/home.component';
 import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { CustomDropdownComponent } from './shared/component/custom-dropdown/custom-dropdown.component';
+import { ScrollDirective } from './shared/directive/scroll.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    CustomDropdownComponent,
+    ScrollDirective
   ],
   imports: [
     BrowserModule,

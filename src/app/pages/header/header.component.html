@@ -1,16 +1,26 @@
 <section class="section">
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav appScroll class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand item-1" id="navbar-brand" href="#"><img class="logoImg" src="assets\img\logo.png"
         alt="logo"></a>
     <ul class="navbar-nav item-2 hide-md">
-      <li class="nav-item active" routerLinkActive="active">
+      <li
+      class="nav-item active"
+      routerLinkActive="active"
+      (mouseover)="onHoverDropdown('homeOptions', $event.type)"
+      (mouseleave)="onHoverDropdown('homeOptions', $event.type)">
         <a class="nav-link" routerLink="/">Home</a>
+        <app-custom-dropdown *ngIf="showDropdown === 'homeOptions'" [options]="homeOptions"(optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/">About</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li
+      class="nav-item"
+      routerLinkActive="active"
+      (mouseover)="onHoverDropdown('pagesOptions', $event.type)"
+      (mouseleave)="onHoverDropdown('pagesOptions', $event.type)">
         <a class="nav-link" routerLink="/">Pages</a>
+        <app-custom-dropdown *ngIf="showDropdown === 'pagesOptions'" [options]="pagesOptions"(optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/">News</a>
@@ -18,8 +28,13 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/">Contact</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li
+      class="nav-item"
+      routerLinkActive="active"
+      (mouseover)="onHoverDropdown('shopOptions', $event.type)"
+      (mouseleave)="onHoverDropdown('shopOptions', $event.type)">
         <a class="nav-link" routerLink="/">Shop</a>
+        <app-custom-dropdown *ngIf="showDropdown === 'shopOptions'" [options]="shopOptions" (optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
       </li>
     </ul>
     <div class="item-3 hide-md">
@@ -28,6 +43,7 @@
       </a>
       <a class="btn">
         <span class="material-icons">language</span>
+
       </a>
       <a class="btn">
         <span class="material-icons">invert_colors</span>
@@ -50,5 +66,17 @@
       close
     </span>
   </nav>
+  <div class="table-container">
+    <table *ngIf="!isMenuBarOpen" class="table table-dark">
+      <tbody>
+        <tr id="tr">
+          <th scope="row">HOME</th>
+          <td>Larry</td>
+          <!-- <td>the Bird</td>
+          <td>@twitter</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </section>
