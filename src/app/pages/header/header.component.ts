@@ -1,14 +1,56 @@
 import { Component, OnInit } from '@angular/core';
-import { option } from 'src/app/shared/Interface/option.model';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 
+import { option } from 'src/app/shared/Interface/option.model';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({transform: 'translatey(-10%)', opacity: 0}),
+          animate('500ms', style({transform: 'translatey(0)', opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({transform: 'translatey(0)', opacity: 1}),
+          animate('500ms', style({transform: 'translatey(-10%)', opacity: 0}))
+
+        ])
+      ],
+    ),
+    trigger(
+      'scaleAnimation', [
+        transition(':enter', [
+          style({transform: 'scaley(0) ',transformOrigin: 'top', height:'0',
+          overflow: 'hidden' , opacity: 0}),
+          animate('500ms', style({transform: 'scaley(1)',transformOrigin: 'top', height:'*',
+          overflow: 'hidden' , opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({transform: 'scaley(1)',transformOrigin: 'top', height:'*',
+          overflow: 'hidden' , opacity: 1}),
+          animate('500ms', style({transform: 'scaley(0)',transformOrigin: 'top', height:'0',
+          overflow: 'hidden' , opacity: 0}))
+
+        ])
+      ]
+    ),
+
+  ],
 })
 export class HeaderComponent implements OnInit {
   isMenuBarOpen!: boolean;
-  showDropdown: string = '';
+  showHoverDropdown: string = '';
+  showToggleDropdown: string = '';
 
   homeOptions: option[] = [
     {
@@ -99,11 +141,20 @@ export class HeaderComponent implements OnInit {
   }
 
   onHoverDropdown(tap: string, eventType: string) {
-    if(eventType === 'mouseover') this.showDropdown = tap;
-    else this.showDropdown = '';
+    if(eventType === 'mouseover') this.showHoverDropdown = tap;
+    else this.showHoverDropdown = '';
+  }
+
+  onToggleDropdown(tap: string, eventType: string) {
+    if(this.showToggleDropdown !== tap) this.showToggleDropdown = tap;
+    else this.showToggleDropdown = '';
   }
 
   onOptionSelect(event: object) {
     console.log(event)
+  }
+
+  changelang() {
+
   }
 }

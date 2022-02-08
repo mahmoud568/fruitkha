@@ -1,5 +1,5 @@
-<section class="section">
-  <nav appScroll class="navbar navbar-expand-lg navbar-light">
+<section class="section" >
+  <nav appScroll class="navbar navbar-expand-lg navbar-light" >
     <a class="navbar-brand item-1" id="navbar-brand" href="#"><img class="logoImg" src="assets\img\logo.png"
         alt="logo"></a>
     <ul class="navbar-nav item-2 hide-md">
@@ -9,7 +9,7 @@
       (mouseover)="onHoverDropdown('homeOptions', $event.type)"
       (mouseleave)="onHoverDropdown('homeOptions', $event.type)">
         <a class="nav-link" routerLink="/">Home</a>
-        <app-custom-dropdown *ngIf="showDropdown === 'homeOptions'" [options]="homeOptions"(optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
+        <app-custom-dropdown *ngIf="showHoverDropdown === 'homeOptions'" [options]="homeOptions"(optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/">About</a>
@@ -20,7 +20,7 @@
       (mouseover)="onHoverDropdown('pagesOptions', $event.type)"
       (mouseleave)="onHoverDropdown('pagesOptions', $event.type)">
         <a class="nav-link" routerLink="/">Pages</a>
-        <app-custom-dropdown *ngIf="showDropdown === 'pagesOptions'" [options]="pagesOptions"(optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
+        <app-custom-dropdown *ngIf="showHoverDropdown === 'pagesOptions'" [options]="pagesOptions" (optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/">News</a>
@@ -34,7 +34,7 @@
       (mouseover)="onHoverDropdown('shopOptions', $event.type)"
       (mouseleave)="onHoverDropdown('shopOptions', $event.type)">
         <a class="nav-link" routerLink="/">Shop</a>
-        <app-custom-dropdown *ngIf="showDropdown === 'shopOptions'" [options]="shopOptions" (optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
+        <app-custom-dropdown *ngIf="showHoverDropdown === 'shopOptions'" [options]="shopOptions" (optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
       </li>
     </ul>
     <div class="item-3 hide-md">
@@ -42,8 +42,7 @@
         <span class="material-icons">paid</span>
       </a>
       <a class="btn">
-        <span class="material-icons">language</span>
-
+        <span class="material-icons" (click)="changelang()">language</span>
       </a>
       <a class="btn">
         <span class="material-icons">invert_colors</span>
@@ -66,14 +65,81 @@
       close
     </span>
   </nav>
+
+  <!-- only diplayed in small screens instead templete above -->
   <div class="table-container">
-    <table *ngIf="!isMenuBarOpen" class="table table-dark">
+    <table *ngIf="isMenuBarOpen" id="table" [@scaleAnimation]>
       <tbody>
-        <tr id="tr">
-          <th scope="row">HOME</th>
-          <td>Larry</td>
-          <!-- <td>the Bird</td>
-          <td>@twitter</td> -->
+        <tr class="tr">
+          <td (click)="onToggleDropdown('homeOptions', $event.type)">
+            <span>HOME</span>
+            <button class="btn">
+              <span *ngIf="showToggleDropdown !== 'homeOptions';else close">+</span>
+              <ng-template #close>--</ng-template>
+            </button>
+          </td>
+          <div *ngIf="showToggleDropdown === 'homeOptions'" [@scaleAnimation]>
+            <a *ngFor="let option of homeOptions">{{ option.title }}</a>
+          </div>
+        </tr>
+        <tr class="tr">
+          <td class="clickable">
+            <span>ABOUT</span>
+          </td>
+        </tr>
+        <tr class="tr">
+          <td (click)="onToggleDropdown('pagesOptions', $event.type)">
+            <span>PAGES</span>
+            <button class="btn" >
+              <span *ngIf="showToggleDropdown !== 'pagesOptions';else close">+</span>
+              <ng-template #close>--</ng-template>
+            </button>
+          </td>
+          <div *ngIf="showToggleDropdown === 'pagesOptions'" [@scaleAnimation]>
+            <a *ngFor="let option of pagesOptions">{{ option.title }}</a>
+          </div>
+        </tr>
+        <tr class="tr">
+          <td class="clickable">
+            <span>NEWS</span>
+          </td>
+        </tr>
+        <tr class="tr">
+          <td class="clickable">
+            <span>CONTACT</span>
+          </td>
+        </tr>
+        <tr class="tr">
+          <td (click)="onToggleDropdown('shopOptions', $event.type)">
+            <span>SHOP</span>
+            <button class="btn">
+              <span *ngIf="showToggleDropdown !== 'shopOptions';else close">+</span>
+              <ng-template #close>--</ng-template>
+            </button>
+          </td>
+          <div *ngIf="showToggleDropdown === 'shopOptions'" [@scaleAnimation]>
+            <a *ngFor="let option of shopOptions">{{ option.title }}</a>
+          </div>
+        </tr>
+        <tr class="tr">
+          <td class="clickable">
+            <span class="material-icons">paid</span>
+          </td>
+        </tr>
+        <tr class="tr">
+          <td class="clickable">
+            <span class="material-icons">language</span>
+          </td>
+        </tr>
+        <tr class="tr">
+          <td class="clickable">
+            <span class="material-icons">invert_colors</span>
+          </td>
+        </tr>
+        <tr class="tr">
+          <td class="clickable">
+            <span class="material-icons">shopping_cart</span>
+          </td>
         </tr>
       </tbody>
     </table>
