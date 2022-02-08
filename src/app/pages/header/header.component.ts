@@ -1,51 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  // ...
-} from '@angular/animations';
 
 import { option } from 'src/app/shared/Interface/option.model';
+import { scaleAnimation } from 'src/app/shared/animation/animation';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  animations: [
-    trigger(
-      'enterAnimation', [
-        transition(':enter', [
-          style({transform: 'translatey(-10%)', opacity: 0}),
-          animate('500ms', style({transform: 'translatey(0)', opacity: 1}))
-        ]),
-        transition(':leave', [
-          style({transform: 'translatey(0)', opacity: 1}),
-          animate('500ms', style({transform: 'translatey(-10%)', opacity: 0}))
-
-        ])
-      ],
-    ),
-    trigger(
-      'scaleAnimation', [
-        transition(':enter', [
-          style({transform: 'scaley(0) ',transformOrigin: 'top', height:'0',
-          overflow: 'hidden' , opacity: 0}),
-          animate('500ms', style({transform: 'scaley(1)',transformOrigin: 'top', height:'*',
-          overflow: 'hidden' , opacity: 1}))
-        ]),
-        transition(':leave', [
-          style({transform: 'scaley(1)',transformOrigin: 'top', height:'*',
-          overflow: 'hidden' , opacity: 1}),
-          animate('500ms', style({transform: 'scaley(0)',transformOrigin: 'top', height:'0',
-          overflow: 'hidden' , opacity: 0}))
-
-        ])
-      ]
-    ),
-
-  ],
+  animations: [scaleAnimation],
 })
 export class HeaderComponent implements OnInit {
   isMenuBarOpen!: boolean;
