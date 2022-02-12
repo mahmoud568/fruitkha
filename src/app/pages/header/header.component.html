@@ -37,17 +37,17 @@
         <app-custom-dropdown *ngIf="showHoverDropdown === 'shopOptions'" [options]="shopOptions" (optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
       </li>
     </ul>
-    <div class="item-3 hide-md">
+    <!-- <div class="item-3 hide-md">
       <a class="btn">
         <span class="material-icons">paid</span>
       </a>
       <a class="btn">
-        <span class="material-icons" (click)="changelang()">language</span>
+        <span class="material-icons">language</span>
       </a>
       <a class="btn">
         <span class="material-icons">invert_colors</span>
       </a>
-    </div>
+    </div> -->
     <div class="item-4">
       <a class="btn">
         <span class="material-icons hide-md">
@@ -121,7 +121,7 @@
             <a *ngFor="let option of shopOptions">{{ option.title }}</a>
           </div>
         </tr>
-        <tr class="tr">
+        <!-- <tr class="tr">
           <td class="clickable">
             <span class="material-icons">paid</span>
           </td>
@@ -135,7 +135,7 @@
           <td class="clickable">
             <span class="material-icons">invert_colors</span>
           </td>
-        </tr>
+        </tr> -->
         <tr class="tr">
           <td class="clickable">
             <span class="material-icons">shopping_cart</span>

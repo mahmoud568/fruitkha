@@ -31,7 +31,7 @@
     }
     &.scrolled {
       background-color: #051922;
-      padding: 30px 0;
+      padding: 15px 0;
       @media screen and (max-width: 991px) {
         background-color: transparent;
       }
@@ -60,8 +60,8 @@
     [class*="item-"] {
       display: flex;
       justify-content: center;
-      padding-right: 50px;
-      padding-left: 50px;
+      padding-right: 150px;
+      // padding-left: 100px;
       @media screen and (max-width: 1200px) {
         padding-right: 1rem;
         padding-left: 1rem;

@@ -31,8 +31,17 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/styles-ar.css",
+                "bundleName": "arabicStyle",
+                "inject": false
+              },
+              {
+                "input": "src/styles-en.css",
+                "bundleName": "englishStyle",
+                "inject": false
+              }
             ],
             "scripts": []
           },
@@ -100,7 +109,6 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []

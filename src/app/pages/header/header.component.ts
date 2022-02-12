@@ -114,8 +114,4 @@ export class HeaderComponent implements OnInit {
   onOptionSelect(event: object) {
     console.log(event)
   }
-
-  changelang() {
-
-  }
 }

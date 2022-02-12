@@ -4,11 +4,11 @@ export const enterAnimation = trigger(
     'enterAnimation', [
       transition(':enter', [
         style({transform: 'translatey(-10%)', opacity: 0}),
-        animate('500ms', style({transform: 'translatey(0)', opacity: 1}))
+        animate('300ms', style({transform: 'translatey(0)', opacity: 1}))
       ]),
       transition(':leave', [
         style({transform: 'translatey(0)', opacity: 1}),
-        animate('500ms', style({transform: 'translatey(-10%)', opacity: 0}))
+        animate('300ms', style({transform: 'translatey(-10%)', opacity: 0}))
 
       ])
     ],
