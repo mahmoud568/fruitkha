@@ -1,8 +1,14 @@
-
 {
-   "Language": "ع",
+  "Language": "ع",
 
-      "Hello": "مرحبا",
-      "Just Text": "مجرد نص"
-
+  "Hello": "Hello",
+  "Just Text": "Just Text",
+  "header": {
+   "": "",
+   "": "",
+   "": "",
+   "": "",
+   "": "",
+   "": ""
+}
 }

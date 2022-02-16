@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { option } from 'src/app/shared/Interface/option.model';
 import { scaleAnimation } from 'src/app/shared/animation/animation';
+
+import { TranslateService } from  '@ngx-translate/core';
+import { DOCUMENT } from "@angular/common";
+import { Inject } from "@angular/core";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -84,9 +88,60 @@ export class HeaderComponent implements OnInit {
     }
   ]
 
-  constructor() {}
+  paidOptions: option[] = [
+    {
+      id: 1,
+      title: 'Egyptian Pound',
+      value: 'Egyptian',
+      selected: false
+    },
+    {
+      id: 2,
+      title: 'Dollar',
+      value: 'Dollar',
+      selected: true
+    }
+  ]
 
-  ngOnInit(): void {}
+  languageOptions: option[] = [
+    {
+      id: 1,
+      title: 'arabic',
+      value: 'ar',
+      selected: false
+    },
+    {
+      id: 2,
+      title: 'english',
+      value: 'en',
+      selected: true
+    }
+  ]
+
+  invert_colorsOptions: option[] = [
+    {
+      id: 1,
+      title: 'light',
+      value: 'light',
+      selected: true
+    },
+    {
+      id: 2,
+      title: 'dark',
+      value: 'dark',
+      selected: false
+    }
+  ]
+
+
+
+  constructor(private translateService: TranslateService,
+    @Inject(DOCUMENT) private document: Document) {}
+
+  ngOnInit(): void {
+    this.changeLangage('en');
+  }
+
   // @ViewChild('navbar') navbar!: ElementRef;
   // @HostListener("window:scroll", []) onWindowScroll() {
   //   // do some stuff here when the window is scrolled
@@ -111,7 +166,48 @@ export class HeaderComponent implements OnInit {
     else this.showToggleDropdown = '';
   }
 
-  onOptionSelect(event: object) {
+  onOptionSelect(event: any) {
     console.log(event)
   }
+
+  changeSelectedDesignstyle(option: option, options: option[]) {
+      options.forEach((option) => {
+        option.selected = false;
+      });
+      option.selected= true;
+  }
+
+  changeLangage(lang: string) {
+    let htmlTag = this.document.getElementsByTagName(
+      "html"
+    )[0] as HTMLHtmlElement;
+    htmlTag.dir = lang === "ar" ? "rtl" : "ltr";
+    this.translateService.setDefaultLang(lang);
+    this.translateService.use(lang);
+    this.changeCssFile(lang);
+  }
+
+  changeCssFile(lang: string) {
+    let headTag = this.document.getElementsByTagName(
+      "head"
+    )[0] as HTMLHeadElement;
+    let existingLink = this.document.getElementById(
+      "langCss"
+    ) as HTMLLinkElement;
+
+    let bundleName = lang === "ar" ? "arabicStyle.css" : "englishStyle.css";
+
+    if (existingLink) {
+      existingLink.href = bundleName;
+    } else {
+      let newLink = this.document.createElement("link");
+      newLink.rel = "stylesheet";
+      newLink.type = "text/css";
+      newLink.id = "langCss";
+      newLink.href = bundleName;
+      headTag.appendChild(newLink);
+    }
+  }
+  // end of change language
+
 }

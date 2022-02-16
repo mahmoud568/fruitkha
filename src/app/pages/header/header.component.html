@@ -9,7 +9,7 @@
       (mouseover)="onHoverDropdown('homeOptions', $event.type)"
       (mouseleave)="onHoverDropdown('homeOptions', $event.type)">
         <a class="nav-link" routerLink="/">Home</a>
-        <app-custom-dropdown *ngIf="showHoverDropdown === 'homeOptions'" [options]="homeOptions"(optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
+        <app-custom-dropdown *ngIf="showHoverDropdown === 'homeOptions'" [options]="homeOptions" (optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/">About</a>
@@ -37,17 +37,41 @@
         <app-custom-dropdown *ngIf="showHoverDropdown === 'shopOptions'" [options]="shopOptions" (optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
       </li>
     </ul>
-    <!-- <div class="item-3 hide-md">
-      <a class="btn">
-        <span class="material-icons">paid</span>
-      </a>
-      <a class="btn">
+    <ul class="item-3 hide-md">
+      <li
+      class="nav-item"
+      (mouseover)="onHoverDropdown('paidOptions', $event.type)"
+      (mouseleave)="onHoverDropdown('paidOptions', $event.type)">
+      <span class="material-icons">paid</span>
+        <app-custom-dropdown
+        *ngIf="showHoverDropdown === 'paidOptions'"
+        [options]="paidOptions"
+        (optionSelected)="onOptionSelect($event)"
+        (optionSelected)="changeSelectedDesignstyle($event, paidOptions)"></app-custom-dropdown>
+      </li>
+      <li
+      class="nav-item"
+      (mouseover)="onHoverDropdown('languageOptions', $event.type)"
+      (mouseleave)="onHoverDropdown('languageOptions', $event.type)">
         <span class="material-icons">language</span>
-      </a>
-      <a class="btn">
-        <span class="material-icons">invert_colors</span>
-      </a>
-    </div> -->
+        <app-custom-dropdown
+        *ngIf="showHoverDropdown === 'languageOptions'"
+        [options]="languageOptions"
+        (optionSelected)="changeLangage($event.value)"
+        (optionSelected)="changeSelectedDesignstyle($event, languageOptions)"></app-custom-dropdown>
+      </li>
+      <li
+      class="nav-item"
+      (mouseover)="onHoverDropdown('invert_colorsOptions', $event.type)"
+      (mouseleave)="onHoverDropdown('invert_colorsOptions', $event.type)">
+      <span class="material-icons">invert_colors</span>
+        <app-custom-dropdown
+        *ngIf="showHoverDropdown === 'invert_colorsOptions'"
+        [options]="invert_colorsOptions"
+        (optionSelected)="onOptionSelect($event)"
+        (optionSelected)="changeSelectedDesignstyle($event, invert_colorsOptions)"></app-custom-dropdown>
+      </li>
+    </ul>
     <div class="item-4">
       <a class="btn">
         <span class="material-icons hide-md">
@@ -75,7 +99,7 @@
             <span>HOME</span>
             <button class="btn">
               <span *ngIf="showToggleDropdown !== 'homeOptions';else close">+</span>
-              <ng-template #close>--</ng-template>
+              <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'homeOptions'" [@scaleAnimation]>
@@ -92,7 +116,7 @@
             <span>PAGES</span>
             <button class="btn" >
               <span *ngIf="showToggleDropdown !== 'pagesOptions';else close">+</span>
-              <ng-template #close>--</ng-template>
+              <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'pagesOptions'" [@scaleAnimation]>
@@ -114,28 +138,58 @@
             <span>SHOP</span>
             <button class="btn">
               <span *ngIf="showToggleDropdown !== 'shopOptions';else close">+</span>
-              <ng-template #close>--</ng-template>
+              <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'shopOptions'" [@scaleAnimation]>
             <a *ngFor="let option of shopOptions">{{ option.title }}</a>
           </div>
         </tr>
-        <!-- <tr class="tr">
-          <td class="clickable">
+        <tr class="tr">
+          <td (click)="onToggleDropdown('paidOptions', $event.type)">
             <span class="material-icons">paid</span>
+            <button class="btn">
+              <span *ngIf="showToggleDropdown !== 'paidOptions';else close">+</span>
+              <ng-template #close>-</ng-template>
+            </button>
           </td>
+          <div *ngIf="showToggleDropdown === 'paidOptions'" [@scaleAnimation]>
+            <a
+            *ngFor="let option of paidOptions"
+            [ngClass]="{'selected': option.selected == true}"
+            (click)="changeSelectedDesignstyle(option, paidOptions)" >{{ option.title }}</a>
+          </div>
         </tr>
         <tr class="tr">
-          <td class="clickable">
+          <td (click)="onToggleDropdown('languageOptions', $event.type)">
             <span class="material-icons">language</span>
+            <button class="btn">
+              <span *ngIf="showToggleDropdown !== 'languageOptions';else close">+</span>
+              <ng-template #close>-</ng-template>
+            </button>
           </td>
+          <div *ngIf="showToggleDropdown === 'languageOptions'" [@scaleAnimation]>
+            <a *ngFor="let option of languageOptions"
+            (click)="changeLangage(option.value)"
+            (click)="changeSelectedDesignstyle(option, languageOptions)"
+            [ngClass]="{'selected': option.selected == true}">{{ option.title }}</a>
+          </div>
         </tr>
         <tr class="tr">
-          <td class="clickable">
+          <td (click)="onToggleDropdown('invert_colorsOptions', $event.type)">
             <span class="material-icons">invert_colors</span>
+            <button class="btn">
+              <span *ngIf="showToggleDropdown !== 'invert_colorsOptions';else close">+</span>
+              <ng-template #close>-</ng-template>
+            </button>
           </td>
-        </tr> -->
+          <div *ngIf="showToggleDropdown === 'invert_colorsOptions'" [@scaleAnimation]>
+            <a
+            *ngFor="let option of invert_colorsOptions"
+            [ngClass]="{'selected': option.selected == true}"
+            (click)="changeSelectedDesignstyle(option, invert_colorsOptions)">{{ option.title }}</a>
+          </div>
+        </tr>
         <tr class="tr">
           <td class="clickable">
             <span class="material-icons">shopping_cart</span>

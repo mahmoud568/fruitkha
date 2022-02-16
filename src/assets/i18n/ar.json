@@ -1,7 +1,8 @@
-
 {
-    "Language": "en",
-    "Hello": "Hello",
-   "Just Text": "Just Text"
+  "Language": "en",
+  "Hello": "مرحبا",
+  "Just Text": "مجرد نص",
+  "header": {
 
+  }
 }

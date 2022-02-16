@@ -57,11 +57,20 @@
       }
     }
 
+    .item-3 {
+      margin: 0;
+      li {
+        list-style-type: none;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+    }
+
     [class*="item-"] {
       display: flex;
       justify-content: center;
-      padding-right: 150px;
-      // padding-left: 100px;
+      padding-right: 50px;
+      padding-left: 50px;
       @media screen and (max-width: 1200px) {
         padding-right: 1rem;
         padding-left: 1rem;
@@ -70,10 +79,8 @@
         display: flex;
         align-items: center;
         padding: 0 3px;
-
       }
     }
-
     .material-icons {
       color: white;
       cursor: pointer;
@@ -156,10 +163,11 @@
           color: white;
           cursor: pointer;
           line-height: 2rem;
+          text-decoration: none;
           &:nth-child(n + 2) {
             border-top: 1px solid rgb(255, 255, 255, 0.3);
           }
-          &:hover {
+          &:hover, &.selected {
             color: #f28123;
             background-color: rgb(48, 63, 75);
           }
