@@ -3,12 +3,30 @@
 
   "Hello": "Hello",
   "Just Text": "Just Text",
-  "header": {
-   "": "",
-   "": "",
-   "": "",
-   "": "",
-   "": "",
-   "": ""
-}
+  "Header": {
+    "Home": "Home",
+    "About": "About",
+    "Pages": "Pages",
+    "News": "News",
+    "Contact": "Contact",
+    "Shop": "Shop"
+  },
+  "Custom-Dropdown-Options": {
+    "Static Home": "Static Home",
+    "Slider Home": "Slider Home",
+    "404 page": "404 page",
+    "About": "About",
+    "Cart": "Cart",
+    "Check Out": "Check Out",
+    "Contact": "Contact",
+    "News": "News",
+    "Shop": "Shop",
+    "Egyptian Pound": "Egyptian Pound",
+    "Dollar": "Dollar",
+    "Euro": "Euro",
+    "Arabic": "Arabic",
+    "English": "English",
+    "Light": "Light",
+    "Dark": "Dark"
+  }
 }

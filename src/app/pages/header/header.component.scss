@@ -27,7 +27,7 @@
       width: 35rem;
     }
     @media screen and (max-width: 575px) {
-      width: 100%;
+      width: 95%;;
     }
     &.scrolled {
       background-color: #051922;
@@ -39,17 +39,18 @@
 
     .item-1 {
       width: 250px;
-      margin-left: 0.5%;
       .logoImg {
         width: 150px;
       }
     }
 
     .item-2 {
+      display: flex;
+      gap: 20px;
       .nav-link {
         font-weight: 700;
         font-weight: 1rem;
-        padding: 20px;
+        // padding: 20px;
         color: white;
       }
       .nav-link:hover {
@@ -61,19 +62,16 @@
       margin: 0;
       li {
         list-style-type: none;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding: 5px 5px 0 5px;
       }
     }
 
     [class*="item-"] {
       display: flex;
       justify-content: center;
-      padding-right: 50px;
-      padding-left: 50px;
+      padding: 0 50px;
       @media screen and (max-width: 1200px) {
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding: 0 1rem;
       }
       .btn {
         display: flex;
@@ -93,7 +91,6 @@
     // and style the remaining items
     @media screen and (max-width: 991px) {
       .item-1 {
-        display: block;
         width: 150px;
       }
       .item-4 {
@@ -103,7 +100,6 @@
         display: none;
       }
       .navbar-toggler {
-        margin-right: 2.5%;
         background-color: chocolate;
         color: black;
         &:hover {
@@ -117,34 +113,34 @@
   .table-container {
     display: flex;
     justify-content: center;
-    width: 43rem;
+    width: 45rem;
     @media screen and (min-width: 992px) {
       display: none;
     }
     @media screen and (max-width: 767px) {
-      width: 33rem;
+      width: 35rem;
     }
     @media screen and (max-width: 575px) {
-      margin-left: 0.5rem;
-      width: 93%;
+      width: 95%;
     }
     #table {
-      border: 1px solid black;
       width: 100%;
       .tr {
         height: 2.5rem;
         &:nth-child(n + 2) {
-          border-top: 1px solid rgb(255, 255, 255, 0.5);
+          border-top: 1px solid #68797E;
         }
         td {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding-left: 35px;
           color: white;
           height: inherit;
           background-color: #0c1923;
           cursor: pointer;
+          .title {
+            padding: 0 35px;
+          }
           &:hover {
             background-color: rgb(48, 63, 75);
           }
@@ -154,11 +150,12 @@
           .btn {
             background-color: #253039;
             color: #afb3b7;
+            width: 35px;
           }
         }
         a {
           display: block;
-          padding-left: 5rem;
+          padding: 0 5rem;
           background-color: #0c1923;
           color: white;
           cursor: pointer;

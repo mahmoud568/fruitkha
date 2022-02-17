@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from  '@ngx-translate/core';
+import { DOCUMENT } from "@angular/common";
+import { Inject } from "@angular/core";
 
 import { option } from 'src/app/shared/Interface/option.model';
 import { scaleAnimation } from 'src/app/shared/animation/animation';
 
-import { TranslateService } from  '@ngx-translate/core';
-import { DOCUMENT } from "@angular/common";
-import { Inject } from "@angular/core";
+import * as options from './options';
+import { HttpClient } from '@angular/common/http';
+import { HeaderService } from './service/header.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -17,129 +20,28 @@ export class HeaderComponent implements OnInit {
   showHoverDropdown: string = '';
   showToggleDropdown: string = '';
 
-  homeOptions: option[] = [
-    {
-      id: 1,
-      title: 'Static Home',
-      value: 'static'
-    },
-    {
-      id: 2,
-      title: 'Slider Home',
-      value: 'slider'
-    }
-  ]
+  homeOptions: option[] = options.homeOptions;
 
-  pagesOptions: option[] = [
-    {
-      id: 1,
-      title: '404 page',
-      value: '404'
-    },
-    {
-      id: 2,
-      title: 'About',
-      value: 'about'
-    },
-    {
-      id: 3,
-      title: 'Cart',
-      value: 'cart'
-    },
-    {
-      id: 4,
-      title: 'Check Out',
-      value: 'checkOut'
-    },
-    {
-      id: 5,
-      title: 'Contact',
-      value: 'contact'
-    },
-    {
-      id: 6,
-      title: 'News',
-      value: 'news'
-    },
-    {
-      id: 7,
-      title: 'Shop',
-      value: 'shop'
-    },
+  pagesOptions: option[] = options.pagesOptions;
 
-  ]
+  shopOptions: option[] = options.shopOptions;
 
+  paidOptions: option[] = options.paidOptions;
 
-  shopOptions: option[] = [
-    {
-      id: 1,
-      title: 'Shop',
-      value: 'shop'
-    },
-    {
-      id: 2,
-      title: 'Check Out',
-      value: 'checkOut'
-    },
-    {
-      id: 3,
-      title: 'Cart',
-      value: 'cart'
-    }
-  ]
+  languageOptions: option[] = options.languageOptions;
 
-  paidOptions: option[] = [
-    {
-      id: 1,
-      title: 'Egyptian Pound',
-      value: 'Egyptian',
-      selected: false
-    },
-    {
-      id: 2,
-      title: 'Dollar',
-      value: 'Dollar',
-      selected: true
-    }
-  ]
-
-  languageOptions: option[] = [
-    {
-      id: 1,
-      title: 'arabic',
-      value: 'ar',
-      selected: false
-    },
-    {
-      id: 2,
-      title: 'english',
-      value: 'en',
-      selected: true
-    }
-  ]
-
-  invert_colorsOptions: option[] = [
-    {
-      id: 1,
-      title: 'light',
-      value: 'light',
-      selected: true
-    },
-    {
-      id: 2,
-      title: 'dark',
-      value: 'dark',
-      selected: false
-    }
-  ]
-
-
+  invert_colorsOptions: option[] = options.invert_colorsOptions;
 
   constructor(private translateService: TranslateService,
-    @Inject(DOCUMENT) private document: Document) {}
+    @Inject(DOCUMENT) private document: Document,
+    private http: HttpClient, private headerService: HeaderService) {}
 
   ngOnInit(): void {
     this.changeLangage('en');
+    this.getCurrencyExchangerate();
+    setTimeout(() => {
+      this.onCurrencyChange('USD');
+    }, 1000);
   }
 
   // @ViewChild('navbar') navbar!: ElementRef;
@@ -177,6 +79,7 @@ export class HeaderComponent implements OnInit {
       option.selected= true;
   }
 
+  // change language functions
   changeLangage(lang: string) {
     let htmlTag = this.document.getElementsByTagName(
       "html"
@@ -208,6 +111,23 @@ export class HeaderComponent implements OnInit {
       headTag.appendChild(newLink);
     }
   }
-  // end of change language
 
+  // end of Currency functions
+
+  baseCurrency!: string;
+  currencyExchangerate!: any;
+  getCurrencyExchangerate() {
+    this.headerService.getCurrencyExchangerate().subscribe(
+      (res: any)=> {
+        this.baseCurrency = res.base;
+        this.currencyExchangerate = res.exchangerate;
+      }
+      );
+  }
+
+  onCurrencyChange(currency: string) {
+    this.baseCurrency = currency;
+    let exchangerate = this.currencyExchangerate[currency];
+    this.headerService.currencyChanged.emit({currency, exchangerate});
+  }
 }

@@ -2,7 +2,30 @@
   "Language": "en",
   "Hello": "مرحبا",
   "Just Text": "مجرد نص",
-  "header": {
-
+  "Header": {
+    "Home": "الصفحة الرئيسية",
+    "About": "حول",
+    "Pages": "الصفحات",
+    "News": "أخبار",
+    "Contact": "اتصل",
+    "Shop": "تسوق"
+  },
+  "Custom-Dropdown-Options": {
+    "Static Home": "الصفحة الرئيسية ثابتة",
+    "Slider Home": "الصفحة الرئيسية منزلقة",
+    "404 page": "404 صفحة",
+    "About": "حول",
+    "Cart": "عربة التسوق",
+    "Check Out": "الدفع",
+    "Contact": "اتصل",
+    "News": "أخبار",
+    "Shop": "تسوق",
+    "Egyptian Pound": "الجنيه المصري",
+    "Dollar": "دولار امريكي",
+    "Euro": "يورو",
+    "Arabic": "عربى",
+    "English": "إنجليزي",
+    "Light": "مضيئ",
+    "Dark": "مظلم"
   }
 }

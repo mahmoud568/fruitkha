@@ -1,6 +1,6 @@
 <section class="section" >
   <nav appScroll class="navbar navbar-expand-lg navbar-light" >
-    <a class="navbar-brand item-1" id="navbar-brand" href="#"><img class="logoImg" src="assets\img\logo.png"
+    <a class="item-1" id="navbar-brand" href="#"><img class="logoImg" src="assets\img\logo.png"
         alt="logo"></a>
     <ul class="navbar-nav item-2 hide-md">
       <li
@@ -8,32 +8,32 @@
       routerLinkActive="active"
       (mouseover)="onHoverDropdown('homeOptions', $event.type)"
       (mouseleave)="onHoverDropdown('homeOptions', $event.type)">
-        <a class="nav-link" routerLink="/">Home</a>
+        <a class="nav-link" routerLink="/" translate>Header.Home</a>
         <app-custom-dropdown *ngIf="showHoverDropdown === 'homeOptions'" [options]="homeOptions" (optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/">About</a>
+        <a class="nav-link" routerLink="/" translate>Header.About</a>
       </li>
       <li
       class="nav-item"
       routerLinkActive="active"
       (mouseover)="onHoverDropdown('pagesOptions', $event.type)"
       (mouseleave)="onHoverDropdown('pagesOptions', $event.type)">
-        <a class="nav-link" routerLink="/">Pages</a>
+        <a class="nav-link" routerLink="/" translate>Header.Pages</a>
         <app-custom-dropdown *ngIf="showHoverDropdown === 'pagesOptions'" [options]="pagesOptions" (optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/">News</a>
+        <a class="nav-link" routerLink="/" translate>Header.News</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/">Contact</a>
+        <a class="nav-link" routerLink="/" translate>Header.Contact</a>
       </li>
       <li
       class="nav-item"
       routerLinkActive="active"
       (mouseover)="onHoverDropdown('shopOptions', $event.type)"
       (mouseleave)="onHoverDropdown('shopOptions', $event.type)">
-        <a class="nav-link" routerLink="/">Shop</a>
+        <a class="nav-link" routerLink="/" translate>Header.Shop</a>
         <app-custom-dropdown *ngIf="showHoverDropdown === 'shopOptions'" [options]="shopOptions" (optionSelected)="onOptionSelect($event)"></app-custom-dropdown>
       </li>
     </ul>
@@ -46,7 +46,7 @@
         <app-custom-dropdown
         *ngIf="showHoverDropdown === 'paidOptions'"
         [options]="paidOptions"
-        (optionSelected)="onOptionSelect($event)"
+        (optionSelected)="onCurrencyChange($event.value)"
         (optionSelected)="changeSelectedDesignstyle($event, paidOptions)"></app-custom-dropdown>
       </li>
       <li
@@ -96,58 +96,58 @@
       <tbody>
         <tr class="tr">
           <td (click)="onToggleDropdown('homeOptions', $event.type)">
-            <span>HOME</span>
+            <span class="title" translate>Header.Home</span>
             <button class="btn">
               <span *ngIf="showToggleDropdown !== 'homeOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'homeOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of homeOptions">{{ option.title }}</a>
+            <a *ngFor="let option of homeOptions" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
           <td class="clickable">
-            <span>ABOUT</span>
+            <span class="title" translate>Header.About</span>
           </td>
         </tr>
         <tr class="tr">
           <td (click)="onToggleDropdown('pagesOptions', $event.type)">
-            <span>PAGES</span>
-            <button class="btn" >
+            <span class="title" translate>Header.Pages</span>
+            <button class="btn">
               <span *ngIf="showToggleDropdown !== 'pagesOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'pagesOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of pagesOptions">{{ option.title }}</a>
+            <a *ngFor="let option of pagesOptions" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
           <td class="clickable">
-            <span>NEWS</span>
+            <span class="title" translate>Header.News</span>
           </td>
         </tr>
         <tr class="tr">
           <td class="clickable">
-            <span>CONTACT</span>
+            <span class="title" translate>Header.Contact</span>
           </td>
         </tr>
         <tr class="tr">
           <td (click)="onToggleDropdown('shopOptions', $event.type)">
-            <span>SHOP</span>
+            <span class="title" translate>Header.Shop</span>
             <button class="btn">
               <span *ngIf="showToggleDropdown !== 'shopOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'shopOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of shopOptions">{{ option.title }}</a>
+            <a *ngFor="let option of shopOptions" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
           <td (click)="onToggleDropdown('paidOptions', $event.type)">
-            <span class="material-icons">paid</span>
+            <span class="material-icons title">paid</span>
             <button class="btn">
               <span *ngIf="showToggleDropdown !== 'paidOptions';else close">+</span>
               <ng-template #close>-</ng-template>
@@ -157,12 +157,12 @@
             <a
             *ngFor="let option of paidOptions"
             [ngClass]="{'selected': option.selected == true}"
-            (click)="changeSelectedDesignstyle(option, paidOptions)" >{{ option.title }}</a>
+            (click)="changeSelectedDesignstyle(option, paidOptions)" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
           <td (click)="onToggleDropdown('languageOptions', $event.type)">
-            <span class="material-icons">language</span>
+            <span class="material-icons title">language</span>
             <button class="btn">
               <span *ngIf="showToggleDropdown !== 'languageOptions';else close">+</span>
               <ng-template #close>-</ng-template>
@@ -172,12 +172,12 @@
             <a *ngFor="let option of languageOptions"
             (click)="changeLangage(option.value)"
             (click)="changeSelectedDesignstyle(option, languageOptions)"
-            [ngClass]="{'selected': option.selected == true}">{{ option.title }}</a>
+            [ngClass]="{'selected': option.selected == true}" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
           <td (click)="onToggleDropdown('invert_colorsOptions', $event.type)">
-            <span class="material-icons">invert_colors</span>
+            <span class="material-icons title">invert_colors</span>
             <button class="btn">
               <span *ngIf="showToggleDropdown !== 'invert_colorsOptions';else close">+</span>
               <ng-template #close>-</ng-template>
@@ -187,12 +187,12 @@
             <a
             *ngFor="let option of invert_colorsOptions"
             [ngClass]="{'selected': option.selected == true}"
-            (click)="changeSelectedDesignstyle(option, invert_colorsOptions)">{{ option.title }}</a>
+            (click)="changeSelectedDesignstyle(option, invert_colorsOptions)" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
           <td class="clickable">
-            <span class="material-icons">shopping_cart</span>
+            <span class="material-icons title">shopping_cart</span>
           </td>
         </tr>
       </tbody>
@@ -200,3 +200,7 @@
   </div>
 
 </section>
+
+<!-- <div>
+  {{price |currency:baseCurrency :"symbol"}}
+</div> -->
