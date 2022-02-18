@@ -112,8 +112,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  // end of Currency functions
-
+  // Currency change functions
   baseCurrency!: string;
   currencyExchangerate!: any;
   getCurrencyExchangerate() {

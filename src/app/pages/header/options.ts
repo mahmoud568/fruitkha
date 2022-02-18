@@ -83,8 +83,8 @@ export const paidOptions: option[] = [
   },
   {
     id: 3,
-    title: 'Euro',
-    value: 'EUR',
+    title: 'Saudi Riyal',
+    value: 'SAR',
     selected: false,
   },
 ];

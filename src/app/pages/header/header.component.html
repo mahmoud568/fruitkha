@@ -157,7 +157,10 @@
             <a
             *ngFor="let option of paidOptions"
             [ngClass]="{'selected': option.selected == true}"
-            (click)="changeSelectedDesignstyle(option, paidOptions)" translate>Custom-Dropdown-Options.{{ option.title }}</a>
+            (click)="changeSelectedDesignstyle(option, paidOptions)"
+            (click)="onCurrencyChange(option.value)"
+            onCurrencyChange
+            translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
@@ -200,7 +203,3 @@
   </div>
 
 </section>
-
-<!-- <div>
-  {{price |currency:baseCurrency :"symbol"}}
-</div> -->

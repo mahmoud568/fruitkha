@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
+import { currencyexchange } from 'src/app/shared/Interface/option.model';
 
 import { SharedService } from 'src/app/shared/services/shared.service';
 
@@ -16,5 +17,5 @@ export class HeaderService {
     return this.http.get(`${this.BASE_URL}exchangerate`);
   }
 
-  @Output() currencyChanged = new EventEmitter<{currency: string, exchangerate: number}>();
+  @Output() currencyChanged = new EventEmitter<currencyexchange>();
 }

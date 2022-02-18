@@ -4,3 +4,8 @@ export interface option {
     value: string;
     selected?: boolean;
 }
+
+export interface currencyexchange {
+    currency: string;
+    exchangerate: number;
+}
