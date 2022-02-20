@@ -33,13 +33,23 @@
             "styles": [
               "src/styles.scss",
               {
-                "input": "src/styles-ar.css",
+                "input": "src/assets/style/language/styles-ar.scss",
                 "bundleName": "arabicStyle",
                 "inject": false
               },
               {
-                "input": "src/styles-en.css",
+                "input": "src/assets/style/language/styles-en.scss",
                 "bundleName": "englishStyle",
+                "inject": false
+              },
+              {
+                "input": "src/assets/style/theming/dark-theme.scss",
+                "bundleName": "darkThemeStyle",
+                "inject": false
+              },
+              {
+                "input": "src/assets/style/theming/light-theme.scss",
+                "bundleName": "lightThemeStyle",
                 "inject": false
               }
             ],

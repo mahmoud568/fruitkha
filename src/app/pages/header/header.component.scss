@@ -30,7 +30,6 @@
       width: 95%;;
     }
     &.scrolled {
-      background-color: #051922;
       padding: 15px 0;
       @media screen and (max-width: 991px) {
         background-color: transparent;
@@ -51,7 +50,6 @@
         font-weight: 700;
         font-weight: 1rem;
         // padding: 20px;
-        color: white;
       }
       .nav-link:hover {
         color: #f28123;
@@ -80,7 +78,6 @@
       }
     }
     .material-icons {
-      color: white;
       cursor: pointer;
       &:hover {
         color: #f28123;
@@ -101,10 +98,6 @@
       }
       .navbar-toggler {
         background-color: chocolate;
-        color: black;
-        &:hover {
-          color: black;
-        }
       }
     }
   }
@@ -134,9 +127,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          color: white;
           height: inherit;
-          background-color: #0c1923;
           cursor: pointer;
           .title {
             padding: 0 35px;
@@ -148,16 +139,12 @@
             color: #f28123;
           }
           .btn {
-            background-color: #253039;
-            color: #afb3b7;
             width: 35px;
           }
         }
         a {
           display: block;
           padding: 0 5rem;
-          background-color: #0c1923;
-          color: white;
           cursor: pointer;
           line-height: 2rem;
           text-decoration: none;

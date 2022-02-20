@@ -1,0 +1,45 @@
+// header
+.navbar {
+  &.scrolled {
+    background-color: whitesmoke;
+  }
+  .item-2 {
+    .nav-link {
+      color: #051922;
+    }
+  }
+  .material-icons {
+    color: #051922;
+  }
+
+  @media screen and (max-width: 991px) {
+    .navbar-toggler {
+        color: whitesmoke;
+        &:hover {
+          color:  whitesmoke !important;
+        }
+      }
+  }
+
+
+}
+
+// for small screen
+.table-container {
+  #table {
+    .tr {
+      td {
+        color:  #0c1923;
+        background-color: whitesmoke;
+        .btn {
+          background-color: #afb3b7;
+          color:  #253039;
+        }
+      }
+      a {
+        background-color: white;
+        color: #0c1923;
+      }
+    }
+  }
+}

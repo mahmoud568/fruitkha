@@ -68,7 +68,7 @@
         <app-custom-dropdown
         *ngIf="showHoverDropdown === 'invert_colorsOptions'"
         [options]="invert_colorsOptions"
-        (optionSelected)="onOptionSelect($event)"
+        (optionSelected)="changeThemeCssFile($event.value)"
         (optionSelected)="changeSelectedDesignstyle($event, invert_colorsOptions)"></app-custom-dropdown>
       </li>
     </ul>
@@ -190,7 +190,9 @@
             <a
             *ngFor="let option of invert_colorsOptions"
             [ngClass]="{'selected': option.selected == true}"
-            (click)="changeSelectedDesignstyle(option, invert_colorsOptions)" translate>Custom-Dropdown-Options.{{ option.title }}</a>
+            (click)="changeSelectedDesignstyle(option, invert_colorsOptions)"
+            (click)="changeThemeCssFile(option.value)"
+            translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">

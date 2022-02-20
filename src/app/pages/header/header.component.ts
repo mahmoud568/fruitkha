@@ -19,7 +19,8 @@ export class HeaderComponent implements OnInit {
   isMenuBarOpen!: boolean;
   showHoverDropdown: string = '';
   showToggleDropdown: string = '';
-
+  baseCurrency!: string;
+  currencyExchangerate!: any;
   homeOptions: option[] = options.homeOptions;
 
   pagesOptions: option[] = options.pagesOptions;
@@ -38,10 +39,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.changeLangage('en');
+    this.changeThemeCssFile('light');
     this.getCurrencyExchangerate();
-    setTimeout(() => {
-      this.onCurrencyChange('USD');
-    }, 1000);
+
   }
 
   // @ViewChild('navbar') navbar!: ElementRef;
@@ -87,10 +87,10 @@ export class HeaderComponent implements OnInit {
     htmlTag.dir = lang === "ar" ? "rtl" : "ltr";
     this.translateService.setDefaultLang(lang);
     this.translateService.use(lang);
-    this.changeCssFile(lang);
+    this.changeLangCssFile(lang);
   }
 
-  changeCssFile(lang: string) {
+  changeLangCssFile(lang: string) {
     let headTag = this.document.getElementsByTagName(
       "head"
     )[0] as HTMLHeadElement;
@@ -112,14 +112,38 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  // theming
+  changeThemeCssFile(theme: string) {
+    let headTag = this.document.getElementsByTagName(
+      "head"
+    )[0] as HTMLHeadElement;
+    let existingLink = this.document.getElementById(
+      "themeCss"
+    ) as HTMLLinkElement;
+
+    let bundleName = theme === "dark" ? "darkThemeStyle.css" : "lightThemeStyle.css";
+
+    if (existingLink) {
+      existingLink.href = bundleName;
+    } else {
+      let newLink = this.document.createElement("link");
+      newLink.rel = "stylesheet";
+      newLink.type = "text/css";
+      newLink.id = "themeCss";
+      newLink.href = bundleName;
+      headTag.appendChild(newLink);
+    }
+  }
+
   // Currency change functions
-  baseCurrency!: string;
-  currencyExchangerate!: any;
+
   getCurrencyExchangerate() {
     this.headerService.getCurrencyExchangerate().subscribe(
       (res: any)=> {
         this.baseCurrency = res.base;
         this.currencyExchangerate = res.exchangerate;
+        // initialize currancy
+        this.onCurrencyChange('USD');
       }
       );
   }
