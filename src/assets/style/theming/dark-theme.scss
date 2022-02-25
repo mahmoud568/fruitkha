@@ -14,11 +14,13 @@
 
   @media screen and (max-width: 991px) {
     .navbar-toggler {
+      span{
         color: whitesmoke;
         &:hover {
           color:  whitesmoke !important;
         }
       }
+    }
   }
 
 

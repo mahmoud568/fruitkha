@@ -37,10 +37,18 @@ export class HeaderComponent implements OnInit {
     private headerService: HeaderService) {}
 
   ngOnInit(): void {
-    this.changeLangage('en');
-    this.changeThemeCssFile('light');
     this.getCurrencyExchangerate();
-
+    let lang = localStorage.getItem('lang');
+    if(lang) this.changeLangage(lang);
+    else this.changeLangage('en');
+    let theme = localStorage.getItem('theme');
+    if(theme) this.changeThemeCssFile(theme);
+    else this.changeThemeCssFile('light');
+    let currancy = localStorage.getItem('currency');
+    setTimeout(() => {
+      if (currancy) this.onCurrencyChange(currancy)
+      else this.onCurrencyChange('USD');
+    }, 300);
   }
 
   // @ViewChild('navbar') navbar!: ElementRef;
@@ -62,7 +70,7 @@ export class HeaderComponent implements OnInit {
     else this.showHoverDropdown = '';
   }
 
-  onToggleDropdown(tap: string, eventType: string) {
+  onToggleDropdown(tap: string) {
     if(this.showToggleDropdown !== tap) this.showToggleDropdown = tap;
     else this.showToggleDropdown = '';
   }
@@ -80,6 +88,7 @@ export class HeaderComponent implements OnInit {
 
   // change language functions
   changeLangage(lang: string) {
+    window.localStorage.setItem('lang', lang);
     let htmlTag = this.document.getElementsByTagName(
       "html"
     )[0] as HTMLHtmlElement;
@@ -113,6 +122,7 @@ export class HeaderComponent implements OnInit {
 
   // theming
   changeThemeCssFile(theme: string) {
+    window.localStorage.setItem('theme', theme);
     let headTag = this.document.getElementsByTagName(
       "head"
     )[0] as HTMLHeadElement;
@@ -141,13 +151,13 @@ export class HeaderComponent implements OnInit {
       (res: any)=> {
         this.baseCurrency = res.base;
         this.currencyExchangerate = res.exchangerate;
-        // initialize currancy
-        this.onCurrencyChange('USD');
+
       }
       );
   }
 
   onCurrencyChange(currency: string) {
+    window.localStorage.setItem('currency', currency);
     this.baseCurrency = currency;
     let exchangerate = this.currencyExchangerate[currency];
     this.headerService.currencyChanged.emit({currency, exchangerate});

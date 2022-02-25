@@ -1,34 +1,56 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { fakeAsync, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { HeaderComponent } from './header.component';
-import { HeaderService } from './service/header.service';
-import { TranslateCompiler, TranslateLoader, TranslateModule, TranslateParser, TranslateService, TranslateStore } from '@ngx-translate/core';
-import { HttpClient } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule,
+      imports: [
+        RouterTestingModule,
         TranslateModule.forRoot(),
-        HttpClientTestingModule],
-      declarations: [ HeaderComponent ],
-      providers: [HeaderService]
-    })
-    .compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+        HttpClientTestingModule,
+      ],
+      declarations: [HeaderComponent],
+    }).compileComponents();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    let fixture = TestBed.createComponent(HeaderComponent);
+    let app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  it('should toggle on openMenuBar() change isMenuBarOpen value', () => {
+    let fixture = TestBed.createComponent(HeaderComponent);
+    let app = fixture.debugElement.componentInstance;
+    app.openMenuBar();
+    expect(app.isMenuBarOpen).toEqual(true);
+  });
+
+  it('should toggle on buttu change isMenuBarOpen value', fakeAsync(() => {
+    let fixture = TestBed.createComponent(HeaderComponent);
+    let app = fixture.debugElement.componentInstance;
+    spyOn(app, 'openMenuBar');
+
+    let button = fixture.debugElement.nativeElement.querySelector('.navbar-toggler');
+    button.click();
+    expect(app.openMenuBar).toHaveBeenCalled();
+  }));
+
+  it('should show dropdown on hover', () => {
+    let fixture = TestBed.createComponent(HeaderComponent);
+    let app = fixture.debugElement.componentInstance;
+    app.onHoverDropdown('homeOptions', 'mouseover');
+    expect(app.showHoverDropdown).toEqual('homeOptions');
+  });
+
+  it('should show dropdown when mouse move away', () => {
+    let fixture = TestBed.createComponent(HeaderComponent);
+    let app = fixture.debugElement.componentInstance;
+    app.onHoverDropdown('homeOptions', 'mouseleave');
+    expect(app.showHoverDropdown).toEqual('');
   });
 });

@@ -97,6 +97,10 @@
         display: none;
       }
       .navbar-toggler {
+        height: 36px;
+        width: 38px;
+        display: flex;
+        justify-content: center;
         background-color: chocolate;
       }
     }
