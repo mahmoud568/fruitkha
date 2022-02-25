@@ -7,7 +7,6 @@ import { option } from 'src/app/shared/Interface/option.model';
 import { scaleAnimation } from 'src/app/shared/animation/animation';
 
 import * as options from './options';
-import { HttpClient } from '@angular/common/http';
 import { HeaderService } from './service/header.service';
 @Component({
   selector: 'app-header',
@@ -35,7 +34,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private translateService: TranslateService,
     @Inject(DOCUMENT) private document: Document,
-    private http: HttpClient, private headerService: HeaderService) {}
+    private headerService: HeaderService) {}
 
   ngOnInit(): void {
     this.changeLangage('en');

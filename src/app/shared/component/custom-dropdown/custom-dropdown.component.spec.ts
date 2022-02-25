@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CustomDropdownComponent } from './custom-dropdown.component';
 
@@ -8,7 +9,10 @@ describe('CustomDropdownComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CustomDropdownComponent ]
+      declarations: [ CustomDropdownComponent ],
+      imports: [
+        BrowserAnimationsModule
+      ],
     })
     .compileComponents();
   });
