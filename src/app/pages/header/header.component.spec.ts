@@ -34,7 +34,6 @@ describe('HeaderComponent', () => {
     let fixture = TestBed.createComponent(HeaderComponent);
     let app = fixture.debugElement.componentInstance;
     spyOn(app, 'openMenuBar');
-
     let button = fixture.debugElement.nativeElement.querySelector('.navbar-toggler');
     button.click();
     expect(app.openMenuBar).toHaveBeenCalled();
@@ -47,10 +46,35 @@ describe('HeaderComponent', () => {
     expect(app.showHoverDropdown).toEqual('homeOptions');
   });
 
-  it('should show dropdown when mouse move away', () => {
+  it('should not show dropdown when mouse move away', () => {
     let fixture = TestBed.createComponent(HeaderComponent);
     let app = fixture.debugElement.componentInstance;
     app.onHoverDropdown('homeOptions', 'mouseleave');
     expect(app.showHoverDropdown).toEqual('');
   });
+
+  // it('should call onToggleDropdown() when click on element contians .dropdownToggler',() => {
+  //   let fixture = TestBed.createComponent(HeaderComponent);
+  //   let app = fixture.debugElement.componentInstance;
+  //   spyOn(app, 'onToggleDropdown');
+  //   let button = fixture.debugElement.nativeElement.querySelector('.dropdownToggler');
+  //   button.click();
+  //   expect(app.onToggleDropdown).toHaveBeenCalled();
+  // });
+
+  it('should open toggled options', () => {
+    let fixture = TestBed.createComponent(HeaderComponent);
+    let app = fixture.debugElement.componentInstance;
+    app.onToggleDropdown('homeOptions');
+    expect(app.showToggleDropdown).toEqual('homeOptions');
+  });
+
+  it('should close toggled options if clicked twice or change the tap', () => {
+    let fixture = TestBed.createComponent(HeaderComponent);
+    let app = fixture.debugElement.componentInstance;
+    app.showToggleDropdown = 'homeOptions';
+    app.onToggleDropdown('homeOptions');
+    expect(app.showToggleDropdown).not.toEqual('homeOptions');
+  });
+
 });

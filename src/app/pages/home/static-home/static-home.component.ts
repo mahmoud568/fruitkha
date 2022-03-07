@@ -17,10 +17,11 @@ export class StaticHomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.headerService.currencyChanged.subscribe((res: currencyexchange) => {
-      this.currency = res.currency;
-      this.exchangerate = res.exchangerate;
-    });
+    // this.headerService.currencyChanged.subscribe((res: currencyexchange) => {
+    //   this.currency = res.currency;
+    //   this.exchangerate = res.exchangerate;
+    //   setInterval(()=> console.log("Hello"), 1000);
+    // });
   }
 
 }

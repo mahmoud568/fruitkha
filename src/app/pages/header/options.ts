@@ -3,12 +3,12 @@ export const homeOptions: option[] = [
   {
     id: 1,
     title: 'Static Home',
-    value: 'static',
+    value: 'Static',
   },
   {
     id: 2,
     title: 'Slider Home',
-    value: 'slider',
+    value: 'Slider',
   },
 ];
 
@@ -21,32 +21,32 @@ export const pagesOptions: option[] = [
   {
     id: 2,
     title: 'About',
-    value: 'about',
+    value: 'About',
   },
   {
     id: 3,
     title: 'Cart',
-    value: 'cart',
+    value: 'Cart',
   },
   {
     id: 4,
     title: 'Check Out',
-    value: 'checkOut',
+    value: 'Checkout',
   },
   {
     id: 5,
     title: 'Contact',
-    value: 'contact',
+    value: 'Contact',
   },
   {
     id: 6,
     title: 'News',
-    value: 'news',
+    value: 'News',
   },
   {
     id: 7,
     title: 'Shop',
-    value: 'shop',
+    value: 'Shop',
   },
 ];
 
@@ -54,17 +54,17 @@ export const shopOptions: option[] = [
   {
     id: 1,
     title: 'Shop',
-    value: 'shop',
+    value: 'Shop',
   },
   {
     id: 2,
     title: 'Check Out',
-    value: 'checkOut',
+    value: 'Checkout',
   },
   {
     id: 3,
     title: 'Cart',
-    value: 'cart',
+    value: 'Cart',
   },
 ];
 

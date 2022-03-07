@@ -20,11 +20,14 @@ import { ShopComponent } from './pages/shop/shop.component';
 import { SingleProductComponent } from './pages/shop/single-product/single-product.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { SearchComponent } from './pages/search/search.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 // translate imports
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -48,6 +51,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SingleProductComponent,
     CheckoutComponent,
     CartComponent,
+    SearchComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

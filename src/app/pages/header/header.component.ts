@@ -20,6 +20,9 @@ export class HeaderComponent implements OnInit {
   showToggleDropdown: string = '';
   baseCurrency!: string;
   currencyExchangerate!: any;
+
+  routeLinkString: string = "";
+
   homeOptions: option[] = options.homeOptions;
 
   pagesOptions: option[] = options.pagesOptions;
@@ -70,13 +73,10 @@ export class HeaderComponent implements OnInit {
     else this.showHoverDropdown = '';
   }
 
+  // for expanding options in mobile view
   onToggleDropdown(tap: string) {
     if(this.showToggleDropdown !== tap) this.showToggleDropdown = tap;
     else this.showToggleDropdown = '';
-  }
-
-  onOptionSelect(event: any) {
-    console.log(event)
   }
 
   changeSelectedDesignstyle(option: option, options: option[]) {
@@ -151,9 +151,8 @@ export class HeaderComponent implements OnInit {
       (res: any)=> {
         this.baseCurrency = res.base;
         this.currencyExchangerate = res.exchangerate;
-
       }
-      );
+    );
   }
 
   onCurrencyChange(currency: string) {

@@ -51,7 +51,8 @@
         font-weight: 1rem;
         // padding: 20px;
       }
-      .nav-link:hover {
+      .nav-link:hover,
+      .active {
         color: #f28123;
       }
     }
@@ -79,7 +80,8 @@
     }
     .material-icons {
       cursor: pointer;
-      &:hover {
+      &:hover,
+      &.active {
         color: #f28123;
       }
     }
@@ -139,7 +141,7 @@
           &:hover {
             background-color: rgb(48, 63, 75);
           }
-          &.clickable:hover {
+          &.clickable:hover,&.active {
             color: #f28123;
           }
           .btn {

@@ -4,7 +4,8 @@
     background-color: #051922;
   }
   .item-2 {
-    .nav-link {
+    .nav-link,
+    .nav-link:focus {
       color: whitesmoke;
     }
   }
