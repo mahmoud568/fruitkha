@@ -9,3 +9,6 @@ export interface currencyexchange {
     currency: string;
     exchangerate: number;
 }
+
+
+

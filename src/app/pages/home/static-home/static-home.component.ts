@@ -9,19 +9,13 @@ import { HeaderService } from '../../header/service/header.service';
   styleUrls: ['./static-home.component.scss']
 })
 export class StaticHomeComponent implements OnInit {
-  price = 500;
-  currency!: string;
-  exchangerate!: number;
 
-  constructor(private headerService: HeaderService) {
+
+  constructor() {
   }
 
   ngOnInit(): void {
-    // this.headerService.currencyChanged.subscribe((res: currencyexchange) => {
-    //   this.currency = res.currency;
-    //   this.exchangerate = res.exchangerate;
-    //   setInterval(()=> console.log("Hello"), 1000);
-    // });
+
   }
 
 }

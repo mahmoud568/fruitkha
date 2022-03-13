@@ -1,46 +1,69 @@
 // header
-.navbar {
-  &.scrolled {
-    background-color: #051922;
-  }
-  .item-2 {
-    .nav-link,
-    .nav-link:focus {
+#header {
+  .navbar {
+    &.scrolled {
+      background-color: #051922;
+    }
+    .item-2 {
+      .nav-link,
+      .nav-link:focus {
+        color: whitesmoke;
+      }
+    }
+    .material-icons {
       color: whitesmoke;
     }
-  }
-  .material-icons {
-    color: whitesmoke;
+
+    @media screen and (max-width: 991px) {
+      .navbar-toggler {
+        span {
+          color: #051922;
+          &:hover {
+            color: #051922 !important;
+          }
+        }
+      }
+    }
   }
 
-  @media screen and (max-width: 991px) {
-    .navbar-toggler {
-      span {
-        color: #051922;
-        &:hover {
-          color: #051922 !important;
+  // for small screen
+  .table-container {
+    #table {
+      .tr {
+        td {
+          color: white;
+          background-color: #0c1923;
+          .btn {
+            background-color: #253039;
+            color: #afb3b7;
+          }
+        }
+        a {
+          background-color: #0c1923;
+          color: white;
         }
       }
     }
   }
 }
 
-// for small screen
-.table-container {
-  #table {
-    .tr {
-      td {
-        color: white;
-        background-color: #0c1923;
-        .btn {
-          background-color: #253039;
-          color: #afb3b7;
-        }
-      }
-      a {
-        background-color: #0c1923;
-        color: white;
-      }
-    }
-  }
+
+$primary-color: #ffffff;
+$secondary-color: #f5f5f5;
+$primary-text: #000000;
+$secondary-text: #0c1923;
+
+.text-color {
+  color: $secondary-color;
+}
+
+
+.primary-background {
+  background-color: $primary-color;
+  color: $primary-text;
+}
+
+.secondary-background {
+  background-color: $secondary-color;
+  color: $secondary-text;
 }

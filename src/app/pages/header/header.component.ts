@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
   invert_colorsOptions: option[] = options.invert_colorsOptions;
 
   constructor(private translateService: TranslateService,
-    @Inject(DOCUMENT) private document: Document,
+
     private headerService: HeaderService) {}
 
   ngOnInit(): void {
@@ -89,7 +89,7 @@ export class HeaderComponent implements OnInit {
   // change language functions
   changeLangage(lang: string) {
     window.localStorage.setItem('lang', lang);
-    let htmlTag = this.document.getElementsByTagName(
+    let htmlTag = document.getElementsByTagName(
       "html"
     )[0] as HTMLHtmlElement;
     htmlTag.dir = lang === "ar" ? "rtl" : "ltr";
@@ -99,10 +99,10 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLangCssFile(lang: string) {
-    let headTag = this.document.getElementsByTagName(
+    let headTag = document.getElementsByTagName(
       "head"
     )[0] as HTMLHeadElement;
-    let existingLink = this.document.getElementById(
+    let existingLink = document.getElementById(
       "langCss"
     ) as HTMLLinkElement;
 
@@ -111,7 +111,7 @@ export class HeaderComponent implements OnInit {
     if (existingLink) {
       existingLink.href = bundleName;
     } else {
-      let newLink = this.document.createElement("link");
+      let newLink = document.createElement("link");
       newLink.rel = "stylesheet";
       newLink.type = "text/css";
       newLink.id = "langCss";
@@ -123,10 +123,10 @@ export class HeaderComponent implements OnInit {
   // theming
   changeThemeCssFile(theme: string) {
     window.localStorage.setItem('theme', theme);
-    let headTag = this.document.getElementsByTagName(
+    let headTag = document.getElementsByTagName(
       "head"
     )[0] as HTMLHeadElement;
-    let existingLink = this.document.getElementById(
+    let existingLink = document.getElementById(
       "themeCss"
     ) as HTMLLinkElement;
 
@@ -135,7 +135,7 @@ export class HeaderComponent implements OnInit {
     if (existingLink) {
       existingLink.href = bundleName;
     } else {
-      let newLink = this.document.createElement("link");
+      let newLink = document.createElement("link");
       newLink.rel = "stylesheet";
       newLink.type = "text/css";
       newLink.id = "themeCss";

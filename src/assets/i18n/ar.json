@@ -27,5 +27,19 @@
     "English": "إنجليزي",
     "Light": "مضيئ",
     "Dark": "مظلم"
+  },
+  "Home": {
+    "Static-Home": {
+      "FRESH-&-ORGANIC": "طازج وعضوي",
+      "Delicious-Seasonal-Fruits": "فواكه موسمية لذيذة",
+      "Fruit-Collection": "جمع الفاكهة",
+      "Contact-Us": "اتصل بنا"
+    },
+    "Free-Shipping": "الشحن مجانا",
+    "When-order-over": " عند طلب اكثر من",
+    "24/7-Support": "دعم 24/7",
+    "Get-support-all-day": "احصل على الدعم طوال اليوم",
+    "Refund": "استرداد",
+    "Get-refund-within-3-days!": "احصل على استرداد في غضون 3 أيام!"
   }
 }

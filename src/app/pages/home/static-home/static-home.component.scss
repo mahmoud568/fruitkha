@@ -1,4 +1,5 @@
 .sect{
+    height: 100%;
     img{
         position: fixed;
         z-index: -1;
@@ -8,9 +9,8 @@
     }
 
     .main {
+        height: 100%;
         display: flex;
-        height: 100vh;
-        width: 100vw;
         justify-content: center;
         align-items: center;
         z-index: 1;
@@ -18,39 +18,59 @@
         background-color: rgb(7, 33, 46,.6);
         .text-header {
             color: #f28123;
+            text-align: center;
             font-size: 1rem;
             letter-spacing: .4rem;
             font-weight: 700;
             padding-bottom: 4rem;
+            @media screen and (max-width: 1200px) {
+                padding-bottom: 3rem;
+            }
+            @media screen and (max-width: 767px) {
+                padding-bottom: 2rem;
+            }
         }
-        .description{
-            color: white;
-            font-size: 4.3rem;
-            letter-spacing: .2rem;
-            font-weight: bolder;
+        .description {
+            // color: white;
+            text-align: center;
+            font-size: 4rem;
+            letter-spacing: .3rem;
+            font-weight: 700;
             padding-bottom: 4rem;
+            @media screen and (max-width: 1200px) {
+                font-size: 2.813rem;
+                padding-bottom: 3rem;
+            }
+            @media screen and (max-width: 767px) {
+                font-size: 1.75rem;
+                padding-bottom: 2rem;
+            }
         }
         .btns {
             width: 21rem;
             display: flex;
-            justify-content: space-between;
-            .collection {
-                background-color: #f28123;
-                color: white;
+            justify-content: center;
+            width: 100%;
+            gap: 10px;
+            @media screen and (max-width: 767px) {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            .btn {
                 border-radius: 50px;
                 line-height: 2rem;
                 width: 10rem;
-                &:hover {
-                    background-color: #051922;
-                    color: #f28123;
+                @media screen and (max-width: 767px) {
+                    width: 31.875rem;
+                }
+                @media screen and (max-width: 545px) {
+                    width: 95%;
                 }
             }
             .collection {
                 background-color: #f28123;
-                color: white;
-                border-radius: 50px;
-                line-height: 2rem;
-                width: 10rem;
+                // color: white;
                 &:hover {
                     background-color: #051922;
                     color: #f28123;
@@ -58,10 +78,7 @@
             }
             .contact-us{
                 border: 2px solid #f28123;
-                color: white;
-                border-radius: 50px;
-                line-height: 2rem;
-                width: 10rem;
+                // color: white;
                 text-align: center;
                 &:hover {
                     background-color: #f28123;

@@ -1,7 +1,50 @@
-<div class="container">
-    <div class="row item-1">
-        <div class="col-12">
-            <router-outlet></router-outlet>
+<div class="home" id="home">
+  <div class="header">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="main-content secondary-background">
+    <div class="benfits">
+      <div class="item">
+        <span class="material-icons">local_shipping</span>
+        <div class="discription">
+          <div class="title" translate>Home.Free-Shipping</div>
+          <span translate>Home.When-order-over<span>{{ price * exchangerate | currency:currency :"symbol"}}</span></span>
         </div>
+      </div>
+      <div class="item">
+        <span class="material-icons">phone</span>
+        <div class="discription">
+          <div class="title" translate>Home.24/7-Support</div>
+          <span translate>Home.Get-support-all-day</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="material-icons">cached</span>
+        <div class="discription">
+          <div class="title" translate>Home.Refund</div>
+          <span translate>Home.Get-refund-within-3-days!</span>
+        </div>
+      </div>
     </div>
+
+    <div class="products primary-background">
+      <div class="header">
+        <div class="title">
+          <p *ngIf="lang === 'en'"><span>Our</span> Products</p>
+          <p *ngIf="lang !== 'en'">منتجات<span>نا</span></p>
+        </div>
+        <div class="hr"></div>
+        <div class="discription">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolorum, inventore eos laudantium nulla ad placeat ipsum.</p>
+        </div>
+      </div>
+
+      <div class="shop">
+
+        <app-card [currency]="currency" [exchangerate]="exchangerate" [fruit]="fruit"></app-card>
+
+      </div>
+    </div>
+  </div>
 </div>

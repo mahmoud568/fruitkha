@@ -28,5 +28,19 @@
     "English": "English",
     "Light": "Light",
     "Dark": "Dark"
+  },
+  "Home": {
+    "Static-Home": {
+      "FRESH-&-ORGANIC": "FRESH  &  ORGANIC",
+      "Delicious-Seasonal-Fruits": "Delicious Seasonal Fruits",
+      "Fruit-Collection": "Fruit Collection",
+      "Contact-Us": "Contact Us"
+    },
+    "Free-Shipping": "Free Shipping",
+    "When-order-over": "When order over ",
+    "24/7-Support": "24/7 Support",
+    "Get-support-all-day": "Get support all day",
+    "Refund": "Refund",
+    "Get-refund-within-3-days!": "Get refund within 3 days!"
   }
 }

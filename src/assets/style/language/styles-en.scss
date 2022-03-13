@@ -2,26 +2,11 @@
   text-align: left;
 }
 
-.navbar {
-  &.scrolled {
-    background-color: #051922;
-  }
-  .item-2 {
-    .nav-link {
-      color: white;
-    }
-  }
-  .material-icons {
-    color: white;
-  }
+#home {
+  .benfits{
+    @media screen and (max-width: 700px) {
+      margin-left: 10%;
 
-  @media screen and (max-width: 991px) {
-    .navbar-toggler {
-      color: #051922;
-      &:hover {
-        color: #051922;
-        cursor: none;
-      }
     }
   }
 }

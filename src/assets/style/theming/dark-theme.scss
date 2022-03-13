@@ -1,48 +1,69 @@
 // header
-.navbar {
-  &.scrolled {
-    background-color: whitesmoke;
-  }
-  .item-2 {
-    .nav-link,
-    .nav-link:focus {
+#header {
+  .navbar {
+    &.scrolled {
+      background-color: whitesmoke;
+    }
+    .item-2 {
+      .nav-link,
+      .nav-link:focus {
+        color: #051922;
+      }
+    }
+    .material-icons {
       color: #051922;
     }
-  }
-  .material-icons {
-    color: #051922;
-  }
 
-  @media screen and (max-width: 991px) {
-    .navbar-toggler {
-      span{
-        color: whitesmoke;
-        &:hover {
-          color:  whitesmoke !important;
+    @media screen and (max-width: 991px) {
+      .navbar-toggler {
+        span {
+          color: whitesmoke;
+          &:hover {
+            color: whitesmoke !important;
+          }
         }
       }
     }
   }
 
-
-}
-
-// for small screen
-.table-container {
-  #table {
-    .tr {
-      td {
-        color:  #0c1923;
-        background-color: whitesmoke;
-        .btn {
-          background-color: #afb3b7;
-          color:  #253039;
+  // for small screen
+  .table-container {
+    #table {
+      .tr {
+        td {
+          color: #0c1923;
+          background-color: whitesmoke;
+          .btn {
+            background-color: #afb3b7;
+            color: #253039;
+          }
         }
-      }
-      a {
-        background-color: white;
-        color: #0c1923;
+        a {
+          background-color: white;
+          color: #0c1923;
+        }
       }
     }
   }
 }
+
+$primary-color: #ffffff;
+$secondary-color: #f5f5f5;
+$primary-text: #000000;
+$secondary-text: #0c1923;
+
+.text-color {
+  color: $primary-text;
+}
+
+.primary-background {
+  background-color: $primary-text;
+  color: $primary-color;
+}
+
+.secondary-background {
+  background-color: $secondary-text;
+  color: $secondary-color;
+}
+
+

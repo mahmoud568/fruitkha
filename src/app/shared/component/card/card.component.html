@@ -1,0 +1,19 @@
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="assets\img\products\product-img-1.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ fruit.fruitName }}</h5>
+    <p class="card-text">Per Kg</p>
+    <h4 class="price">{{ fruit.fruitPrice * exchangerate | currency:currency :"symbol"}}</h4>
+    <div class="add-to-cart-container" *ngIf="quantity === 0">
+      <button class="btn add-to-cart" (click)="onAddToCart()">
+        <span class="material-icons">shopping_cart</span>
+        <span>Add to Cart</span>
+      </button>
+    </div>
+    <div class="quantity-container" *ngIf="quantity !== 0">
+      <button class="btn decrease" (click)="onDecreaseQuantity()">-</button>
+      <input class="input" type="text" [(ngModel)]="quantity">
+      <button class="btn increase" (click)="onIncreaseQuantity()">+</button>
+    </div>
+  </div>
+</div>

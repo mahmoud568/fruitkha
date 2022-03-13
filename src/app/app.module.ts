@@ -27,6 +27,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { CardComponent } from './shared/component/card/card.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -53,6 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CartComponent,
     SearchComponent,
     NotFoundComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
     // translation imports
     TranslateModule.forRoot({
       loader: {

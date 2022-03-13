@@ -77,4 +77,19 @@ describe('HeaderComponent', () => {
     expect(app.showToggleDropdown).not.toEqual('homeOptions');
   });
 
+
+  // it('should create elemnt link', () => {
+  //   let fixture = TestBed.createComponent(HeaderComponent);
+  //   let app = fixture.debugElement.componentInstance;
+  //   let bundleName = "arabicStyle.css";
+  //   let newLink = document.createElement("link");
+  //     newLink.rel = "stylesheet";
+  //     newLink.type = "text/css";
+  //     newLink.id = "langCss";
+  //     newLink.href = bundleName;
+  //     let headTag = fixture.debugElement.nativeElement.querySelector('head');
+  //     console.log("sometihng", headTag);
+  //     headTag.appendChild(newLink);
+  // })
+
 });
