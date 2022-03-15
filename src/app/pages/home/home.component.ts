@@ -6,6 +6,7 @@ import { fruit } from 'src/app/shared/Interface/fruit.model';
 import { currencyexchange } from 'src/app/shared/Interface/option.model';
 
 import { HeaderService } from '../header/service/header.service';
+import { HomeService } from './service/home.service';
 
 @Component({
   selector: 'app-home',
@@ -19,14 +20,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   subscrition!: Subscription;
   lang: string | null = '';
 
-  fruit: fruit = {
-    fruitId: 1,
-    fruitName: 'Strawberry',
-    fruitPrice: 85,
-    fruitImg: '',
-    fruitSale: 0,
-  };
-  constructor(private headerService: HeaderService, private cardService: CardService) {}
+  fruits!: fruit[];
+  constructor(private headerService: HeaderService, private cardService: CardService, private homeService: HomeService) {
+
+  }
 
   ngOnInit(): void {
     this.subscrition = this.headerService.currencyChanged.subscribe(
@@ -35,7 +32,9 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.exchangerate = res.exchangerate;
       }
     );
-
+    this.getFruits();
+    // this.http.get('http://localhost:3000/all-fruits').subscribe((res: any) => this.fruits = res.fruits);
+    // this.http.get('http://localhost:3000/fruits?pageSize=10&pageNumber=3').subscribe((res: any) => console.log(res));
     this.cardService.addFruit.subscribe(res => console.log(res))
   }
 
@@ -45,5 +44,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscrition.unsubscribe();
+  }
+
+  onFruitSelect(fruit: fruit) {
+    console.log(fruit);
+  }
+
+  getFruits() {
+    this.homeService.getFruits(3, 1).subscribe((res: any) => this.fruits = res.fruits);
   }
 }

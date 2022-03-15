@@ -55,7 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CartComponent,
     SearchComponent,
     NotFoundComponent,
-    CardComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

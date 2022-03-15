@@ -13,9 +13,10 @@ export class HeaderService {
     this.BASE_URL = this.sharedService.getBaseUrl()
   }
 
+  @Output() currencyChanged = new EventEmitter<currencyexchange>();
+
   getCurrencyExchangerate() {
     return this.http.get(`${this.BASE_URL}exchangerate`);
   }
 
-  @Output() currencyChanged = new EventEmitter<currencyexchange>();
 }

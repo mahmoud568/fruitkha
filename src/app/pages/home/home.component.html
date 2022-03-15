@@ -40,9 +40,14 @@
         </div>
       </div>
 
-      <div class="shop">
+      <div class="shop" *ngIf="fruits">
 
-        <app-card [currency]="currency" [exchangerate]="exchangerate" [fruit]="fruit"></app-card>
+        <app-card
+        *ngFor="let fruit of fruits"
+        [currency]="currency"
+        [exchangerate]="exchangerate"
+        [fruit]="fruit"
+        (fruitSelected)="onFruitSelect(fruit)"></app-card>
 
       </div>
     </div>
