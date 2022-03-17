@@ -1,8 +1,5 @@
 {
-  "Language": "ع",
-
-  "Hello": "Hello",
-  "Just Text": "Just Text",
+  "Lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolorum, inventore eos laudantium nulla ad placeat ipsum.",
   "Header": {
     "Home": "Home",
     "About": "About",
@@ -42,5 +39,25 @@
     "Get-support-all-day": "Get support all day",
     "Refund": "Refund",
     "Get-refund-within-3-days!": "Get refund within 3 days!"
+  },
+  "Fruits": {
+    "Per-Kg": "Per Kg",
+    "Add-to-Cart": "Add to Cart",
+    "Apple": "Apple",
+    "Apricot": "Apricot",
+    "Avocado": "Avocado",
+    "Banana": "Banana",
+    "Blackberry": "Blackberry",
+    "Blueberry": "Blueberry",
+    "Boysenberry": "Boysenberry",
+    "Cantaloupe": "Cantaloupe",
+    "Clementine": "Clementine",
+    "Date-Palm": "Date Palm",
+    "Dragonfruit": "Dragonfruit",
+    "Elderberry": "Elderberry",
+    "Fig": "Fig",
+    "Grape": "Grape",
+    "Guava": "Guava",
+    "Kiwi": "Kiwi"
   }
 }

@@ -8,5 +8,10 @@
       margin-right: 10%;
     }
   }
+}
 
+#card {
+  .quantity-container {
+    flex-direction: row-reverse;
+  }
 }

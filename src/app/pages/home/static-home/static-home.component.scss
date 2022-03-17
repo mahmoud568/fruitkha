@@ -1,5 +1,5 @@
 .sect{
-    height: 100%;
+    height: 100vh;
     img{
         position: fixed;
         z-index: -1;
@@ -70,15 +70,12 @@
             }
             .collection {
                 background-color: #f28123;
-                // color: white;
                 &:hover {
-                    background-color: #051922;
                     color: #f28123;
                 }
             }
             .contact-us{
                 border: 2px solid #f28123;
-                // color: white;
                 text-align: center;
                 &:hover {
                     background-color: #f28123;

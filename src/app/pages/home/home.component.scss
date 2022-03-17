@@ -1,5 +1,4 @@
 .home {
-  height: 100vh;
   .header {
     height: 100%;
   }
@@ -72,16 +71,19 @@
             }
         }
       }
+
+      .shop {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 4rem 0 6rem 0;
+      }
     }
   }
 }
 
 
-.shop {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+
 
 

@@ -6,7 +6,12 @@
   .benfits{
     @media screen and (max-width: 700px) {
       margin-left: 10%;
-
     }
+  }
+}
+
+#card {
+  .quantity-container {
+    flex-direction: row;
   }
 }

@@ -92,7 +92,7 @@ const fruits = [
   },
   {
     fruitId: 10,
-    fruitName: "Date Palm",
+    fruitName: "Date-Palm",
     fruitPrice: 16.48,
     fruitImg: `${baseURL}date-palm.jpg`,
     fruitSale: 0,

@@ -29,6 +29,7 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { CardComponent } from './shared/component/card/card.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './pages/footer/footer.component';
 
 
 
@@ -55,7 +56,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CartComponent,
     SearchComponent,
     NotFoundComponent,
-    CardComponent
+    CardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

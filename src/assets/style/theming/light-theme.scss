@@ -67,3 +67,17 @@ $secondary-text: #0c1923;
   background-color: $secondary-color;
   color: $secondary-text;
 }
+
+.button-hover:hover {
+  background-color: $secondary-text !important;
+}
+
+#card {
+  border: none;
+  &:hover {
+    background-color: $primary-color;
+  }
+  .card-body {
+    color: $secondary-text;
+  }
+}
