@@ -21,11 +21,23 @@ export class HomeComponent implements OnInit, OnDestroy {
   lang: string | null = '';
 
   fruits!: fruit[];
-  constructor(private headerService: HeaderService, private cardService: CardService, private homeService: HomeService) {
+  saleFruit!: fruit;
+  saleQuantity: number = 0;
+  saleEndTime: number = 0;
 
-  }
+  saleCounterDays: number = 0;
+  saleCounterHours: number = 0;
+  saleCounterMins: number = 0;
+  saleCounterSecs: number = 0;
+  constructor(
+    private headerService: HeaderService,
+    private cardService: CardService,
+    private homeService: HomeService
+  ) {}
 
   ngOnInit(): void {
+    // this.http.get('http://localhost:3000/all-fruits').subscribe((res: any) => this.fruits = res.fruits);
+    // this.http.get('http://localhost:3000/fruits?pageSize=10&pageNumber=3').subscribe((res: any) => console.log(res));
     this.subscrition = this.headerService.currencyChanged.subscribe(
       (res: currencyexchange) => {
         this.currency = res.currency;
@@ -33,9 +45,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
     );
     this.getFruits();
-    // this.http.get('http://localhost:3000/all-fruits').subscribe((res: any) => this.fruits = res.fruits);
-    // this.http.get('http://localhost:3000/fruits?pageSize=10&pageNumber=3').subscribe((res: any) => console.log(res));
-    this.cardService.addFruit.subscribe(res => console.log(res))
+    this.getSaleFruit();
+    this.cardService.addFruit.subscribe((res) => console.log(res));
   }
 
   ngDoCheck() {
@@ -51,6 +62,71 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   getFruits() {
-    this.homeService.getFruits(3, 1).subscribe((res: any) => this.fruits = res.fruits);
+    this.homeService
+      .getFruits(3, 1)
+      .subscribe((res: any) => (this.fruits = res.fruits));
+  }
+
+  interval: any;
+  getSaleFruit() {
+    this.homeService.getSaleFruit().subscribe((res: any) => {
+      this.saleFruit = res.saleFruit;
+      this.saleEndTime = res.saleEndTime;
+      this.countDown(this.saleEndTime);
+      this.saleEndTime = this.saleEndTime - 1000;
+      this.interval = setInterval(() => {
+      this.countDown(this.saleEndTime);
+        this.saleEndTime = this.saleEndTime - 1000;
+      }, 1000);
+    });
+  }
+
+  countDown(endTime: number) {
+    // Time calculations for days, hours, minutes and seconds
+    this.saleCounterDays = Math.floor(endTime / (1000 * 60 * 60 * 24));
+    this.saleCounterHours = Math.floor(
+      (endTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    this.saleCounterMins = Math.floor(
+      (endTime % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    this.saleCounterSecs = Math.floor((endTime % (1000 * 60)) / 1000);
+    if(endTime <= 0) {
+      clearInterval(this.interval);
+    }
+  }
+
+  onAddToCart() {
+    this.saleQuantity = 1;
+    this.emitToCart();
+  }
+
+  onIncreaseQuantity() {
+    this.saleQuantity += 1;
+    // Math.round( this.quantity * 10 ) / 10;
+    this.emitToCart();
+  }
+
+  onDecreaseQuantity() {
+    this.saleQuantity -= 1;
+    if (this.saleQuantity < 0) {
+      this.saleQuantity = 0;
+    }
+    this.emitToCart();
+  }
+
+  onTypeOnInput() {
+    if (this.saleQuantity < 0) {
+      this.saleQuantity = 0;
+    }
+    if (this.saleQuantity) {
+      this.emitToCart();
+    }
+  }
+
+  emitToCart() {
+    let fruit = this.saleFruit;
+    let quantity = this.saleQuantity;
+    this.cardService.addFruit.emit({ fruit, quantity });
   }
 }

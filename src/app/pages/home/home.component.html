@@ -50,8 +50,46 @@
       </div>
     </div>
 
-    <div class="offers">
-      <img src="" alt="sda">
+    <div class="sales" *ngIf="saleFruit">
+      <div class="img">
+        <img [src]=saleFruit.firstSaleImg alt="firstSaleImg">
+      </div>
+      <div class="description">
+        <div class="header">
+          <h1 class="title"><span>Deal</span> of the month</h1>
+          <p class="fruit-name">{{ saleFruit.fruitName }}</p>
+        </div>
+        <div class="sale-text">lorem</div>
+        <div class="counter">
+          <div class="count">
+            <div class="number">{{ saleCounterDays }}</div>
+            <div class="text">Days</div>
+          </div>
+          <div class="count">
+            <div class="number">{{ saleCounterHours }}</div>
+            <div class="text">Hours</div>
+          </div>
+          <div class="count">
+            <div class="number">{{ saleCounterMins }}</div>
+            <div class="text">Mins</div>
+          </div>
+          <div class="count">
+            <div class="number">{{ saleCounterSecs }}</div>
+            <div class="text">Secs</div>
+          </div>
+        </div>
+        <div class="add-to-cart-container" *ngIf="saleQuantity === 0"  (click)="$event.stopPropagation();">
+          <button class="btn add-to-cart" (click)="onAddToCart()">
+            <span class="material-icons">shopping_cart</span>
+            <span translate>Fruits.Add-to-Cart</span>
+          </button>
+        </div>
+        <div class="quantity-container" *ngIf="saleQuantity !== 0" (click)="$event.stopPropagation();">
+          <button class="btn decrease" (click)="onDecreaseQuantity()">-</button>
+          <input class="input" type="number" [(ngModel)]="saleQuantity" min="0" (keyup)="onTypeOnInput()">
+          <button class="btn increase" (click)="onIncreaseQuantity()">+</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

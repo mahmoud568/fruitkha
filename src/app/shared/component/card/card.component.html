@@ -11,9 +11,9 @@
       </button>
     </div>
     <div class="quantity-container" *ngIf="quantity !== 0" (click)="$event.stopPropagation();">
-      <button class="btn decrease" (click)="onDecreaseQuantity()">-</button>
-      <input class="input" type="number" [(ngModel)]="quantity" min="0" (keyup)="onTypeOnInput()">
-      <button class="btn increase" (click)="onIncreaseQuantity()">+</button>
+      <button class="btn decrease secondary-background" (click)="onDecreaseQuantity()">-</button>
+      <input class="input secondary-background" type="number" [(ngModel)]="quantity" min="0" (keyup)="onTypeOnInput()">
+      <button class="btn increase secondary-background" (click)="onIncreaseQuantity()">+</button>
     </div>
   </div>
 </div>

@@ -139,14 +139,16 @@ const fruits = [
     fruitImg: `${baseURL}kiwi.jpg`,
     fruitSale: 0,
   },
+  {
+    fruitId: 17,
+    fruitName: "strawberry",
+    fruitPrice: 2.75,
+    fruitImg: `${baseURL}Strawberry.jpg`,
+    fruitSale: 0,
+  },
 ];
 
-app.get("/", function (req, res) {
-  res.json({
-    status: "erorr",
-    res: "enter valid api",
-  });
-});
+
 
 app.get("/exchangerate", function (req, res) {
   if (Object.keys(exchangerate).length !== 0) {
@@ -182,10 +184,35 @@ app.get("/fruits", function (req, res) {
   }
 });
 
+saleFruit = {
+  fruitId: 17,
+  fruitName: "strawberry",
+  fruitPrice: 2.75,
+  fruitImg: `${baseURL}Strawberry.jpg`,
+  firstSaleImg: `${baseURL}strawperry-offer.jpg`,
+  secondSaleImg: `${baseURL}strawperry-offer1.jpg`,
+  fruitSale: 30,
+}
+app.get("/sale-fruit", function (req, res) {
+  res.json({
+    status: "success",
+    // saleEndTime: 84600000,
+    saleEndTime: 5000,
+    saleFruit: saleFruit,
+  });
+});
+
 app.get("/all-fruits", function (req, res) {
   res.json({
     status: "success",
     fruits: fruits,
+  });
+});
+
+app.get("/", function (req, res) {
+  res.json({
+    status: "erorr",
+    res: "enter valid api",
   });
 });
 

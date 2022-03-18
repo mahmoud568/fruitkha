@@ -47,38 +47,41 @@
   }
 }
 
-
-$primary-color: #ffffff;
-$secondary-color: #f5f5f5;
-$primary-text: #000000;
-$secondary-text: #0c1923;
+$White-solid: #ffffff;
+$Wild-Sand: #f5f5f5;
+$Black-solid: #000000;
+$Firefly: #0c1923;
 
 .text-color {
-  color: $primary-text;
+  color: $Black-solid;
 }
 
 .primary-background {
-  background-color: $primary-text;
-  color: $primary-color;
+  background-color: $Black-solid;
+  color: $White-solid;
 }
 
 .secondary-background {
-  background-color: $secondary-text;
-  color: $secondary-color;
+  background-color: $Firefly;
+  color: $Wild-Sand;
 }
 
 .button-hover:hover {
-  background-color: $secondary-color !important;
+  background-color: $Wild-Sand !important;
 }
 
 #card {
   border: none;
   &:hover {
-    background-color: $primary-text;
+    background-color: $Black-solid;
   }
   .card-body {
-    color: $secondary-color;
+    color: $Wild-Sand;
+    .decrease,
+  .increase {
+    &:hover {
+      color: $White-solid;
+    }
+  }
   }
 }
-
-

@@ -48,36 +48,41 @@
 }
 
 
-$primary-color: #ffffff;
-$secondary-color: #f5f5f5;
-$primary-text: #000000;
-$secondary-text: #0c1923;
+$White-solid: #ffffff;
+$Wild-Sand: #f5f5f5;
+$Black-solid: #000000;
+$Firefly: #0c1923;
 
 .text-color {
-  color: $secondary-color;
+  color: $Wild-Sand;
 }
 
-
 .primary-background {
-  background-color: $primary-color;
-  color: $primary-text;
+  background-color: $White-solid;
+  color: $Black-solid;
 }
 
 .secondary-background {
-  background-color: $secondary-color;
-  color: $secondary-text;
+  background-color: $Wild-Sand;
+  color: $Firefly;
 }
 
 .button-hover:hover {
-  background-color: $secondary-text !important;
+  background-color: $Firefly !important;
 }
 
 #card {
   border: none;
   &:hover {
-    background-color: $primary-color;
+    background-color: $White-solid;
   }
   .card-body {
-    color: $secondary-text;
+    color: $Firefly;
+    .decrease,
+  .increase {
+    &:hover {
+      color: $Black-solid;
+    }
+  }
   }
 }

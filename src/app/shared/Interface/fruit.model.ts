@@ -3,5 +3,7 @@ export interface fruit {
   fruitName: string;
   fruitPrice: number;
   fruitImg: string;
-  fruitSale: number;
+  firstSaleImg?: string;
+  secondSaleImg?: string;
+  fruitSale?: number;
 }
