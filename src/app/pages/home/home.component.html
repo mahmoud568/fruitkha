@@ -52,30 +52,36 @@
 
     <div class="sales" *ngIf="saleFruit">
       <div class="img">
+        <div class="offer">
+          <div class="wrapper">
+          <p class="percentage">30%</p>
+          <p class="quantity" translate>Home.off-per-kg</p>
+        </div>
+        </div>
         <img [src]=saleFruit.firstSaleImg alt="firstSaleImg">
       </div>
       <div class="description">
         <div class="header">
-          <h1 class="title"><span>Deal</span> of the month</h1>
-          <p class="fruit-name">{{ saleFruit.fruitName }}</p>
+          <h1 class="title" translate><span translate>Home.Deal</span>Home.of-the-month</h1>
+          <p class="fruit-name" translate>Fruits.{{ saleFruit.fruitName }}</p>
         </div>
-        <div class="sale-text">lorem</div>
+        <div class="sale-text" translate>Lorem</div>
         <div class="counter">
           <div class="count">
             <div class="number">{{ saleCounterDays }}</div>
-            <div class="text">Days</div>
+            <div class="text" translate>Home.Days</div>
           </div>
           <div class="count">
             <div class="number">{{ saleCounterHours }}</div>
-            <div class="text">Hours</div>
+            <div class="text" translate>Home.Hours</div>
           </div>
           <div class="count">
             <div class="number">{{ saleCounterMins }}</div>
-            <div class="text">Mins</div>
+            <div class="text" translate>Home.Mins</div>
           </div>
           <div class="count">
             <div class="number">{{ saleCounterSecs }}</div>
-            <div class="text">Secs</div>
+            <div class="text" translate>Home.Secs</div>
           </div>
         </div>
         <div class="add-to-cart-container" *ngIf="saleQuantity === 0"  (click)="$event.stopPropagation();">
@@ -91,5 +97,12 @@
         </div>
       </div>
     </div>
+
+
   </div>
 </div>
+
+
+
+
+

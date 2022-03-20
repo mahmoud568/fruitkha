@@ -196,8 +196,7 @@ saleFruit = {
 app.get("/sale-fruit", function (req, res) {
   res.json({
     status: "success",
-    // saleEndTime: 84600000,
-    saleEndTime: 5000,
+    saleEndTime: 184600000,
     saleFruit: saleFruit,
   });
 });

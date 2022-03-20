@@ -38,7 +38,14 @@
     "24/7-Support": "دعم 24/7",
     "Get-support-all-day": "احصل على الدعم طوال اليوم",
     "Refund": "استرداد",
-    "Get-refund-within-3-days!": "احصل على استرداد في غضون 3 أيام!"
+    "Get-refund-within-3-days!": "احصل على استرداد في غضون 3 أيام!",
+    "off-per-kg": "خصم لكل ك ج",
+    "Deal": "عرض ",
+    "of-the-month": " الشهر",
+    "Days": "ايام",
+    "Hours": "ساعات",
+    "Mins": "دقائق",
+    "Secs": "ثواني"
   },
   "Fruits": {
     "Per-Kg": "لكل ك ج",
@@ -58,6 +65,7 @@
     "Fig": "تين",
     "Grape": "عنب",
     "Guava": "جوافة",
-    "Kiwi": "كيوي"
+    "Kiwi": "كيوي",
+    "strawberry": "فراولة"
   }
 }

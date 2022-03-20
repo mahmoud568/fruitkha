@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from  '@ngx-translate/core';
-import { DOCUMENT } from "@angular/common";
-import { Inject } from "@angular/core";
+import { TranslateService } from '@ngx-translate/core';
+import { DOCUMENT } from '@angular/common';
+import { Inject } from '@angular/core';
 
 import { option } from 'src/app/shared/Interface/option.model';
 import { scaleAnimation } from 'src/app/shared/animation/animation';
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   baseCurrency!: string;
   currencyExchangerate!: any;
 
-  routeLinkString: string = "";
+  routeLinkString: string = '';
 
   homeOptions: option[] = options.homeOptions;
 
@@ -35,21 +35,23 @@ export class HeaderComponent implements OnInit {
 
   invert_colorsOptions: option[] = options.invert_colorsOptions;
 
-  constructor(private translateService: TranslateService,
+  constructor(
+    private translateService: TranslateService,
 
-    private headerService: HeaderService) {}
+    private headerService: HeaderService
+  ) {}
 
   ngOnInit(): void {
     this.getCurrencyExchangerate();
     let lang = localStorage.getItem('lang');
-    if(lang) this.changeLangage(lang);
+    if (lang) this.changeLangage(lang);
     else this.changeLangage('en');
     let theme = localStorage.getItem('theme');
-    if(theme) this.changeThemeCssFile(theme);
+    if (theme) this.changeThemeCssFile(theme);
     else this.changeThemeCssFile('light');
     let currancy = localStorage.getItem('currency');
     setTimeout(() => {
-      if (currancy) this.onCurrencyChange(currancy)
+      if (currancy) this.onCurrencyChange(currancy);
       else this.onCurrencyChange('USD');
     }, 300);
   }
@@ -69,52 +71,47 @@ export class HeaderComponent implements OnInit {
   }
 
   onHoverDropdown(tap: string, eventType: string) {
-    if(eventType === 'mouseover') this.showHoverDropdown = tap;
+    if (eventType === 'mouseover') this.showHoverDropdown = tap;
     else this.showHoverDropdown = '';
   }
 
   // for expanding options in mobile view
   onToggleDropdown(tap: string) {
-    if(this.showToggleDropdown !== tap) this.showToggleDropdown = tap;
+    if (this.showToggleDropdown !== tap) this.showToggleDropdown = tap;
     else this.showToggleDropdown = '';
   }
 
-  changeSelectedDesignstyle(option: option, options: option[]) {
-      options.forEach((option) => {
-        option.selected = false;
-      });
-      option.selected= true;
+  changeSelectedDesignstyle(value: string, options: option[]) {
+    options.forEach((option) => {
+      option.selected = false;
+    });
+    options.find((option) => option.value === value)!.selected = true;
   }
 
   // change language functions
   changeLangage(lang: string) {
     window.localStorage.setItem('lang', lang);
-    let htmlTag = document.getElementsByTagName(
-      "html"
-    )[0] as HTMLHtmlElement;
-    htmlTag.dir = lang === "ar" ? "rtl" : "ltr";
+    let htmlTag = document.getElementsByTagName('html')[0] as HTMLHtmlElement;
+    htmlTag.dir = lang === 'ar' ? 'rtl' : 'ltr';
     this.translateService.setDefaultLang(lang);
     this.translateService.use(lang);
     this.changeLangCssFile(lang);
+    this.changeSelectedDesignstyle(lang, this.languageOptions);
   }
 
   changeLangCssFile(lang: string) {
-    let headTag = document.getElementsByTagName(
-      "head"
-    )[0] as HTMLHeadElement;
-    let existingLink = document.getElementById(
-      "langCss"
-    ) as HTMLLinkElement;
+    let headTag = document.getElementsByTagName('head')[0] as HTMLHeadElement;
+    let existingLink = document.getElementById('langCss') as HTMLLinkElement;
 
-    let bundleName = lang === "ar" ? "arabicStyle.css" : "englishStyle.css";
+    let bundleName = lang === 'ar' ? 'arabicStyle.css' : 'englishStyle.css';
 
     if (existingLink) {
       existingLink.href = bundleName;
     } else {
-      let newLink = document.createElement("link");
-      newLink.rel = "stylesheet";
-      newLink.type = "text/css";
-      newLink.id = "langCss";
+      let newLink = document.createElement('link');
+      newLink.rel = 'stylesheet';
+      newLink.type = 'text/css';
+      newLink.id = 'langCss';
       newLink.href = bundleName;
       headTag.appendChild(newLink);
     }
@@ -123,42 +120,39 @@ export class HeaderComponent implements OnInit {
   // theming
   changeThemeCssFile(theme: string) {
     window.localStorage.setItem('theme', theme);
-    let headTag = document.getElementsByTagName(
-      "head"
-    )[0] as HTMLHeadElement;
-    let existingLink = document.getElementById(
-      "themeCss"
-    ) as HTMLLinkElement;
+    let headTag = document.getElementsByTagName('head')[0] as HTMLHeadElement;
+    let existingLink = document.getElementById('themeCss') as HTMLLinkElement;
 
-    let bundleName = theme === "dark" ? "darkThemeStyle.css" : "lightThemeStyle.css";
+    let bundleName =
+      theme === 'dark' ? 'darkThemeStyle.css' : 'lightThemeStyle.css';
 
     if (existingLink) {
       existingLink.href = bundleName;
     } else {
-      let newLink = document.createElement("link");
-      newLink.rel = "stylesheet";
-      newLink.type = "text/css";
-      newLink.id = "themeCss";
+      let newLink = document.createElement('link');
+      newLink.rel = 'stylesheet';
+      newLink.type = 'text/css';
+      newLink.id = 'themeCss';
       newLink.href = bundleName;
       headTag.appendChild(newLink);
     }
+    this.changeSelectedDesignstyle(theme, this.invert_colorsOptions);
   }
 
   // Currency change functions
 
   getCurrencyExchangerate() {
-    this.headerService.getCurrencyExchangerate().subscribe(
-      (res: any)=> {
-        this.baseCurrency = res.base;
-        this.currencyExchangerate = res.exchangerate;
-      }
-    );
+    this.headerService.getCurrencyExchangerate().subscribe((res: any) => {
+      this.baseCurrency = res.base;
+      this.currencyExchangerate = res.exchangerate;
+    });
   }
 
   onCurrencyChange(currency: string) {
     window.localStorage.setItem('currency', currency);
     this.baseCurrency = currency;
     let exchangerate = this.currencyExchangerate[currency];
-    this.headerService.currencyChanged.emit({currency, exchangerate});
+    this.headerService.currencyChanged.emit({ currency, exchangerate });
+    this.changeSelectedDesignstyle(currency, this.paidOptions);
   }
 }

@@ -38,7 +38,14 @@
     "24/7-Support": "24/7 Support",
     "Get-support-all-day": "Get support all day",
     "Refund": "Refund",
-    "Get-refund-within-3-days!": "Get refund within 3 days!"
+    "Get-refund-within-3-days!": "Get refund within 3 days!",
+    "off-per-kg": "off per kg",
+    "Deal": "Deal",
+    "of-the-month": " of the month",
+    "Days": "Days",
+    "Hours": "Hours",
+    "Mins": "Mins",
+    "Secs": "Secs"
   },
   "Fruits": {
     "Per-Kg": "Per Kg",
@@ -58,6 +65,7 @@
     "Fig": "Fig",
     "Grape": "Grape",
     "Guava": "Guava",
-    "Kiwi": "Kiwi"
+    "Kiwi": "Kiwi",
+    "strawberry": "strawberry"
   }
 }

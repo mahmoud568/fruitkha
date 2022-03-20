@@ -8,10 +8,26 @@
       margin-right: 10%;
     }
   }
+
+  .sales {
+    .quantity-container {
+      .decrease {
+        border-radius: 0 10px 10px 0;
+      }
+      .increase {
+        border-radius: 10px 0 0 10px;
+      }
+    }
+  }
 }
 
 #card {
   .quantity-container {
-    flex-direction: row-reverse;
+    .decrease {
+      border-radius: 0 10px 10px 0;
+    }
+    .increase {
+      border-radius: 10px 0 0 10px;
+    }
   }
 }

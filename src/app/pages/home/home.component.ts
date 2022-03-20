@@ -72,16 +72,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.homeService.getSaleFruit().subscribe((res: any) => {
       this.saleFruit = res.saleFruit;
       this.saleEndTime = res.saleEndTime;
-      this.countDown(this.saleEndTime);
-      this.saleEndTime = this.saleEndTime - 1000;
-      this.interval = setInterval(() => {
-      this.countDown(this.saleEndTime);
-        this.saleEndTime = this.saleEndTime - 1000;
-      }, 1000);
+      this.countDown();
     });
   }
-
-  countDown(endTime: number) {
+  countDown() {
+    this.countTime(this.saleEndTime);
+    this.saleEndTime = this.saleEndTime - 1000;
+    this.interval = setInterval(() => {
+    this.countTime(this.saleEndTime);
+      this.saleEndTime = this.saleEndTime - 1000;
+    }, 1000);
+  }
+  countTime(endTime: number) {
     // Time calculations for days, hours, minutes and seconds
     this.saleCounterDays = Math.floor(endTime / (1000 * 60 * 60 * 24));
     this.saleCounterHours = Math.floor(
@@ -92,6 +94,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
     this.saleCounterSecs = Math.floor((endTime % (1000 * 60)) / 1000);
     if(endTime <= 0) {
+      this.saleFruit.fruitSale = 0;
       clearInterval(this.interval);
     }
   }
@@ -129,4 +132,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     let quantity = this.saleQuantity;
     this.cardService.addFruit.emit({ fruit, quantity });
   }
+
+
+
 }
