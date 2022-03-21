@@ -27,12 +27,15 @@
     "Dark": "Dark"
   },
   "Home": {
-    "Static-Home": {
-      "FRESH-&-ORGANIC": "FRESH  &  ORGANIC",
-      "Delicious-Seasonal-Fruits": "Delicious Seasonal Fruits",
-      "Fruit-Collection": "Fruit Collection",
-      "Contact-Us": "Contact Us"
-    },
+    "FRESH-&-ORGANIC": "FRESH  &  ORGANIC",
+    "Delicious-Seasonal-Fruits": "Delicious Seasonal Fruits",
+    "Fruit-Collection": "Fruit Collection",
+    "Contact-Us": "Contact Us",
+    "FRESH-EVERYDAY": "FRESH EVERYDAY",
+    "Organic-Collection": "100% Organic Collection",
+    "Visit-Shop": "Visit Shop",
+    "MEGA-SALE-GOING-ON!": "MEGA SALE GOING ON!",
+    "Get-December-Discount": "Get December Discount",
     "Free-Shipping": "Free Shipping",
     "When-order-over": "When order over ",
     "24/7-Support": "24/7 Support",

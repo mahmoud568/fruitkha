@@ -13,5 +13,6 @@ export class SliderHomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   images = ['../../../assets/img/grape-bg.jpg', '../../../assets/img/hero-bg-2.jpg', '../../../assets/img/hero-bg-3.jpg'];
 }

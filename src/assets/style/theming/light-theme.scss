@@ -55,6 +55,9 @@ $Firefly: #0c1923;
 
 .text-color {
   color: $Wild-Sand;
+  &:hover {
+    color: $Wild-Sand;
+  }
 }
 
 .primary-background {

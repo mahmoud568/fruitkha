@@ -54,6 +54,9 @@ $Firefly: #0c1923;
 
 .text-color {
   color: $Black-solid;
+  &:hover {
+    color: $Black-solid;
+  }
 }
 
 .primary-background {

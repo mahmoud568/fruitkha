@@ -27,12 +27,15 @@
     "Dark": "مظلم"
   },
   "Home": {
-    "Static-Home": {
-      "FRESH-&-ORGANIC": "طازج وعضوي",
-      "Delicious-Seasonal-Fruits": "فواكه موسمية لذيذة",
-      "Fruit-Collection": "جمع الفاكهة",
-      "Contact-Us": "اتصل بنا"
-    },
+    "FRESH-&-ORGANIC": "طازج وعضوي",
+    "Delicious-Seasonal-Fruits": "فواكه موسمية لذيذة",
+    "Fruit-Collection": "جمع الفاكهة",
+    "Contact-Us": "اتصل بنا",
+    "FRESH-EVERYDAY": "كل يوم طازجة",
+    "Organic-Collection": "100٪ مجموعة عضوية",
+    "Visit-Shop": "قم بزيارة المتجر",
+    "MEGA-SALE-GOING-ON!": "التخفيضات الضخمة مستمرة!",
+    "Get-December-Discount": "احصل على خصم ديسمبر",
     "Free-Shipping": "الشحن مجانا",
     "When-order-over": " عند طلب اكثر من",
     "24/7-Support": "دعم 24/7",
