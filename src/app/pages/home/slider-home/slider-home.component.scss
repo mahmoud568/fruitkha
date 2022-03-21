@@ -1,3 +1,14 @@
 img {
     height: 100vh;
+    z-index: 1;
+}
+
+.test {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(7, 33, 46,.6);
+    z-index: 0;
 }
