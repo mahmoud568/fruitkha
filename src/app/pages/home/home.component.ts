@@ -4,6 +4,7 @@ import { CardService } from 'src/app/shared/component/card/service/card.service'
 import { fruit } from 'src/app/shared/Interface/fruit.model';
 
 import { currencyexchange } from 'src/app/shared/Interface/option.model';
+import { team } from 'src/app/shared/Interface/team.model';
 
 import { HeaderService } from '../header/service/header.service';
 import { HomeService } from './service/home.service';
@@ -24,11 +25,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   saleFruit!: fruit;
   saleQuantity: number = 0;
   saleEndTime: number = 0;
-
   saleCounterDays: number = 0;
   saleCounterHours: number = 0;
   saleCounterMins: number = 0;
   saleCounterSecs: number = 0;
+
+  team!: team[];
   constructor(
     private headerService: HeaderService,
     private cardService: CardService,
@@ -46,6 +48,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
     this.getFruits();
     this.getSaleFruit();
+    this.getTeam();
     this.cardService.addFruit.subscribe((res) => console.log(res));
   }
 
@@ -67,7 +70,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe((res: any) => (this.fruits = res.fruits));
   }
 
-  interval: any;
+  interval!: ReturnType<typeof setInterval>;
   getSaleFruit() {
     this.homeService.getSaleFruit().subscribe((res: any) => {
       this.saleFruit = res.saleFruit;
@@ -133,6 +136,30 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.cardService.addFruit.emit({ fruit, quantity });
   }
 
+  getTeam() {
+    this.homeService.getTeam().subscribe((res: any) => this.team = res.team);
+  }
 
+  playYoutubeVideo() {
 
+  }
+  expression! :boolean;
+  videoIcon:string = "../../../assets/img/Fruitkha.jpg";
+  play:string = "Play";
+  videodisabled:boolean = true;
+
+  changeImg(){
+    if(this.play == "Play")
+    {
+      this.play = "Pause",
+      this.videoIcon = "../../../assets/img/Fruitkha.jpg",
+      this.videodisabled = false
+    }
+    else
+    {
+      this.videoIcon = "../../../assets/img/Fruitkha.jpg",
+      this.play = "Play",
+      this.videodisabled = true
+    }
+  }
 }

@@ -22,8 +22,10 @@ function Exchangerate() {
 }
 Exchangerate();
 
+// make images served
 const path = require("path");
 app.use(express.static(path.join(__dirname, "fruits")));
+app.use(express.static(path.join(__dirname, "team")));
 
 const baseURL = "http://localhost:3000/";
 const fruits = [
@@ -148,7 +150,26 @@ const fruits = [
   },
 ];
 
-
+let team = [
+  {
+    name: 'Saira-Hakim',
+    job: 'Local-shop-owner',
+    image: `${baseURL}Saira-Hakim.png`,
+    describe: 'Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium'
+  },
+  {
+    name: 'David-Niph',
+    job: 'Local-shop-owner',
+    image: `${baseURL}David-Niph.png`,
+    describe: 'Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium'
+  },
+  {
+    name: 'Jacob-Sikim',
+    job: 'Local-shop-owner',
+    image: `${baseURL}Jacob-Sikim.png`,
+    describe: 'Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium'
+  }
+]
 
 app.get("/exchangerate", function (req, res) {
   if (Object.keys(exchangerate).length !== 0) {
@@ -205,6 +226,13 @@ app.get("/all-fruits", function (req, res) {
   res.json({
     status: "success",
     fruits: fruits,
+  });
+});
+
+app.get("/team", function (req, res) {
+  res.json({
+    status: "success",
+    team: team,
   });
 });
 

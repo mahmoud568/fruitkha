@@ -9,7 +9,8 @@
         <span class="material-icons">local_shipping</span>
         <div class="discription">
           <div class="title" translate>Home.Free-Shipping</div>
-          <span translate>Home.When-order-over<span>{{ price * exchangerate | currency:currency :"symbol"}}</span></span>
+          <span
+            translate>Home.When-order-over<span>{{ price * exchangerate | currency:currency :"symbol"}}</span></span>
         </div>
       </div>
       <div class="item">
@@ -41,12 +42,8 @@
       </div>
 
       <div class="shop" *ngIf="fruits">
-        <app-card
-        *ngFor="let fruit of fruits"
-        [currency]="currency"
-        [exchangerate]="exchangerate"
-        [fruit]="fruit"
-        (fruitSelected)="onFruitSelect(fruit)"></app-card>
+        <app-card *ngFor="let fruit of fruits" [currency]="currency" [exchangerate]="exchangerate" [fruit]="fruit"
+          (fruitSelected)="onFruitSelect(fruit)"></app-card>
       </div>
     </div>
 
@@ -54,9 +51,9 @@
       <div class="img">
         <div class="offer">
           <div class="wrapper">
-          <p class="percentage">30%</p>
-          <p class="quantity" translate>Home.off-per-kg</p>
-        </div>
+            <p class="percentage">30%</p>
+            <p class="quantity" translate>Home.off-per-kg</p>
+          </div>
         </div>
         <img [src]=saleFruit.firstSaleImg alt="firstSaleImg">
       </div>
@@ -84,7 +81,7 @@
             <div class="text" translate>Home.Secs</div>
           </div>
         </div>
-        <div class="add-to-cart-container" *ngIf="saleQuantity === 0"  (click)="$event.stopPropagation();">
+        <div class="add-to-cart-container" *ngIf="saleQuantity === 0" (click)="$event.stopPropagation();">
           <button class="btn add-to-cart" (click)="onAddToCart()">
             <span class="material-icons">shopping_cart</span>
             <span translate>Fruits.Add-to-Cart</span>
@@ -98,11 +95,81 @@
       </div>
     </div>
 
+    <div class="team primary-background">
+      <ngb-carousel *ngIf="team" [showNavigationArrows]="false">
+        <ng-template ngbSlide *ngFor="let member of team">
+          <div class="picsum-img-wrapper">
+            <img [src]="member.image" alt="Random first slide">
+          </div>
+          <div class="inf">
+            <h3 translate>Home.{{ member.name }}</h3>
+            <h5 translate>Home.{{ member.job }}</h5>
+            <p translate>Lorem</p>
+            <span class="material-icons">
+              format_quote
+            </span>
+          </div>
 
+        </ng-template>
+      </ngb-carousel>
+    </div>
+
+    <div class="We-are-Fruitkha primary-background">
+      <div class="popup-youtube" (click)="expression = !expression">
+        <div *ngIf="!expression"  class="video-play-btn">
+            <span class="material-icons">
+            play_circle
+          </span>
+        </div>
+        <iframe *ngIf="expression"  class="video-play-btn" src="https://www.youtube.com/embed/QYU8zydUqD8?autoplay=1&mute=0&controls=1" allowfullscreen></iframe>
+      </div>
+      <div class="discription">
+        <h6 class="since" translate>Home.Since-Year-1999</h6>
+        <h1 translate>Home.We-are <span translate>Home.Fruitkha</span></h1>
+        <p translate>Lorem</p>
+        <p translate>Lorem</p>
+        <div class="btn text-color button-hover" routerLink="/Contact" translate>Home.Know-more</div>
+      </div>
+    </div>
+
+    <div class="sale-up-to">
+      <div class="description">
+        <p translate>Home.December-sale-is-on!</p>
+        <p translate>Home.with-big <span translate>Home.Discount...</span></p>
+        <div class="up-to">
+          <div class="sale-text">
+            <p translate>Home.Sale!</p>
+            <p translate>Home.Upto</p>
+          </div>
+          <p class="percentage">50%</p>
+          <p class="off" translate>Home.off</p>
+        </div>
+        <div class="btn" routerLink="/Shop" translate>Home.Shop-Now</div>
+      </div>
+      <div class="img">
+        <img [src]=saleFruit.secondSaleImg alt="saleFruit">
+      </div>
+
+    </div>
+    <div class="our-news">
+      <div class="header">
+        <div class="title">
+          <p *ngIf="lang === 'en'"><span>Our</span> News</p>
+          <p *ngIf="lang !== 'en'">اخبار<span>نا</span></p>
+        </div>
+        <div class="hr"></div>
+        <div class="discription">
+          <p translate>Lorem</p>
+        </div>
+      </div>
+      <div class="news">
+
+      </div>
+      <div class="btn-wrapper">
+        <div class="btn" routerLink="/Shop" translate>Shop Now</div>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
 
 

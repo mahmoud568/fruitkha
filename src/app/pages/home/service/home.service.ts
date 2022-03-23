@@ -18,4 +18,8 @@ export class HomeService {
   getSaleFruit() {
     return this.http.get(`${this.baseURL}sale-fruit`);
   }
+
+  getTeam() {
+    return this.http.get(`${this.baseURL}team`);
+  }
 }

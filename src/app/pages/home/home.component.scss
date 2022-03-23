@@ -44,7 +44,7 @@
     }
 
     .products {
-      padding: 80px 0;
+      padding: 80px 15px;
       .header {
         .title {
           display: flex;
@@ -83,7 +83,7 @@
 
     .sales {
       display: flex;
-      padding: 5rem 0;
+      padding: 5rem 15px;
       align-items: stretch;
       justify-content: center;
       background-color: #f5f5f5;
@@ -106,8 +106,8 @@
           background-color: rgba(242, 129, 35, 0.75);
           .wrapper {
             display: flex;
-          flex-direction: column;
-          justify-content: center;
+            flex-direction: column;
+            justify-content: center;
             border-radius: 50%;
             background-color: #f28123;
             width: 94px;
@@ -219,6 +219,263 @@
               -webkit-appearance: none;
               margin: 0;
             }
+          }
+        }
+      }
+    }
+
+    .team {
+      display: flex;
+      justify-content: center;
+      padding: 150px 15px;
+      .picsum-img-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+        img {
+          width: 100px;
+          border-radius: 50%;
+        }
+      }
+      .inf {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h5 {
+          display: block;
+          margin-top: 10px;
+          color: #999999;
+          font-weight: 600;
+        }
+        p {
+          text-align: center;
+          font-size: 17px;
+          font-style: italic;
+          max-width: 700px;
+          margin: 20px auto;
+          line-height: 1.8;
+          color: #999999;
+        }
+        .material-icons {
+          font-size: 3rem;
+          color: #999999;
+        }
+      }
+    }
+
+    .We-are-Fruitkha {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-bottom: 150px;
+      @media screen and (max-width: 991px) {
+        flex-wrap: wrap;
+      }
+      .popup-youtube {
+        max-width: 50%;
+        padding: 0 15px;
+        @media screen and (max-width: 991px) {
+          max-width: 100%;
+        }
+        .video-play-btn {
+          background: url(../../../assets/img/Fruitkha.jpg);
+          display: block;
+          height: 450px;
+          width: 540px;
+          background-size: 540px 450px;
+          background-repeat: no-repeat;
+          margin-left: auto;
+          border-radius: 0 15px;
+          @media screen and (max-width: 991px) {
+            height: 400px;
+            width: 490px;
+          }
+          @media screen and (max-width: 768px) {
+            height: 350px;
+            width: 440px;
+          }
+          @media screen and (max-width: 575px) {
+            height: 300px;
+            width: 390px;
+          }
+          @media screen and (max-width: 450px) {
+            height: 200px;
+            width: 290px;
+          }
+          .material-icons {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            border-radius: 0 15px;
+            background-color: rgb(12, 25, 35, 0.4);
+            font-size: 90px;
+            z-index: 1;
+            color: #f28123;
+          }
+        }
+      }
+
+      .discription {
+        max-width: 50%;
+        padding: 0 15px;
+        @media screen and (max-width: 1200px) {
+          max-width: 100%;
+          padding: 20px;
+        }
+        .since {
+          margin-bottom: 10px;
+          font-size: 15px;
+          line-height: 1.6rem;
+          padding-bottom: 1rem;
+        }
+        h1 {
+          font-size: 3rem;
+          font-weight: 700;
+          line-height: 3.25rem;
+          padding-bottom: 1rem;
+          @media screen and (max-width: 768px) {
+            font-size: 2.5rem;
+            line-height: 2.75rem;
+          }
+          @media screen and (max-width: 575px) {
+            font-size: 2rem;
+            line-height: 2.25rem;
+          }
+          span {
+            color: #f28123;
+          }
+        }
+        p {
+          max-width: 460px;
+          font-size: 15px;
+          line-height: 1.6rem;
+          margin-bottom: 10px;
+          padding-bottom: 1rem;
+        }
+        .btn {
+          border-radius: 50px;
+          line-height: 2rem;
+          width: 7rem;
+          background-color: #f28123;
+          &:hover {
+            color: #f28123;
+          }
+        }
+      }
+    }
+
+    .sale-up-to {
+      display: flex;
+      height: 500px;
+      .description {
+        background-color: rgb(245, 245, 245, 0.4);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        align-self: center;
+        padding: 100px 20px;
+        p {
+          color: #0c1923;
+          position: relative;
+          font-size: 50px;
+          line-height: 1.2em;
+          margin-bottom: 0px;
+          @media screen and (max-width: 768px) {
+            font-size: 34px;
+          }
+          span {
+            color: #f28123;
+          }
+        }
+        .up-to {
+          display: flex;
+          position: relative;
+          font-size: 60px;
+          font-weight: 700;
+          align-items: center;
+          margin: 25px 0;
+          .percentage {
+            color: #f28123;
+          }
+          .sale-text p,
+          .off {
+            position: relative;
+            font-size: 24px;
+            line-height: 1.1em;
+            color: #051922;
+            font-weight: 400;
+            text-align: center;
+            margin-right: 10px;
+          }
+        }
+        .btn {
+          border-radius: 50px;
+          padding: 10px 20px;
+          background-color: #f28123;
+          color: white;
+          &:hover {
+            color: #f28123;
+            background-color: #0c1923;
+          }
+        }
+      }
+      .img {
+        position: absolute;
+        z-index: 0;
+        height: 500px;
+        img {
+          max-width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .our-news {
+      padding: 150px 20px;
+
+      .header {
+        .title {
+          display: flex;
+          justify-content: center;
+          text-align: center;
+          font-size: 2.5rem;
+          span {
+            color: #f28123;
+          }
+        }
+        .hr {
+          width: 3.125rem;
+          height: 0.125rem;
+          background-color: #f28123;
+          margin: 0 auto;
+        }
+        .discription {
+          display: flex;
+          justify-content: center;
+          padding-top: 20px;
+          p {
+            max-width: 530px;
+            text-align: center;
+          }
+        }
+      }
+
+      .btn-wrapper {
+        .btn {
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+          border-radius: 50px;
+          line-height: 2rem;
+          width: 7rem;
+          background-color: #f28123;
+          &:hover {
+            background-color: #0c1923;
+            color: #f28123;
           }
         }
       }
