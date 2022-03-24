@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CardService } from 'src/app/shared/component/card/service/card.service';
 import { fruit } from 'src/app/shared/Interface/fruit.model';
+import { News } from 'src/app/shared/Interface/news.modal';
 
 import { currencyexchange } from 'src/app/shared/Interface/option.model';
 import { team } from 'src/app/shared/Interface/team.model';
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   saleCounterSecs: number = 0;
 
   team!: team[];
+  news!: News[];
   constructor(
     private headerService: HeaderService,
     private cardService: CardService,
@@ -140,9 +142,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.homeService.getTeam().subscribe((res: any) => this.team = res.team);
   }
 
-  playYoutubeVideo() {
-
-  }
   expression! :boolean;
   videoIcon:string = "../../../assets/img/Fruitkha.jpg";
   play:string = "Play";

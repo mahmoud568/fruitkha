@@ -30,6 +30,7 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { CardComponent } from './shared/component/card/card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './pages/footer/footer.component';
+import { NewsCardComponent } from './shared/component/news-card/news-card.component';
 
 
 
@@ -57,7 +58,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SearchComponent,
     NotFoundComponent,
     CardComponent,
-    FooterComponent
+    FooterComponent,
+    NewsCardComponent
   ],
   imports: [
     BrowserModule,

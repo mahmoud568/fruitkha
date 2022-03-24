@@ -132,7 +132,7 @@
       </div>
     </div>
 
-    <div class="sale-up-to">
+    <div class="sale-up-to" *ngIf="saleFruit">
       <div class="description">
         <p translate>Home.December-sale-is-on!</p>
         <p translate>Home.with-big <span translate>Home.Discount...</span></p>
@@ -163,7 +163,7 @@
         </div>
       </div>
       <div class="news">
-
+        <app-news-card></app-news-card>
       </div>
       <div class="btn-wrapper">
         <div class="btn" routerLink="/Shop" translate>Shop Now</div>
