@@ -10,7 +10,7 @@ export interface News {
 export interface Comment {
     newsID: number;
     img: string;
-    date: string;
+    date: Date;
     text: string;
     replay: Replay[]
 }
@@ -18,6 +18,6 @@ export interface Comment {
 export interface Replay {
     createdBy: string;
     img: string;
-    date: string;
+    date: Date;
     text: string;
 }

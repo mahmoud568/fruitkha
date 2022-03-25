@@ -1,1 +1,23 @@
-<p>news-card works!</p>
+<div id="news-card" class="card">
+  <img class="card-img-top" [src]=singleNews.img alt="Card image cap" (click)="singleNewsSelected.emit(singleNews)">
+  <div class="card-body">
+    <h5 class="card-title" (click)="singleNewsSelected.emit(singleNews)" translate>News-Card.{{ singleNews.title }}</h5>
+    <h6>
+      <span translate>
+        <span class="material-icons">
+          person
+        </span>
+        News-Card.{{ singleNews.createdBy }}
+      </span>
+      <span>
+        <span class="material-icons">
+            calendar_today
+            </span>
+        {{ singleNews.date | dateFormat: 'Do MMMM YYYY': lang }}
+      </span>
+    </h6>
+    <p class="card-text" translate>Lorem
+    </p>
+    <a class="btn"  (click)="singleNewsSelected.emit(singleNews)" translate>News-Card.Read-More</a>
+  </div>
+</div>

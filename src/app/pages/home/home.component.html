@@ -43,7 +43,7 @@
 
       <div class="shop" *ngIf="fruits">
         <app-card *ngFor="let fruit of fruits" [currency]="currency" [exchangerate]="exchangerate" [fruit]="fruit"
-          (fruitSelected)="onFruitSelect(fruit)"></app-card>
+        (fruitSelected)="onFruitSelect($event)"></app-card>
       </div>
     </div>
 
@@ -115,13 +115,13 @@
     </div>
 
     <div class="We-are-Fruitkha primary-background">
-      <div class="popup-youtube" (click)="expression = !expression">
-        <div *ngIf="!expression"  class="video-play-btn">
+      <div class="popup-youtube" (click)="isVideo = !isVideo">
+        <div *ngIf="!isVideo"  class="video-play-btn">
             <span class="material-icons">
             play_circle
           </span>
         </div>
-        <iframe *ngIf="expression"  class="video-play-btn" src="https://www.youtube.com/embed/QYU8zydUqD8?autoplay=1&mute=0&controls=1" allowfullscreen></iframe>
+        <iframe *ngIf="isVideo"  class="video-play-btn" src="https://www.youtube.com/embed/QYU8zydUqD8?autoplay=1&mute=0&controls=1" allowfullscreen></iframe>
       </div>
       <div class="discription">
         <h6 class="since" translate>Home.Since-Year-1999</h6>
@@ -163,10 +163,28 @@
         </div>
       </div>
       <div class="news">
-        <app-news-card></app-news-card>
+        <app-news-card *ngFor="let singleNews of news" [singleNews]="singleNews" (singleNewsSelected)="ongSingleNewsSelected($event)" [lang]="lang"></app-news-card>
       </div>
       <div class="btn-wrapper">
-        <div class="btn" routerLink="/Shop" translate>Shop Now</div>
+        <div class="btn button-hover" routerLink="/Shop" translate>Shop Now</div>
+      </div>
+    </div>
+
+    <div class="logo-carousel-inner">
+      <div class="single-logo-item">
+        <img src="assets/img/company-logos/1.png" alt="">
+      </div>
+      <div class="single-logo-item">
+        <img src="assets/img/company-logos/2.png" alt="">
+      </div>
+      <div class="single-logo-item">
+        <img src="assets/img/company-logos/3.png" alt="">
+      </div>
+      <div class="single-logo-item">
+        <img src="assets/img/company-logos/4.png" alt="">
+      </div>
+      <div class="single-logo-item">
+        <img src="assets/img/company-logos/5.png" alt="">
       </div>
     </div>
   </div>

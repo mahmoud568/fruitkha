@@ -65,6 +65,16 @@
     "off": "خصم",
     "Shop-Now": "تسوق الآن"
   },
+  "News-Card": {
+    "You will vainly look for fruit on it in autumn.": ".سوف تبحث عبثًا عن الفاكهة عليها في الخريف.",
+    "A man's worth has its season, like tomato.": ".للرجل موسمه مثل الطماطم.",
+    "Good thoughts bear good fresh juicy fruit.": ".الأفكار الجيدة تؤتي ثمارها الطازجة الجيدة.",
+    "Fall in love with the fresh orange": "تقع في حب البرتقال الطازج",
+    "Why the berries always look delecious": "لماذا تبدو التوت دائما لذيذة",
+    "Love for fruits are genuine of John Doe": "حب الفاكهة حقيقي من جون دو",
+    "Admin": "مشرف",
+    "Read-More": "اقرأ أكثر >"
+  },
   "Fruits": {
     "Per-Kg": "لكل ك ج",
     "Add-to-Cart": "اضف اللي العربة",

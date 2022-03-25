@@ -191,7 +191,7 @@ let news = [
     title: "You will vainly look for fruit on it in autumn.",
     createdBy: "Admin",
     img: `${baseURL}news-bg-1.jpg`,
-    date: "March 23rd 2022, 10:32:52 pm",
+    date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
     text: "news-Lorem",
   },
   {
@@ -199,7 +199,7 @@ let news = [
     title: "A man's worth has its season, like tomato.",
     createdBy: "Admin",
     img: `${baseURL}news-bg-2.jpg`,
-    date: "March 23rd 2022, 10:32:52 pm",
+    date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
     text: "news-Lorem",
   },
   {
@@ -207,7 +207,7 @@ let news = [
     title: "Good thoughts bear good fresh juicy fruit.",
     createdBy: "Admin",
     img: `${baseURL}news-bg-3.jpg`,
-    date: "March 23rd 2022, 10:32:52 pm",
+    date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
     text: "news-Lorem",
   },
   {
@@ -215,7 +215,7 @@ let news = [
     title: "Fall in love with the fresh orange",
     createdBy: "Admin",
     img: `${baseURL}news-bg-4.jpg`,
-    date: "March 23rd 2022, 10:32:52 pm",
+    date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
     text: "news-Lorem",
   },
   {
@@ -223,7 +223,7 @@ let news = [
     title: "Why the berries always look delecious",
     createdBy: "Admin",
     img: `${baseURL}news-bg-5.jpg`,
-    date: "March 23rd 2022, 10:32:52 pm",
+    date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
     text: "news-Lorem",
   },
   {
@@ -231,7 +231,7 @@ let news = [
     title: "Love for fruits are genuine of John Doe",
     createdBy: "Admin",
     img: `${baseURL}news-bg-6.jpg`,
-    date: "March 23rd 2022, 10:32:52 pm",
+    date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
     text: "news-Lorem",
   },
 ];
@@ -249,7 +249,7 @@ let comments = [
           {
             createdBy: "Simon Soe",
             img: `${baseURL}Jacob-Sikim.png`,
-            date: "March 23rd 2022, 10:32:52 pm",
+            date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
             text: "news-Lorem",
           },
         ],
@@ -275,7 +275,7 @@ let comments = [
           {
             createdBy: "Armand Pagac",
             img: `${baseURL}Jacob-Sikim.png`,
-            date: "March 23rd 2022, 10:32:52 pm",
+            date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
             text: "news-Lorem",
           },
         ],
@@ -301,7 +301,7 @@ let comments = [
           {
             createdBy: "Emil Murphy",
             img: `${baseURL}Jacob-Sikim.png`,
-            date: "March 23rd 2022, 10:32:52 pm",
+            date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
             text: "news-Lorem",
           },
         ],
@@ -327,7 +327,7 @@ let comments = [
           {
             createdBy: "Simon Soe",
             img: `${baseURL}Jacob-Sikim.png`,
-            date: "March 23rd 2022, 10:32:52 pm",
+            date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
             text: "news-Lorem",
           },
         ],
@@ -353,7 +353,7 @@ let comments = [
           {
             createdBy: "Armand Pagac",
             img: `${baseURL}Jacob-Sikim.png`,
-            date: "March 23rd 2022, 10:32:52 pm",
+            date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
             text: "news-Lorem",
           },
         ],
@@ -379,7 +379,7 @@ let comments = [
           {
             createdBy: "Emil Murphy",
             img: `${baseURL}Jacob-Sikim.png`,
-            date: "March 23rd 2022, 10:32:52 pm",
+            date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
             text: "news-Lorem",
           },
         ],
@@ -409,6 +409,7 @@ app.get("/exchangerate", function (req, res) {
   }
 });
 
+// get fruits by page size and page number
 app.get("/fruits", function (req, res) {
   let pageSize = req.query.pageSize;
   let pageNumber = req.query.pageNumber;
@@ -452,10 +453,23 @@ app.get("/team", function (req, res) {
 });
 
 app.get("/news", function (req, res) {
-  res.json({
-    status: "success",
-    news: news,
-  });
+  let pageSize = req.query.pageSize;
+  let pageNumber = req.query.pageNumber;
+  let pagesCount = Math.ceil(fruits.length / pageSize);
+  let newsArrayStart = pageSize * (pageNumber - 1);
+  let newsArrayend = pageSize * pageNumber;
+  if (pageNumber > pagesCount) {
+    res.json({
+      status: "error",
+      fruits: "there is no more fruits",
+    });
+  } else {
+    res.json({
+      status: "success",
+      pagesCount: pagesCount,
+      news: news.slice(newsArrayStart, newsArrayend),
+    });
+  }
 });
 
 app.get("/comment", function (req, res) {

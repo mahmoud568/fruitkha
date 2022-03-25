@@ -31,6 +31,7 @@ import { CardComponent } from './shared/component/card/card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './pages/footer/footer.component';
 import { NewsCardComponent } from './shared/component/news-card/news-card.component';
+import { MomentPipe } from './shared/pipe/MomentPipe';
 
 
 
@@ -59,7 +60,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotFoundComponent,
     CardComponent,
     FooterComponent,
-    NewsCardComponent
+    NewsCardComponent,
+    MomentPipe
   ],
   imports: [
     BrowserModule,

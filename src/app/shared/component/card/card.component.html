@@ -1,9 +1,9 @@
 <div class="card secondary-background" id="card">
-  <img class="card-img-top" [src]=fruit.fruitImg alt="Card image cap" (click)="fruitSelected.emit()">
+  <img class="card-img-top" [src]=fruit.fruitImg alt="Card image cap" (click)="fruitSelected.emit(fruit)">
   <div class="card-body">
     <h5 class="card-title" translate>Fruits.{{ fruit.fruitName }}</h5>
     <p class="card-text" translate>Fruits.Per-Kg</p>
-    <h4 class="price">{{ fruit.fruitPrice * exchangerate | currency:currency :"symbol"}}</h4>
+    <h4 class="price">{{ fruit.fruitPrice * exchangerate | currency: currency :"symbol"}}</h4>
     <div class="add-to-cart-container" *ngIf="quantity === 0"  (click)="$event.stopPropagation();">
       <button class="btn add-to-cart button-hover" (click)="onAddToCart()">
         <span class="material-icons">shopping_cart</span>

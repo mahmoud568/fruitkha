@@ -70,6 +70,7 @@ $Firefly: #0c1923;
   color: $Firefly;
 }
 
+// to give black background on hover of btns
 .button-hover:hover {
   background-color: $Firefly !important;
 }
@@ -87,5 +88,19 @@ $Firefly: #0c1923;
       color: $Black-solid;
     }
   }
+  }
+}
+
+#news-card {
+  background-color: $White-solid;
+  color: $Firefly;
+  &:hover {
+    background-color: $Wild-Sand;
+  }
+  h6,
+  h5,
+  p,
+  .btn {
+    color: $Firefly;
   }
 }

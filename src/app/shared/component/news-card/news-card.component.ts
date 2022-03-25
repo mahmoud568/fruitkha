@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { News } from '../../Interface/news.modal';
 
 @Component({
   selector: 'app-news-card',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news-card.component.scss']
 })
 export class NewsCardComponent implements OnInit {
-
+  @Input() singleNews!: News;
+  @Input() lang!: string | null;
+  @Output() singleNewsSelected = new EventEmitter<News>()
   constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

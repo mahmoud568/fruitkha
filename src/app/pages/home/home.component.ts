@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CardService } from 'src/app/shared/component/card/service/card.service';
 import { fruit } from 'src/app/shared/Interface/fruit.model';
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   exchangerate!: number;
   subscrition!: Subscription;
   lang: string | null = '';
+  isVideo! :boolean;
 
   fruits!: fruit[];
   saleFruit!: fruit;
@@ -36,7 +38,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private headerService: HeaderService,
     private cardService: CardService,
-    private homeService: HomeService
+    private homeService: HomeService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -51,6 +54,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.getFruits();
     this.getSaleFruit();
     this.getTeam();
+    this.getNews();
     this.cardService.addFruit.subscribe((res) => console.log(res));
   }
 
@@ -62,8 +66,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscrition.unsubscribe();
   }
 
+  // use function instead of router link to listen to special event not every click
   onFruitSelect(fruit: fruit) {
-    console.log(fruit);
+    this.router.navigate(['../Shop/Single-Product', fruit.fruitId]);
   }
 
   getFruits() {
@@ -80,6 +85,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.countDown();
     });
   }
+
   countDown() {
     this.countTime(this.saleEndTime);
     this.saleEndTime = this.saleEndTime - 1000;
@@ -88,6 +94,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.saleEndTime = this.saleEndTime - 1000;
     }, 1000);
   }
+
   countTime(endTime: number) {
     // Time calculations for days, hours, minutes and seconds
     this.saleCounterDays = Math.floor(endTime / (1000 * 60 * 60 * 24));
@@ -142,23 +149,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.homeService.getTeam().subscribe((res: any) => this.team = res.team);
   }
 
-  expression! :boolean;
-  videoIcon:string = "../../../assets/img/Fruitkha.jpg";
-  play:string = "Play";
-  videodisabled:boolean = true;
+  getNews() {
+    this.homeService.getNews(3, 1).subscribe((res: any) => this.news = res.news);
+  }
 
-  changeImg(){
-    if(this.play == "Play")
-    {
-      this.play = "Pause",
-      this.videoIcon = "../../../assets/img/Fruitkha.jpg",
-      this.videodisabled = false
-    }
-    else
-    {
-      this.videoIcon = "../../../assets/img/Fruitkha.jpg",
-      this.play = "Play",
-      this.videodisabled = true
-    }
+  // use function instead of router link to listen to special event not every click
+  ongSingleNewsSelected(singleNews: News) {
+    this.router.navigate(['../Shop/Single-Product', singleNews.id]);
   }
 }
