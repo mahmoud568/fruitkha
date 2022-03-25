@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { DOCUMENT } from '@angular/common';
-import { Inject } from '@angular/core';
 
 import { option } from 'src/app/shared/Interface/option.model';
 import { scaleAnimation } from 'src/app/shared/animation/animation';
 
 import * as options from './options';
 import { HeaderService } from './service/header.service';
+import { NavigationStart, Router } from '@angular/router';
+import { filter } from 'rxjs';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -37,9 +37,11 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private translateService: TranslateService,
+    private headerService: HeaderService,
+    private router: Router
+  ) {
 
-    private headerService: HeaderService
-  ) {}
+  }
 
   ngOnInit(): void {
     this.getCurrencyExchangerate();
@@ -54,6 +56,18 @@ export class HeaderComponent implements OnInit {
       if (currancy) this.onCurrencyChange(currancy);
       else this.onCurrencyChange('USD');
     }, 300);
+
+
+    //call currance on changes so the currancy pipe dont break on route changes
+    //@ts-ignore
+    this.router.events.pipe(filter(event => event instanceof NavigationStart)).subscribe((event: NavigationStart) => {
+      setTimeout(() => {
+      let currancy = localStorage.getItem('currency');
+      if (currancy) this.onCurrencyChange(currancy);
+      else this.onCurrencyChange('USD');
+      }, 0);
+    });
+
   }
 
   // @ViewChild('navbar') navbar!: ElementRef;
