@@ -1,9 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CardService } from 'src/app/shared/component/card/service/card.service';
 import { fruit } from 'src/app/shared/Interface/fruit.model';
+import { News } from 'src/app/shared/Interface/news.modal';
 
 import { currencyexchange } from 'src/app/shared/Interface/option.model';
+import { team } from 'src/app/shared/Interface/team.model';
 
 import { HeaderService } from '../header/service/header.service';
 import { HomeService } from './service/home.service';
@@ -19,20 +22,24 @@ export class HomeComponent implements OnInit, OnDestroy {
   exchangerate!: number;
   subscrition!: Subscription;
   lang: string | null = '';
+  isVideo! :boolean;
 
   fruits!: fruit[];
   saleFruit!: fruit;
   saleQuantity: number = 0;
   saleEndTime: number = 0;
-
   saleCounterDays: number = 0;
   saleCounterHours: number = 0;
   saleCounterMins: number = 0;
   saleCounterSecs: number = 0;
+
+  team!: team[];
+  news!: News[];
   constructor(
     private headerService: HeaderService,
     private cardService: CardService,
-    private homeService: HomeService
+    private homeService: HomeService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -46,6 +53,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
     this.getFruits();
     this.getSaleFruit();
+    this.getTeam();
+    this.getNews();
     this.cardService.addFruit.subscribe((res) => console.log(res));
   }
 
@@ -57,8 +66,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscrition.unsubscribe();
   }
 
+  // use function instead of router link to listen to special event not every click
   onFruitSelect(fruit: fruit) {
-    console.log(fruit);
+    this.router.navigate(['../Shop/Single-Product', fruit.fruitId]);
   }
 
   getFruits() {
@@ -67,21 +77,25 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe((res: any) => (this.fruits = res.fruits));
   }
 
-  interval: any;
+  interval!: ReturnType<typeof setInterval>;
   getSaleFruit() {
     this.homeService.getSaleFruit().subscribe((res: any) => {
       this.saleFruit = res.saleFruit;
       this.saleEndTime = res.saleEndTime;
-      this.countDown(this.saleEndTime);
-      this.saleEndTime = this.saleEndTime - 1000;
-      this.interval = setInterval(() => {
-      this.countDown(this.saleEndTime);
-        this.saleEndTime = this.saleEndTime - 1000;
-      }, 1000);
+      this.countDown();
     });
   }
 
-  countDown(endTime: number) {
+  countDown() {
+    this.countTime(this.saleEndTime);
+    this.saleEndTime = this.saleEndTime - 1000;
+    this.interval = setInterval(() => {
+    this.countTime(this.saleEndTime);
+      this.saleEndTime = this.saleEndTime - 1000;
+    }, 1000);
+  }
+
+  countTime(endTime: number) {
     // Time calculations for days, hours, minutes and seconds
     this.saleCounterDays = Math.floor(endTime / (1000 * 60 * 60 * 24));
     this.saleCounterHours = Math.floor(
@@ -92,6 +106,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
     this.saleCounterSecs = Math.floor((endTime % (1000 * 60)) / 1000);
     if(endTime <= 0) {
+      this.saleFruit.fruitSale = 0;
       clearInterval(this.interval);
     }
   }
@@ -128,5 +143,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     let fruit = this.saleFruit;
     let quantity = this.saleQuantity;
     this.cardService.addFruit.emit({ fruit, quantity });
+  }
+
+  getTeam() {
+    this.homeService.getTeam().subscribe((res: any) => this.team = res.team);
+  }
+
+  getNews() {
+    this.homeService.getNews(3, 1).subscribe((res: any) => this.news = res.news);
+  }
+
+  // use function instead of router link to listen to special event not every click
+  ongSingleNewsSelected(singleNews: News) {
+    this.router.navigate(['../Shop/Single-Product', singleNews.id]);
   }
 }

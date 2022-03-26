@@ -22,8 +22,11 @@ function Exchangerate() {
 }
 Exchangerate();
 
+// make database imgs served
 const path = require("path");
 app.use(express.static(path.join(__dirname, "fruits")));
+app.use(express.static(path.join(__dirname, "team")));
+app.use(express.static(path.join(__dirname, "news")));
 
 const baseURL = "http://localhost:3000/";
 const fruits = [
@@ -148,7 +151,249 @@ const fruits = [
   },
 ];
 
+let saleFruit = {
+  fruitId: 17,
+  fruitName: "strawberry",
+  fruitPrice: 2.75,
+  fruitImg: `${baseURL}Strawberry.jpg`,
+  firstSaleImg: `${baseURL}strawperry-offer.jpg`,
+  secondSaleImg: `${baseURL}strawperry-offer1.jpg`,
+  fruitSale: 30,
+};
 
+let team = [
+  {
+    name: "Saira-Hakim",
+    job: "Local-shop-owner",
+    image: `${baseURL}Saira-Hakim.png`,
+    describe:
+      "Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
+  },
+  {
+    name: "David-Niph",
+    job: "Local-shop-owner",
+    image: `${baseURL}David-Niph.png`,
+    describe:
+      "Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
+  },
+  {
+    name: "Jacob-Sikim",
+    job: "Local-shop-owner",
+    image: `${baseURL}Jacob-Sikim.png`,
+    describe:
+      "Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
+  },
+];
+
+let news = [
+  {
+    id: 1,
+    title: "You will vainly look for fruit on it in autumn.",
+    createdBy: "Admin",
+    img: `${baseURL}news-bg-1.jpg`,
+    date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
+    text: "news-Lorem",
+  },
+  {
+    id: 2,
+    title: "A man's worth has its season, like tomato.",
+    createdBy: "Admin",
+    img: `${baseURL}news-bg-2.jpg`,
+    date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
+    text: "news-Lorem",
+  },
+  {
+    id: 3,
+    title: "Good thoughts bear good fresh juicy fruit.",
+    createdBy: "Admin",
+    img: `${baseURL}news-bg-3.jpg`,
+    date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
+    text: "news-Lorem",
+  },
+  {
+    id: 4,
+    title: "Fall in love with the fresh orange",
+    createdBy: "Admin",
+    img: `${baseURL}news-bg-4.jpg`,
+    date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
+    text: "news-Lorem",
+  },
+  {
+    id: 5,
+    title: "Why the berries always look delecious",
+    createdBy: "Admin",
+    img: `${baseURL}news-bg-5.jpg`,
+    date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
+    text: "news-Lorem",
+  },
+  {
+    id: 6,
+    title: "Love for fruits are genuine of John Doe",
+    createdBy: "Admin",
+    img: `${baseURL}news-bg-6.jpg`,
+    date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
+    text: "news-Lorem",
+  },
+];
+
+let comments = [
+  {
+    newsID: 1,
+    comment: [
+      {
+        createdBy: "Jenny Joe",
+        img: `${baseURL}Saira-Hakim.png`,
+        date: "Thu Mar 24 2022 00:48:31",
+        text: "news-Lorem",
+        replay: [
+          {
+            createdBy: "Simon Soe",
+            img: `${baseURL}Jacob-Sikim.png`,
+            date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
+            text: "news-Lorem",
+          },
+        ],
+      },
+      {
+        createdBy: "Addy Aoe",
+        img: `${baseURL}David-Niph.png`,
+        date: Date(),
+        text: "news-Lorem",
+        replay: [],
+      },
+    ],
+  },
+  {
+    newsID: 2,
+    comment: [
+      {
+        createdBy: "Alvena Conroy",
+        img: `${baseURL}Saira-Hakim.png`,
+        date: "Thu Mar 24 2022 00:48:31",
+        text: "news-Lorem",
+        replay: [
+          {
+            createdBy: "Armand Pagac",
+            img: `${baseURL}Jacob-Sikim.png`,
+            date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
+            text: "news-Lorem",
+          },
+        ],
+      },
+      {
+        createdBy: "Ross Predovic",
+        img: `${baseURL}David-Niph.png`,
+        date: Date(),
+        text: "news-Lorem",
+        replay: [],
+      },
+    ],
+  },
+  {
+    newsID: 3,
+    comment: [
+      {
+        createdBy: "Chelsey Krajcik",
+        img: `${baseURL}Saira-Hakim.png`,
+        date: "Thu Mar 24 2022 00:48:31",
+        text: "news-Lorem",
+        replay: [
+          {
+            createdBy: "Emil Murphy",
+            img: `${baseURL}Jacob-Sikim.png`,
+            date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
+            text: "news-Lorem",
+          },
+        ],
+      },
+      {
+        createdBy: "Allie Lebsack",
+        img: `${baseURL}David-Niph.png`,
+        date: Date(),
+        text: "news-Lorem",
+        replay: [],
+      },
+    ],
+  },
+  {
+    newsID: 4,
+    comment: [
+      {
+        createdBy: "Jenny Joe",
+        img: `${baseURL}Saira-Hakim.png`,
+        date: "Thu Mar 24 2022 00:48:31",
+        text: "news-Lorem",
+        replay: [
+          {
+            createdBy: "Simon Soe",
+            img: `${baseURL}Jacob-Sikim.png`,
+            date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
+            text: "news-Lorem",
+          },
+        ],
+      },
+      {
+        createdBy: "Addy Aoe",
+        img: `${baseURL}David-Niph.png`,
+        date: Date(),
+        text: "news-Lorem",
+        replay: [],
+      },
+    ],
+  },
+  {
+    newsID: 5,
+    comment: [
+      {
+        createdBy: "Alvena Conroy",
+        img: `${baseURL}Saira-Hakim.png`,
+        date: "Thu Mar 24 2022 00:48:31",
+        text: "news-Lorem",
+        replay: [
+          {
+            createdBy: "Armand Pagac",
+            img: `${baseURL}Jacob-Sikim.png`,
+            date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
+            text: "news-Lorem",
+          },
+        ],
+      },
+      {
+        createdBy: "Ross Predovic",
+        img: `${baseURL}David-Niph.png`,
+        date: Date(),
+        text: "news-Lorem",
+        replay: [],
+      },
+    ],
+  },
+  {
+    newsID: 6,
+    comment: [
+      {
+        createdBy: "Chelsey Krajcik",
+        img: `${baseURL}Saira-Hakim.png`,
+        date: "Thu Mar 24 2022 00:48:31",
+        text: "news-Lorem",
+        replay: [
+          {
+            createdBy: "Emil Murphy",
+            img: `${baseURL}Jacob-Sikim.png`,
+            date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
+            text: "news-Lorem",
+          },
+        ],
+      },
+      {
+        createdBy: "Allie Lebsack",
+        img: `${baseURL}David-Niph.png`,
+        date: Date(),
+        text: "news-Lorem",
+        replay: [],
+      },
+    ],
+  },
+];
 
 app.get("/exchangerate", function (req, res) {
   if (Object.keys(exchangerate).length !== 0) {
@@ -164,13 +409,14 @@ app.get("/exchangerate", function (req, res) {
   }
 });
 
+// get fruits by page size and page number
 app.get("/fruits", function (req, res) {
   let pageSize = req.query.pageSize;
   let pageNumber = req.query.pageNumber;
-  let pagesCount = Math.ceil(fruits.length/pageSize);
+  let pagesCount = Math.ceil(fruits.length / pageSize);
   let fruitArrayStart = pageSize * (pageNumber - 1);
-  let fruitArrayend = (pageSize * pageNumber);
-  if(pageNumber > pagesCount) {
+  let fruitArrayend = pageSize * pageNumber;
+  if (pageNumber > pagesCount) {
     res.json({
       status: "error",
       fruits: "there is no more fruits",
@@ -184,20 +430,10 @@ app.get("/fruits", function (req, res) {
   }
 });
 
-saleFruit = {
-  fruitId: 17,
-  fruitName: "strawberry",
-  fruitPrice: 2.75,
-  fruitImg: `${baseURL}Strawberry.jpg`,
-  firstSaleImg: `${baseURL}strawperry-offer.jpg`,
-  secondSaleImg: `${baseURL}strawperry-offer1.jpg`,
-  fruitSale: 30,
-}
 app.get("/sale-fruit", function (req, res) {
   res.json({
     status: "success",
-    // saleEndTime: 84600000,
-    saleEndTime: 5000,
+    saleEndTime: 184600000,
     saleFruit: saleFruit,
   });
 });
@@ -207,6 +443,49 @@ app.get("/all-fruits", function (req, res) {
     status: "success",
     fruits: fruits,
   });
+});
+
+app.get("/team", function (req, res) {
+  res.json({
+    status: "success",
+    team: team,
+  });
+});
+
+app.get("/news", function (req, res) {
+  let pageSize = req.query.pageSize;
+  let pageNumber = req.query.pageNumber;
+  let pagesCount = Math.ceil(fruits.length / pageSize);
+  let newsArrayStart = pageSize * (pageNumber - 1);
+  let newsArrayend = pageSize * pageNumber;
+  if (pageNumber > pagesCount) {
+    res.json({
+      status: "error",
+      fruits: "there is no more fruits",
+    });
+  } else {
+    res.json({
+      status: "success",
+      pagesCount: pagesCount,
+      news: news.slice(newsArrayStart, newsArrayend),
+    });
+  }
+});
+
+app.get("/comment", function (req, res) {
+  const newsID = parseInt(req.query.id);
+  let comment = comments.find((x) => x.newsID === newsID);
+  if (comment) {
+    res.json({
+      status: "success",
+      comment: comment,
+    });
+  } else {
+    res.json({
+      status: "error",
+      comment: "there is not comments",
+    });
+  }
 });
 
 app.get("/", function (req, res) {

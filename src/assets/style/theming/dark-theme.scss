@@ -54,6 +54,9 @@ $Firefly: #0c1923;
 
 .text-color {
   color: $Black-solid;
+  &:hover {
+    color: $Black-solid;
+  }
 }
 
 .primary-background {
@@ -66,6 +69,7 @@ $Firefly: #0c1923;
   color: $Wild-Sand;
 }
 
+// to give white background on hover of btns
 .button-hover:hover {
   background-color: $Wild-Sand !important;
 }
@@ -78,10 +82,24 @@ $Firefly: #0c1923;
   .card-body {
     color: $Wild-Sand;
     .decrease,
-  .increase {
-    &:hover {
-      color: $White-solid;
+    .increase {
+      &:hover {
+        color: $White-solid;
+      }
     }
   }
+}
+
+#news-card {
+  background-color: $Firefly;
+  color: $White-solid;
+  &:hover {
+    background-color: $Black-solid;
+  }
+  h6,
+  h5,
+  p,
+  .btn {
+    color: $Wild-Sand;
   }
 }

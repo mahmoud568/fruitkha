@@ -35,22 +35,19 @@
         (mouseleave)="onHoverDropdown('paidOptions', $event.type)">
         <span class="material-icons">paid</span>
         <app-custom-dropdown *ngIf="showHoverDropdown === 'paidOptions'" [options]="paidOptions"
-          (optionSelected)="onCurrencyChange($event.value)"
-          (optionSelected)="changeSelectedDesignstyle($event, paidOptions)"></app-custom-dropdown>
+          (optionSelected)="onCurrencyChange($event.value)"></app-custom-dropdown>
       </li>
       <li class="nav-item" (mouseover)="onHoverDropdown('languageOptions', $event.type)"
         (mouseleave)="onHoverDropdown('languageOptions', $event.type)">
         <span class="material-icons">language</span>
         <app-custom-dropdown *ngIf="showHoverDropdown === 'languageOptions'" [options]="languageOptions"
-          (optionSelected)="changeLangage($event.value)"
-          (optionSelected)="changeSelectedDesignstyle($event, languageOptions)"></app-custom-dropdown>
+          (optionSelected)="changeLangage($event.value)"></app-custom-dropdown>
       </li>
       <li class="nav-item" (mouseover)="onHoverDropdown('invert_colorsOptions', $event.type)"
         (mouseleave)="onHoverDropdown('invert_colorsOptions', $event.type)">
         <span class="material-icons">invert_colors</span>
         <app-custom-dropdown *ngIf="showHoverDropdown === 'invert_colorsOptions'" [options]="invert_colorsOptions"
-          (optionSelected)="changeThemeCssFile($event.value)"
-          (optionSelected)="changeSelectedDesignstyle($event, invert_colorsOptions)"></app-custom-dropdown>
+          (optionSelected)="changeThemeCssFile($event.value)"></app-custom-dropdown>
       </li>
     </ul>
     <div class="item-4">
@@ -138,7 +135,7 @@
           </td>
           <div *ngIf="showToggleDropdown === 'paidOptions'" [@scaleAnimation]>
             <a *ngFor="let option of paidOptions" [ngClass]="{'selected': option.selected == true}"
-              (click)="changeSelectedDesignstyle(option, paidOptions)" (click)="onCurrencyChange(option.value)"
+              (click)="onCurrencyChange(option.value)"
               onCurrencyChange translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
@@ -152,7 +149,6 @@
           </td>
           <div *ngIf="showToggleDropdown === 'languageOptions'" [@scaleAnimation]>
             <a *ngFor="let option of languageOptions" (click)="changeLangage(option.value)"
-              (click)="changeSelectedDesignstyle(option, languageOptions)"
               [ngClass]="{'selected': option.selected == true}" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
@@ -166,7 +162,6 @@
           </td>
           <div *ngIf="showToggleDropdown === 'invert_colorsOptions'" [@scaleAnimation]>
             <a *ngFor="let option of invert_colorsOptions" [ngClass]="{'selected': option.selected == true}"
-              (click)="changeSelectedDesignstyle(option, invert_colorsOptions)"
               (click)="changeThemeCssFile(option.value)" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>

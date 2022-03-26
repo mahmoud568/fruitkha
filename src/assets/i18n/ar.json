@@ -27,18 +27,53 @@
     "Dark": "مظلم"
   },
   "Home": {
-    "Static-Home": {
-      "FRESH-&-ORGANIC": "طازج وعضوي",
-      "Delicious-Seasonal-Fruits": "فواكه موسمية لذيذة",
-      "Fruit-Collection": "جمع الفاكهة",
-      "Contact-Us": "اتصل بنا"
-    },
+    "FRESH-&-ORGANIC": "طازج وعضوي",
+    "Delicious-Seasonal-Fruits": "فواكه موسمية لذيذة",
+    "Fruit-Collection": "جمع الفاكهة",
+    "Contact-Us": "اتصل بنا",
+    "FRESH-EVERYDAY": "كل يوم طازجة",
+    "Organic-Collection": "100٪ مجموعة عضوية",
+    "Visit-Shop": "قم بزيارة المتجر",
+    "MEGA-SALE-GOING-ON!": "التخفيضات الضخمة مستمرة!",
+    "Get-December-Discount": "احصل على خصم ديسمبر",
     "Free-Shipping": "الشحن مجانا",
     "When-order-over": " عند طلب اكثر من",
     "24/7-Support": "دعم 24/7",
     "Get-support-all-day": "احصل على الدعم طوال اليوم",
     "Refund": "استرداد",
-    "Get-refund-within-3-days!": "احصل على استرداد في غضون 3 أيام!"
+    "Get-refund-within-3-days!": "احصل على استرداد في غضون 3 أيام!",
+    "off-per-kg": "خصم لكل ك ج",
+    "Deal": "عرض ",
+    "of-the-month": " الشهر",
+    "Days": "ايام",
+    "Hours": "ساعات",
+    "Mins": "دقائق",
+    "Secs": "ثواني",
+    "Saira-Hakim": "سايرة حكيم",
+    "David-Niph": "ديفيد نيف",
+    "Jacob-Sikim": "يعقوب سيكيم",
+    "Local-shop-owner": "صاحب متجر محلي",
+    "Since-Year-1999": "منذ عام 1999",
+    "We-are": "نحن",
+    "Fruitkha": "فروتكها",
+    "Know-more": "تعرف أكثر",
+    "December-sale-is-on!": "عروض شهر ديسمبر!",
+    "with-big": "مع اكبير",
+    "Discount...": "الخصومات...",
+    "Sale!": "تخفيض السعر!",
+    "Upto": "يصل إلى",
+    "off": "خصم",
+    "Shop-Now": "تسوق الآن"
+  },
+  "News-Card": {
+    "You will vainly look for fruit on it in autumn.": ".سوف تبحث عبثًا عن الفاكهة عليها في الخريف.",
+    "A man's worth has its season, like tomato.": ".للرجل موسمه مثل الطماطم.",
+    "Good thoughts bear good fresh juicy fruit.": ".الأفكار الجيدة تؤتي ثمارها الطازجة الجيدة.",
+    "Fall in love with the fresh orange": "تقع في حب البرتقال الطازج",
+    "Why the berries always look delecious": "لماذا تبدو التوت دائما لذيذة",
+    "Love for fruits are genuine of John Doe": "حب الفاكهة حقيقي من جون دو",
+    "Admin": "مشرف",
+    "Read-More": "اقرأ أكثر >"
   },
   "Fruits": {
     "Per-Kg": "لكل ك ج",
@@ -58,6 +93,7 @@
     "Fig": "تين",
     "Grape": "عنب",
     "Guava": "جوافة",
-    "Kiwi": "كيوي"
+    "Kiwi": "كيوي",
+    "strawberry": "فراولة"
   }
 }

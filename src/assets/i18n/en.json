@@ -27,18 +27,53 @@
     "Dark": "Dark"
   },
   "Home": {
-    "Static-Home": {
-      "FRESH-&-ORGANIC": "FRESH  &  ORGANIC",
-      "Delicious-Seasonal-Fruits": "Delicious Seasonal Fruits",
-      "Fruit-Collection": "Fruit Collection",
-      "Contact-Us": "Contact Us"
-    },
+    "FRESH-&-ORGANIC": "FRESH  &  ORGANIC",
+    "Delicious-Seasonal-Fruits": "Delicious Seasonal Fruits",
+    "Fruit-Collection": "Fruit Collection",
+    "Contact-Us": "Contact Us",
+    "FRESH-EVERYDAY": "FRESH EVERYDAY",
+    "Organic-Collection": "100% Organic Collection",
+    "Visit-Shop": "Visit Shop",
+    "MEGA-SALE-GOING-ON!": "MEGA SALE GOING ON!",
+    "Get-December-Discount": "Get December Discount",
     "Free-Shipping": "Free Shipping",
     "When-order-over": "When order over ",
     "24/7-Support": "24/7 Support",
     "Get-support-all-day": "Get support all day",
     "Refund": "Refund",
-    "Get-refund-within-3-days!": "Get refund within 3 days!"
+    "Get-refund-within-3-days!": "Get refund within 3 days!",
+    "off-per-kg": "off per kg",
+    "Deal": "Deal",
+    "of-the-month": " of the month",
+    "Days": "Days",
+    "Hours": "Hours",
+    "Mins": "Mins",
+    "Secs": "Secs",
+    "Saira-Hakim": "Saira Hakim",
+    "David-Niph": "David Niph",
+    "Jacob-Sikim": "Jacob Sikim",
+    "Local-shop-owner": "Local shop owner",
+    "Since-Year-1999": "Since Year 1999",
+    "We-are": "We are",
+    "Fruitkha": "Fruitkha",
+    "Know-more": "Know more",
+    "December-sale-is-on!": "December sale is on!",
+    "with-big": "with big",
+    "Discount...": "Discount...",
+    "Sale!": "Sale!",
+    "Upto": "Upto",
+    "off": "off",
+    "Shop-Now": "Shop Now"
+  },
+  "News-Card": {
+    "You will vainly look for fruit on it in autumn.": "You will vainly look for fruit on it in autumn.",
+    "A man's worth has its season, like tomato.": "A man's worth has its season, like tomato.",
+    "Good thoughts bear good fresh juicy fruit.": "Good thoughts bear good fresh juicy fruit.",
+    "Fall in love with the fresh orange": "Fall in love with the fresh orange",
+    "Why the berries always look delecious": "Why the berries always look delecious",
+    "Love for fruits are genuine of John Doe": "Love for fruits are genuine of John Doe",
+    "Admin": "Admin",
+    "Read-More": "read more >"
   },
   "Fruits": {
     "Per-Kg": "Per Kg",
@@ -58,6 +93,7 @@
     "Fig": "Fig",
     "Grape": "Grape",
     "Guava": "Guava",
-    "Kiwi": "Kiwi"
+    "Kiwi": "Kiwi",
+    "strawberry": "strawberry"
   }
 }

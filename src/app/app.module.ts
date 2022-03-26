@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,10 +28,12 @@ import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { CardComponent } from './shared/component/card/card.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './pages/footer/footer.component';
-
-
+import { NewsCardComponent } from './shared/component/news-card/news-card.component';
+import { MomentPipe } from './shared/pipe/MomentPipe';
+import { BrandsComponent } from './pages/brands/brands.component';
+import {CarouselModule} from 'primeng/carousel';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -57,7 +59,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     SearchComponent,
     NotFoundComponent,
     CardComponent,
-    FooterComponent
+    FooterComponent,
+    NewsCardComponent,
+    MomentPipe,
+    BrandsComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +74,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MaterialModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     // translation imports
     TranslateModule.forRoot({
       loader: {
@@ -77,8 +83,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-
+    CarouselModule
   ],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

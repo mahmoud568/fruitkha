@@ -12,7 +12,7 @@ export class CardComponent implements OnInit {
   @Input() fruit!: fruit;
   @Input() currency!: string;
   @Input() exchangerate!: number;
-  @Output() fruitSelected = new EventEmitter<fruit>()
+  @Output() fruitSelected = new EventEmitter<fruit>();
   constructor(private cardService: CardService) {}
 
   ngOnInit(): void {}
