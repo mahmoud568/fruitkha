@@ -91,10 +91,10 @@ $Firefly: #0c1923;
 }
 
 #news-card {
-  background-color: $Black-solid;
+  background-color: $Firefly;
   color: $White-solid;
   &:hover {
-    background-color: $Firefly;
+    background-color: $Black-solid;
   }
   h6,
   h5,
