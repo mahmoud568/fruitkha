@@ -32,8 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './pages/footer/footer.component';
 import { NewsCardComponent } from './shared/component/news-card/news-card.component';
 import { MomentPipe } from './shared/pipe/MomentPipe';
-
-
+import { BrandsComponent } from './pages/brands/brands.component';
+import {CarouselModule} from 'primeng/carousel';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -61,7 +61,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CardComponent,
     FooterComponent,
     NewsCardComponent,
-    MomentPipe
+    MomentPipe,
+    BrandsComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +82,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    CarouselModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],

@@ -1,0 +1,25 @@
+.brands {
+  padding: 3rem 20rem;
+  @media screen and (max-width: 1300px) {
+    padding: 3rem 15rem;
+  }
+  @media screen and (max-width: 991px) {
+    padding: 3rem 10rem;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 3rem 0rem;
+  }
+  .content-section {
+    .card {
+      border: 0;
+      border-radius: 0;
+      .card-img-top {
+        width: 180px;
+        // so the  img brand can be always in center
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}

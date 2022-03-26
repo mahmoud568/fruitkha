@@ -1,0 +1,13 @@
+<div class="brands primary-background">
+  <div class="content-section implementation carousel-demo">
+    <div class="card primary-background">
+      <p-carousel [value]="brands" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true"
+        [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions" [showIndicators]="false"
+        [showNavigators]="false">
+        <ng-template let-brand pTemplate="item">
+          <img src="{{brand}}" class="card-img-top" alt="...">
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+</div>
