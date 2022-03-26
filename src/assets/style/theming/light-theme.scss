@@ -104,3 +104,20 @@ $Firefly: #0c1923;
     color: $Firefly;
   }
 }
+
+#footer {
+  background-color: $Firefly;
+  color: $Wild-Sand;
+  .main-content {
+    .item {
+      h2 {
+        color: $White-solid;
+      }
+
+      p {
+        color: $White-solid;
+      }
+
+    }
+  }
+}

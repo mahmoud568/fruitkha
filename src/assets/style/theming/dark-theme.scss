@@ -103,3 +103,33 @@ $Firefly: #0c1923;
     color: $Wild-Sand;
   }
 }
+
+#footer {
+  background-color: $Wild-Sand;
+  color: $Firefly;
+  .main-content {
+    .item {
+      h2 {
+        color: $Firefly;
+      }
+
+      p {
+        color: $Firefly;
+      }
+
+      .input-wrapper {
+        .btn {
+          background-color: #012738;
+          &:hover {
+            color: #012738;
+          }
+        }
+
+        .form-control {
+          background-color: #012738;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

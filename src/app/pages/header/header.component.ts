@@ -55,7 +55,7 @@ export class HeaderComponent implements OnInit {
     setTimeout(() => {
       if (currancy) this.onCurrencyChange(currancy);
       else this.onCurrencyChange('USD');
-    }, 300);
+    }, 500);
 
 
     //call currance on changes so the currancy pipe dont break on route changes
@@ -65,7 +65,7 @@ export class HeaderComponent implements OnInit {
       let currancy = localStorage.getItem('currency');
       if (currancy) this.onCurrencyChange(currancy);
       else this.onCurrencyChange('USD');
-      }, 0);
+      }, 500);
     });
 
   }

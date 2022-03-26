@@ -1,0 +1,103 @@
+.footer {
+  padding: 8rem 7rem;
+
+  @media screen and (max-width: 1500px) {
+    padding: 8rem 5rem;
+  }
+  @media screen and (max-width: 1200px) {
+    padding: 8rem 3rem;
+  }
+  @media screen and (max-width: 991px) {
+    padding: 8rem 1rem;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 8rem 0rem;
+  }
+  .main-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 95%;
+    margin: 0 auto;
+    .item {
+      flex: 0 0 25%;
+      max-width: 25%;
+      @media screen and (max-width: 991px) {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+      @media screen and (max-width: 768px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      h2 {
+        font-size: 24px;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 20px;
+      }
+
+      .underline {
+        width: 20px;
+        height: 2px;
+        background-color: #f28123;
+        margin-bottom: 17.5px;
+      }
+
+      p {
+        max-width: 90%;
+        font-weight: 400;
+        font-size: 1rem;
+        letter-spacing: 0.1px;
+        opacity: 0.7;
+        line-height: 1.8;
+        .arrow {
+          font-size: 0.7rem;
+          font-weight: 900;
+          color: #f28123;
+        }
+      }
+
+      &.pages {
+        p:hover {
+          // important to override theming default style
+          color: #f28123 !important;
+          .text {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .input-wrapper {
+        display: flex;
+        gap: 0.5rem;
+
+        .btn {
+          background-color: #012738;
+          display: grid;
+          place-items: center;
+          color: #f28123;
+          &:hover {
+            // important to override bootstrap default settings
+            background-color: #f28123 !important;
+            color: #012738;
+          }
+          .material-icons {
+            transform: rotate(320deg);
+          }
+        }
+
+        .form-control {
+          border: none;
+          background-color: #012738;
+          width: 78%;
+          padding: 15px;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
