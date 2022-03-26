@@ -3,7 +3,7 @@ import * as moment from "moment";
 
 @Pipe({ name: "dateFormat" })
 export class MomentPipe implements PipeTransform {
-  lang = localStorage.getItem('lang');
+  // send lang as an argument so its update with every time language change
   transform(value: Date | moment.Moment, dateFormat: string, lang: string | null): any {
     if (lang === "en") {
       moment.updateLocale("en", {
