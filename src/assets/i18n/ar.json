@@ -95,5 +95,22 @@
     "Guava": "جوافة",
     "Kiwi": "كيوي",
     "strawberry": "فراولة"
+  },
+  "footer": {
+    "About-us": "علومات عنا",
+    "Get-in-Touch": "ابقى على تواصل",
+    "Pages": "الصفحات",
+    "Home": "الصفحة الرئيسية",
+    "About": "حول",
+    "Shop": "تسوق",
+    "News": "اخبار",
+    "Contact": "اتصل",
+    "Subscribe": "الإشتراك",
+    "Subscribe-Text": "اشترك في قائمتنا البريدية للحصول على آخر التحديثات.",
+    "Email": "ايميل",
+    "arrow_forward_ios": "arrow_back_ios",
+    "Copyrights-©-2022": "حقوق النشر- © -2022",
+    "mahmoud-abdelwahab": "محمود عبدالوهاب",
+    "All-Rights-Reserved.": "كل الحقوق محفوظة."
   }
 }

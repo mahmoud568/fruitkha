@@ -3,7 +3,7 @@
 }
 
 #home {
-  .benfits{
+  .benfits {
     @media screen and (max-width: 700px) {
       margin-right: 10%;
     }
@@ -19,8 +19,6 @@
       }
     }
   }
-
-
 }
 
 #card {
@@ -30,6 +28,14 @@
     }
     .increase {
       border-radius: 10px 0 0 10px;
+    }
+  }
+}
+
+#footer {
+  .input-wrapper {
+    .material-icons {
+      transform: rotate(180deg);
     }
   }
 }

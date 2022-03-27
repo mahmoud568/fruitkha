@@ -395,6 +395,8 @@ let comments = [
   },
 ];
 
+subscribes = []
+
 app.get("/exchangerate", function (req, res) {
   if (Object.keys(exchangerate).length !== 0) {
     res.json({
@@ -486,6 +488,16 @@ app.get("/comment", function (req, res) {
       comment: "there is not comments",
     });
   }
+});
+
+// edit customer by id
+app.post("/subscribe", function (req, res) {
+  var email = JSON.parse(req.body.email);
+  subscribes.push(email)
+  return res.json({
+    status: "success",
+    details: "user subscribe successfuly",
+  });
 });
 
 app.get("/", function (req, res) {

@@ -1,23 +1,19 @@
 .footer {
-  padding: 8rem 7rem;
-
-  @media screen and (max-width: 1500px) {
-    padding: 8rem 5rem;
-  }
-  @media screen and (max-width: 1200px) {
-    padding: 8rem 3rem;
-  }
-  @media screen and (max-width: 991px) {
-    padding: 8rem 1rem;
-  }
-  @media screen and (max-width: 768px) {
-    padding: 8rem 0rem;
-  }
   .main-content {
+    padding: 8rem 7rem;
+    @media screen and (max-width: 1500px) {
+      padding: 8rem 5rem;
+    }
+    @media screen and (max-width: 1200px) {
+      padding: 8rem 3rem;
+    }
+    @media screen and (max-width: 991px) {
+      padding: 8rem 1rem;
+    }
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    max-width: 95%;
+    // max-width: 95%;
     margin: 0 auto;
     .item {
       flex: 0 0 25%;
@@ -52,6 +48,9 @@
         letter-spacing: 0.1px;
         opacity: 0.7;
         line-height: 1.8;
+        &.static-data {
+          direction: ltr;
+        }
         .arrow {
           font-size: 0.7rem;
           font-weight: 900;
@@ -72,7 +71,6 @@
       .input-wrapper {
         display: flex;
         gap: 0.5rem;
-
         .btn {
           background-color: #012738;
           display: grid;
@@ -82,9 +80,6 @@
             // important to override bootstrap default settings
             background-color: #f28123 !important;
             color: #012738;
-          }
-          .material-icons {
-            transform: rotate(320deg);
           }
         }
 
@@ -97,6 +92,55 @@
           border-bottom-left-radius: 5px;
           color: #fff;
         }
+      }
+    }
+  }
+  .creator-rights {
+    padding: 1rem 7rem;
+    @media screen and (max-width: 1500px) {
+      padding: 1rem 5rem;
+    }
+    @media screen and (max-width: 1200px) {
+      padding: 1rem 3rem;
+    }
+    @media screen and (max-width: 991px) {
+      padding: 1rem 1rem;
+    }
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #232a35;
+    @media screen and (max-width: 991px) {
+      flex-direction: column;
+    }
+    .copy-rights {
+      margin: 0;
+      opacity: 0.7;
+      padding: 16px 0;
+      font-size: 15px;
+      @media screen and (max-width: 991px) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .creator,
+      .theme {
+        color: #f28123;
+        cursor: pointer;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+    .links {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 15px;
+      opacity: 0.7;
+      padding: 0 1rem;
+      .link:hover {
+        color: #f28123;
+        cursor: pointer;
       }
     }
   }

@@ -95,5 +95,22 @@
     "Guava": "Guava",
     "Kiwi": "Kiwi",
     "strawberry": "strawberry"
+  },
+  "footer": {
+    "About-us": "About us",
+    "Get-in-Touch": "Get in Touch",
+    "Pages": "Pages",
+    "Home": "Home",
+    "About": "About",
+    "Shop": "Shop",
+    "News": "News",
+    "Contact": "Contact",
+    "Subscribe": "Subscribe",
+    "Subscribe-Text": "Subscribe to our mailing list to get the latest updates.",
+    "Email": "Email",
+    "arrow_forward_ios": "arrow_forward_ios",
+    "Copyrights-©-2022": "Copyrights © 2022",
+    "mahmoud-abdelwahab": "mahmoud abdelwahab",
+    "All-Rights-Reserved.": "All Rights Reserved."
   }
 }
