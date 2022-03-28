@@ -1,6 +1,10 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 import { HomeComponent } from './home.component';
+import { HomeService } from './service/home.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +12,9 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      imports: [ HttpClientTestingModule, RouterTestingModule],
+      declarations: [ HomeComponent ],
+      providers: [ HomeService, SharedService ]
     })
     .compileComponents();
   });

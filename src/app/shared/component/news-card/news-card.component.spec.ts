@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MomentPipe } from '../../pipe/MomentPipe';
 
 import { NewsCardComponent } from './news-card.component';
 
@@ -8,7 +9,8 @@ describe('NewsCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewsCardComponent ]
+      declarations: [ NewsCardComponent ],
+      providers: [MomentPipe]
     })
     .compileComponents();
   });

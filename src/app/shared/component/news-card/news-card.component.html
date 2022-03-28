@@ -1,4 +1,4 @@
-<div id="news-card" class="card secondary-background">
+<div id="news-card" class="card secondary-background" *ngIf="singleNews">
   <img class="card-img-top" [src]=singleNews.img alt="Card image cap" (click)="singleNewsSelected.emit(singleNews)">
   <div class="card-body">
     <h5 class="card-title" (click)="singleNewsSelected.emit(singleNews)" translate>News-Card.{{ singleNews.title }}</h5>

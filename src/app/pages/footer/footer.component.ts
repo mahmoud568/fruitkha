@@ -16,7 +16,6 @@ export class FooterComponent implements OnInit {
   }
 
   onSubscribe(f: NgForm) {
-    console.log(f.value)
     this.footerService.onSubscribe(f.value).subscribe(res => console.log(res));
   }
 }

@@ -1,4 +1,4 @@
-<div class="card secondary-background" id="card">
+<div class="card secondary-background" id="card" *ngIf="fruit">
   <img class="card-img-top" [src]=fruit.fruitImg alt="Card image cap" (click)="fruitSelected.emit(fruit)">
   <div class="card-body">
     <h5 class="card-title" translate>Fruits.{{ fruit.fruitName }}</h5>
