@@ -15,36 +15,48 @@ import { ShopComponent } from './pages/shop/shop.component';
 import { SingleProductComponent } from './pages/shop/single-product/single-product.component';
 
 const routes: Routes = [
-  {path: 'Home', component: HomeComponent, children:
-  [
-    {path: '', redirectTo: 'Static', pathMatch: 'full'},
-    {path: 'Static', component: StaticHomeComponent},
-    {path: 'Slider', component: SliderHomeComponent}
-  ]
-},
-  {path: '', redirectTo: '/Home', pathMatch: 'full'},
-  {path: 'About', component: AboutComponent},
-  {path: 'Cart', component: CartComponent},
-  {path: 'Checkout', component: CheckoutComponent},
-  {path: 'Contact', component: ContactComponent},
-  {path: 'News', component: NewsComponent, children: [
-    {
-      path:'Single-News/:id', component: SingleNewsComponent
-    }
-  ]},
-  {path: 'Shop', component: ShopComponent, children: [
-    {
-      path:'Single-Product/:id', component: SingleProductComponent
-    }
-  ]},
-  {path: 'Search', component: SearchComponent},
-  {path: '404', component: NotFoundComponent},
+  {
+    path: 'Home',
+    component: HomeComponent,
+    children: [
+      { path: 'Static', component: StaticHomeComponent },
+      { path: 'Slider', component: SliderHomeComponent },
+      { path: '', redirectTo: 'Static', pathMatch: 'full' },
+    ],
+  },
+  { path: '', redirectTo: '/Home/Static', pathMatch: 'full' },
+  { path: 'About', component: AboutComponent },
+  { path: 'Cart', component: CartComponent },
+  { path: 'Checkout', component: CheckoutComponent },
+  { path: 'Contact', component: ContactComponent },
+  {
+    path: 'News',
+    component: NewsComponent,
+    children: [
+      {
+        path: 'Single-News/:id',
+        component: SingleNewsComponent,
+      },
+    ],
+  },
+  {
+    path: 'Shop',
+    component: ShopComponent,
+    children: [
+      {
+        path: 'Single-Product/:id',
+        component: SingleProductComponent,
+      },
+    ],
+  },
+  { path: 'Search', component: SearchComponent },
+  { path: '404', component: NotFoundComponent },
 
-  {path: '**', component: NotFoundComponent},
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
