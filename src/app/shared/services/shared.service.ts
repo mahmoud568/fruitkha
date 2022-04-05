@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-const BASE_URL = 'http://localhost:3000/';
+const BASE_URL = 'https://fruitkha.herokuapp.com/';
 @Injectable({
   providedIn: 'root',
 })

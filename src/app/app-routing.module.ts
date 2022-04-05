@@ -17,12 +17,12 @@ import { SingleProductComponent } from './pages/shop/single-product/single-produ
 const routes: Routes = [
   {path: 'Home', component: HomeComponent, children:
   [
-    {path: '', redirectTo: 'Static', pathMatch: 'full'},
     {path: 'Static', component: StaticHomeComponent},
-    {path: 'Slider', component: SliderHomeComponent}
+    {path: 'Slider', component: SliderHomeComponent},
+    {path: '', redirectTo: 'Static', pathMatch: 'full'}
   ]
 },
-  {path: '', redirectTo: '/Home', pathMatch: 'full'},
+{ path: '', redirectTo: '/Home/Static', pathMatch: 'full' },
   {path: 'About', component: AboutComponent},
   {path: 'Cart', component: CartComponent},
   {path: 'Checkout', component: CheckoutComponent},

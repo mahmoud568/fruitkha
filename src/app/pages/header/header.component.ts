@@ -44,32 +44,37 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCurrencyExchangerate();
-    let lang = localStorage.getItem('lang');
-    if (lang) this.changeLangage(lang);
-    else this.changeLangage('en');
-    let theme = localStorage.getItem('theme');
-    if (theme) this.changeThemeCssFile(theme);
-    else this.changeThemeCssFile('light');
-    let currancy = localStorage.getItem('currency');
-    setTimeout(() => {
-      if (currancy) this.onCurrencyChange(currancy);
-      else this.onCurrencyChange('USD');
-    }, 500);
-
-
-    //call currance on changes so the currancy pipe dont break on route changes
-    //@ts-ignore
-    this.router.events.pipe(filter(event => event instanceof NavigationStart)).subscribe((event: NavigationStart) => {
-      setTimeout(() => {
-      let currancy = localStorage.getItem('currency');
-      if (currancy) this.onCurrencyChange(currancy);
-      else this.onCurrencyChange('USD');
-      }, 500);
-    });
-
+    this.getSureIfthebackendWork();
   }
 
+  // get sure that the heroku is working before calling anything
+  getSureIfthebackendWork() {
+    this.headerService.getSureIfthebackendWork().subscribe (res => {
+      this.getCurrencyExchangerate();
+      let lang = localStorage.getItem('lang');
+      if (lang) this.changeLangage(lang);
+      else this.changeLangage('en');
+      let theme = localStorage.getItem('theme');
+      if (theme) this.changeThemeCssFile(theme);
+      else this.changeThemeCssFile('light');
+      let currancy = localStorage.getItem('currency');
+      setTimeout(() => {
+        if (currancy) this.onCurrencyChange(currancy);
+        else this.onCurrencyChange('USD');
+      }, 500);
+
+      //call currance on changes so the currancy pipe dont break on route changes
+      setTimeout(() => {
+        //@ts-ignore
+        this.router.events.pipe(filter((event) => event instanceof NavigationStart)).subscribe((event: NavigationStart) => {
+            let currancy = localStorage.getItem('currency');
+            console.log("this")
+            if (currancy) this.onCurrencyChange(currancy);
+            else this.onCurrencyChange('USD');
+          });
+      }, 1000);
+    })
+  }
   // @ViewChild('navbar') navbar!: ElementRef;
   // @HostListener("window:scroll", []) onWindowScroll() {
   //   // do some stuff here when the window is scrolled
