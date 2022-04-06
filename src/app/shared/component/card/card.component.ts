@@ -1,5 +1,6 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { fruit } from '../../Interface/fruit.model';
+import { SharedService } from '../../services/shared.service';
 import { CardService } from './service/card.service';
 
 @Component({
@@ -8,14 +9,21 @@ import { CardService } from './service/card.service';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  @Input() quantity: number = 0;
+  quantity: number = 0;
   @Input() fruit!: fruit;
   @Input() currency!: string;
   @Input() exchangerate!: number;
   @Output() fruitSelected = new EventEmitter<fruit>();
-  constructor(private cardService: CardService) {}
+  constructor(private cardService: CardService,
+    private sharedService: SharedService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // check  if this fruit exist in cart and if its change the quantity to it
+    let isThisFruitExistInCart = this.sharedService.cart.find((x) => x.fruit.fruitId == this.fruit.fruitId)
+    if (isThisFruitExistInCart) {
+      this.quantity = isThisFruitExistInCart.quantity
+    }
+  }
 
   onAddToCart() {
     this.quantity = 1;

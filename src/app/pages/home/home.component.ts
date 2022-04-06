@@ -78,13 +78,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       .getFruits(3, 1)
       .subscribe((res: any) => {
         this.fruits = res.fruits;
-
-        // if(this.sharedService.cart.some((x) => x.fruit.fruitId == this.fruits.find((fruit) => fruit.fruitId === x.fruit.fruitId)!.fruitId)) {
-        //   console.log('here')
-        // }
-        this.sharedService.cart.some((x) => console.log( x.fruit.fruitId == this.fruits.find((fruit) => fruit.fruitId === x.fruit.fruitId)!.fruitId))
-        // console.log(this.sharedService.cart.some((x) => x.fruit.fruitId == this.fruits.find((fruit) => fruit.fruitId === x.fruit.fruitId)!.fruitId))
-        // console.log(this.sharedService.cart)
       });
   }
 
@@ -92,6 +85,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   getSaleFruit() {
     this.homeService.getSaleFruit().subscribe((res: any) => {
       this.saleFruit = res.saleFruit;
+      let isThisFruitExistInCart = this.sharedService.cart.find((x) => x.fruit.fruitId == this.saleFruit.fruitId)
+    if (isThisFruitExistInCart) {
+      this.saleQuantity = isThisFruitExistInCart.quantity
+    }
       this.saleEndTime = res.saleEndTime;
       this.countDown();
     });

@@ -10,39 +10,8 @@ const BASE_URL = 'http://localhost:3000/';
 export class SharedService {
   isLogedin: boolean = false;
 
-  // cart: { fruit: fruit; quantity: number }[] = [];
-  cart: { fruit: fruit; quantity: number }[] = [
-    {
-        "fruit": {
-            "fruitId": 1,
-            "fruitName": "Apple",
-            "fruitPrice": 1.32,
-            "fruitImg": "http://localhost:3000/Apple.jpg",
-            "fruitSale": 0
-        },
-        "quantity": 1
-    },
-    {
-        "fruit": {
-            "fruitId": 2,
-            "fruitName": "Apricot",
-            "fruitPrice": 2.64,
-            "fruitImg": "http://localhost:3000/apricot.jpg",
-            "fruitSale": 0
-        },
-        "quantity": 1
-    },
-    {
-        "fruit": {
-            "fruitId": 3,
-            "fruitName": "Avocado",
-            "fruitPrice": 1.7,
-            "fruitImg": "http://localhost:3000/avocado.jpg",
-            "fruitSale": 0
-        },
-        "quantity": 2
-    }
-];;
+  cart: { fruit: fruit; quantity: number }[] = [];
+
   constructor(private router: Router, private cardService: CardService) {
     this.cardService.addFruit.subscribe((res) => {
       // check if the cart is empty or this item not exist in it
@@ -54,19 +23,19 @@ export class SharedService {
       } else {
         this.cart.find((x) => x.fruit.fruitId == res.fruit.fruitId)!.quantity =
           res.quantity;
-          // check if any cart items reach 0
-          let IsAnyCartItemQuantityReachZero = this.cart.find((x) => x.quantity == 0)
-          if (IsAnyCartItemQuantityReachZero) {
-            // findthe index of that item and delete it
-            this.cart.splice(this.cart.indexOf(IsAnyCartItemQuantityReachZero), 1);
-          }
+        // check if any cart items reach 0
+        let IsAnyCartItemQuantityReachZero = this.cart.find(
+          (x) => x.quantity == 0
+        );
+        if (IsAnyCartItemQuantityReachZero) {
+          // findthe index of that item and delete it
+          this.cart.splice(
+            this.cart.indexOf(IsAnyCartItemQuantityReachZero),
+            1
+          );
+        }
       }
     });
-  }
-
-  ifExist(cart: { fruit: fruit; quantity: number }) {
-    console.log(cart.fruit.fruitId);
-    return cart.fruit.fruitId === 1;
   }
 
   getBaseUrl() {

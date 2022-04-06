@@ -7,7 +7,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 })
 export class HomeService {
   baseURL: string = "";
-  constructor(private http: HttpClient,private sharedService: SharedService) {
+  constructor(private http: HttpClient, private sharedService: SharedService) {
     this.baseURL = this.sharedService.getBaseUrl();
   }
 
