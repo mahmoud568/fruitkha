@@ -8,7 +8,7 @@ import { CardService } from './service/card.service';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  quantity: number = 0;
+  @Input() quantity: number = 0;
   @Input() fruit!: fruit;
   @Input() currency!: string;
   @Input() exchangerate!: number;

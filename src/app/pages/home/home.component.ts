@@ -7,6 +7,7 @@ import { News } from 'src/app/shared/Interface/news.modal';
 
 import { currencyexchange } from 'src/app/shared/Interface/option.model';
 import { team } from 'src/app/shared/Interface/team.model';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 import { HeaderService } from '../header/service/header.service';
 import { HomeService } from './service/home.service';
@@ -39,7 +40,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     private headerService: HeaderService,
     private cardService: CardService,
     private homeService: HomeService,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit(): void {
@@ -55,7 +57,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.getSaleFruit();
     this.getTeam();
     this.getNews();
-    this.cardService.addFruit.subscribe((res) => console.log(res));
+    // this.cardService.addFruit.subscribe((res) => console.log(res));
   }
 
   ngDoCheck() {
@@ -74,7 +76,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   getFruits() {
     this.homeService
       .getFruits(3, 1)
-      .subscribe((res: any) => (this.fruits = res.fruits));
+      .subscribe((res: any) => {
+        this.fruits = res.fruits;
+
+        // if(this.sharedService.cart.some((x) => x.fruit.fruitId == this.fruits.find((fruit) => fruit.fruitId === x.fruit.fruitId)!.fruitId)) {
+        //   console.log('here')
+        // }
+        this.sharedService.cart.some((x) => console.log( x.fruit.fruitId == this.fruits.find((fruit) => fruit.fruitId === x.fruit.fruitId)!.fruitId))
+        // console.log(this.sharedService.cart.some((x) => x.fruit.fruitId == this.fruits.find((fruit) => fruit.fruitId === x.fruit.fruitId)!.fruitId))
+        // console.log(this.sharedService.cart)
+      });
   }
 
   interval!: ReturnType<typeof setInterval>;
