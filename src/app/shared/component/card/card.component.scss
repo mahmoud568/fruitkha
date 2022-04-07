@@ -78,3 +78,36 @@
     }
   }
 }
+
+.offer {
+  margin: 1rem 1rem;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border: 1px solid #fff;
+  background-color: rgba(242, 129, 35, 0.75);
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f28123;
+    width: 47px;
+    height: 47px;
+    margin: auto;
+    direction: ltr;
+    p {
+      text-align: center;
+      margin-bottom: 0;
+      font-size: 12px;
+      &.percentage {
+        font-weight: bolder;
+      }
+    }
+  }
+}

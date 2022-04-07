@@ -34,9 +34,6 @@ export class CardComponent implements OnInit {
     if (isThisFruitExistInCart) {
       this.quantity = isThisFruitExistInCart.quantity;
     }
-    if (this.fruit.fruitSale! > 0) {
-      console.log('somthing dum');
-    }
   }
   onAddToCart() {
     this.quantity = 1;
