@@ -1,0 +1,53 @@
+.shop {
+  .header {
+    height: 451px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .text-header {
+      color: #f28123;
+      font-weight: 700;
+      letter-spacing: 7px;
+    }
+    .page {
+      font-size: 50px;
+      font-weight: 900;
+    }
+  }
+
+  .main-content {
+    padding: 10rem;
+    .fruit-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3%;
+      margin-bottom: 5rem;
+      app-card {
+        margin-bottom: 3%;
+        width: 30%;
+      }
+    }
+
+    .pagenator {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      .btn {
+        color: #6f6f6f;
+        font-size: 15px;
+        background-color: #f3f3f3;
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 5px;
+        margin: 3px;
+        font-weight: 600;
+        border-radius: 50px;
+        &:active, &:hover, &.active {
+          background-color: #f28123;
+        }
+      }
+    }
+  }
+}

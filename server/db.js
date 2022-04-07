@@ -147,7 +147,7 @@ const fruits = [
     fruitName: "strawberry",
     fruitPrice: 2.75,
     fruitImg: `${baseURL}Strawberry.jpg`,
-    fruitSale: 0,
+    fruitSale: 30,
   },
 ];
 
