@@ -5,7 +5,7 @@
   </div>
   <div class="main-content primary-background">
     <div class="fruit-cards">
-      <app-card *ngFor="let fruit of fruits" [currency]="currency" [exchangerate]="exchangerate" [fruit]="fruit">
+      <app-card *ngFor="let fruit of pages[activePageNumber-1]" [currency]="currency" [exchangerate]="exchangerate" [fruit]="fruit">
       </app-card>
     </div>
     <div class="pagenator">

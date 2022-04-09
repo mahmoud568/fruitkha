@@ -12,14 +12,16 @@ import { ShopService } from './service/shop.service';
   styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit {
-  fruits!: fruit[];
+  pages: fruit[][] = [];
   pagesCount: number[] = [];
   activePageNumber: number = 1;
   currency!: string;
   exchangerate!: number;
   subscrition!: Subscription;
-  constructor(private shopService: ShopService,
-    private headerService: HeaderService) {}
+  constructor(
+    private shopService: ShopService,
+    private headerService: HeaderService
+  ) {}
 
   ngOnInit(): void {
     this.getFruits(1);
@@ -36,17 +38,20 @@ export class ShopComponent implements OnInit {
   }
 
   getFruits(pageNumber: number) {
-    this.shopService.getFruits(6, pageNumber).subscribe((res: any) => {
-      this.fruits = res.fruits;
-      // for styleing the page number
-      this.activePageNumber = pageNumber;
-      // creat pagenator counter only if its empty in first call
-      if(this.pagesCount.length < 1) {
-        for (var i = 1; i <= res.pagesCount; i++) {
-          this.pagesCount.push(i)
+    this.activePageNumber = pageNumber;
+    // only call new data  if it not called before
+    // not the different between pages and array index
+    if (!this.pages[pageNumber - 1]) {
+      this.shopService.getFruits(6, pageNumber).subscribe((res: any) => {
+        // for styleing the page number
+        this.pages[pageNumber - 1] = res.fruits;
+        // creat pagenator counter only if its empty in first call
+        if (this.pagesCount.length < 1) {
+          for (var i = 1; i <= res.pagesCount; i++) {
+            this.pagesCount.push(i);
+          }
         }
-      }
-
-    });
+      });
+    }
   }
 }
