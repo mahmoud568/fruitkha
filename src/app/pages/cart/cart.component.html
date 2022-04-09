@@ -1,1 +1,69 @@
-<p>cart works!</p>
+<div class="cart" id="cart">
+  <div class="header header-background">
+    <p class="text-header" translate>FRESH AND ORGANIC</p>
+    <p class="page" translate>Cart</p>
+  </div>
+  <div class="main-content primary-background">
+    <div class="cart-content" *ngIf="cart">
+      <div class="items-table">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Product Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cart">
+              <th scope="row">x</th>
+              <td><img src={{item.fruit.fruitImg}} alt=""></td>
+              <td>{{ item.fruit.fruitName }}</td>
+              <td>{{ item.fruit.fruitPrice * exchangerate | currency: currency :"symbol" }}</td>
+              <td>
+                <input class="input secondary-background" type="number" [(ngModel)]="item.quantity " min="0"
+                  (keyup)="onTypeOnInput()">
+              </td>
+              <td>{{ item.fruit.fruitPrice * item.quantity * exchangerate | currency: currency :"symbol" }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="submitting">
+        <div class="check-out">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Total</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Subtotal:</th>
+                <th scope="row">{{ Subtotal * exchangerate | currency: currency :"symbol"  }}</th>
+              </tr>
+              <tr>
+                <th scope="row">Shipping:</th>
+                <th scope="row">{{ Shipping * exchangerate | currency: currency :"symbol"  }}</th>
+              </tr>
+              <tr>
+                <th scope="row">Total:</th>
+                <th scope="row">{{ (Subtotal + Shipping) * exchangerate | currency: currency :"symbol"  }}</th>
+              </tr>
+            </tbody>
+          </table>
+          <div class="check-out-btns">
+            <div class="btn collection text-color button-hover" routerLink="/Shop" translate>Home.Fruit-Collection</div>
+            <div class="btn contact-us text-color" routerLink="/Contact" translate>Home.Contact-Us</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-empty" *ngIf="!cart">cart empty</div>
+  </div>
+</div>
