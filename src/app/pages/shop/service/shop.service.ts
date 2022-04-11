@@ -5,7 +5,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService {
+export class ShopService {
   baseURL: string = "";
   constructor(private http: HttpClient, private sharedService: SharedService) {
     this.baseURL = this.sharedService.getBaseUrl();
@@ -16,16 +16,4 @@ export class HomeService {
     return this.http.get(`${this.baseURL}fruits?pageSize=${pageSize}&pageNumber=${pageNumber}`);
   }
 
-  getSaleFruit() {
-    return this.http.get(`${this.baseURL}sale-fruit`);
-  }
-
-  getTeam() {
-    return this.http.get(`${this.baseURL}team`);
-  }
-
-  // get news by size and page number
-  getNews(pageSize: number, pageNumber: number) {
-    return this.http.get(`${this.baseURL}news?pageSize=${pageSize}&pageNumber=${pageNumber}`);
-  }
 }

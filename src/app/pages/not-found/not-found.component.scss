@@ -1,0 +1,29 @@
+.not-found {
+    .header {
+      height: 451px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .text-header {
+        color: #f28123;
+        font-weight: 700;
+        letter-spacing: 7px;
+      }
+      .page {
+        font-size: 50px;
+        font-weight: 900;
+        letter-spacing: 7px;
+        @media screen and (max-width: 767px) {
+          font-size: 30px;
+        }
+      }
+    }
+
+    .main-content {
+      padding: 5%;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }

@@ -19,7 +19,4 @@ export class HeaderService {
     return this.http.get(`${this.BASE_URL}exchangerate`);
   }
 
-  getSureIfthebackendWork() {
-    return this.http.get(`${this.BASE_URL}`);
-  }
 }

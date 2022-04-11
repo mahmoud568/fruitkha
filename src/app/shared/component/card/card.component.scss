@@ -1,13 +1,20 @@
 .card {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0;
+  color: black;
+  max-width: 360px;
+  min-height: 524px;
+  @media screen and (max-width: 1200px) {
+    max-width: 320px;
+  }
+  @media screen and (max-width: 767px) {
+    max-width: 90%;
+    min-height: fit-content;
+  }
   &:hover {
     box-shadow: none;
   }
-  color: black;
-  max-width: 360px;
-  height: 524px;
   .card-img-top {
     cursor: pointer;
     border-radius: 10px 10px 0 0;
@@ -57,7 +64,6 @@
       .input,
       .increase {
         border: 1px solid #f28123;
-
       }
 
       .decrease,
@@ -74,6 +80,39 @@
           -webkit-appearance: none;
           margin: 0;
         }
+      }
+    }
+  }
+}
+
+.offer {
+  margin: 1rem 1rem;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border: 1px solid #fff;
+  background-color: rgba(242, 129, 35, 0.75);
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f28123;
+    width: 47px;
+    height: 47px;
+    margin: auto;
+    direction: ltr;
+    p {
+      text-align: center;
+      margin-bottom: 0;
+      font-size: 12px;
+      &.percentage {
+        font-weight: bolder;
       }
     }
   }

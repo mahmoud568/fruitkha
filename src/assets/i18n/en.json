@@ -94,7 +94,8 @@
     "Grape": "Grape",
     "Guava": "Guava",
     "Kiwi": "Kiwi",
-    "strawberry": "strawberry"
+    "strawberry": "strawberry",
+    "off": "off"
   },
   "footer": {
     "About-us": "About us",
@@ -112,5 +113,27 @@
     "Copyrights-©-2022": "Copyrights © 2022",
     "mahmoud-abdelwahab": "mahmoud abdelwahab",
     "All-Rights-Reserved.": "All Rights Reserved."
+  },
+  "SHOP": {
+    "Shop": "Shop",
+    "FRESH-AND-ORGANIC": "FRESH AND ORGANIC",
+    "Prev": "Prev",
+    "Next": "Next"
+  },
+  "CART": {
+    "FRESH-AND-ORGANIC": "FRESH AND ORGANIC",
+    "Cart": "Cart",
+    "Product-Image": "Product Image",
+    "Name": "Name",
+    "Price": "Price",
+    "Quantity": "Quantity",
+    "Total": "Total",
+    "Subtotal": "Subtotal",
+    "Shipping": "Shipping",
+    "Update-Cart": "Update Cart",
+    "Check-Out": "Check Out",
+    "Apply-Coupon": "Apply Coupon",
+    "Shop-Now": "Shop Now",
+    "APPLY": "APPLY"
   }
 }

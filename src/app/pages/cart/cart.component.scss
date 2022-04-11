@@ -1,0 +1,184 @@
+.cart {
+  .header {
+    height: 451px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .text-header {
+      color: #f28123;
+      font-weight: 700;
+      letter-spacing: 7px;
+    }
+    .page {
+      font-size: 50px;
+      font-weight: 900;
+      letter-spacing: 7px;
+      @media screen and (max-width: 767px) {
+        font-size: 30px;
+      }
+    }
+  }
+
+  .main-content {
+    padding: 10%;
+    .cart-content {
+      display: flex;
+      justify-content: center;
+      @media screen and (max-width: 991px) {
+        flex-direction: column;
+      }
+      gap: 2%;
+
+      .items-table {
+        flex-basis: 60%;
+        @media screen and (max-width: 991px) {
+          flex-basis: 100%;
+        }
+        .table {
+          tr,
+          th,
+          td {
+            font-weight: 500;
+            text-align: center;
+            padding: 20px 0;
+            border: 1px solid #efefef;
+          }
+
+          img {
+            width: 3rem;
+          }
+
+          .input {
+            text-align: center;
+            width: 4rem;
+            margin: auto;
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+          }
+
+          .material-icons {
+            cursor: pointer;
+            &:hover {
+              color: red;
+            }
+          }
+
+          // table style  in small screen
+          @media screen and (min-width: 991px) {
+            td {
+              span {
+                display: none;
+              }
+            }
+          }
+          @media screen and (max-width: 991px) {
+            thead {
+              display: none;
+            }
+            // to reverce delete tbn in small screan
+            .delete {
+              order: 1;
+            }
+            tbody > tr {
+              display: flex;
+              flex-direction: column;
+              margin-bottom: 1.5rem;
+            }
+            .input {
+              margin: 0;
+            }
+            td {
+              display: flex;
+              padding: 10px;
+              span {
+                flex-basis: 50%;
+              }
+            }
+          }
+          //end of table style  in small screen
+        }
+      }
+
+      .submitting {
+        flex-basis: 30%;
+        @media screen and (max-width: 991px) {
+          flex-basis: 100%;
+        }
+        // this style applys to all btns in submitting
+        .btn {
+          border-radius: 50px;
+          line-height: 1.5rem;
+          width: 7rem;
+          background-color: #f28123;
+          font-size: 0.9rem;
+          &:hover {
+            color: #f28123;
+          }
+        }
+
+        .check-out {
+          .table {
+            tr,
+            th,
+            td {
+              font-weight: 500;
+              padding: 20px;
+              border: 1px solid #efefef;
+            }
+            tbody > tr > th:first-child {
+              font-weight: 1000;
+            }
+          }
+          .check-out-btns {
+            display: flex;
+            width: 100%;
+            gap: 10px;
+          }
+        }
+        .coupon {
+          margin: 30px 0;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          p {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 500;
+          }
+          .input {
+            height: 3.2rem;
+          }
+          .btn {
+            font-weight: 700;
+            font-size: 15px;
+            padding: 15px 25px;
+          }
+        }
+      }
+    }
+
+    .cart-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p {
+        font-size: 3rem;
+        font-weight: 700;
+      }
+      .btn {
+        border-radius: 50px;
+        line-height: 1.5rem;
+        width: 7rem;
+        background-color: #f28123;
+        font-size: 1rem;
+        &:hover {
+          color: #f28123;
+        }
+      }
+    }
+  }
+}

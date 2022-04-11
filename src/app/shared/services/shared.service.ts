@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { CardService } from '../component/card/service/card.service';
+import { fruit } from '../Interface/fruit.model';
 
 const BASE_URL = 'https://fruitkha.herokuapp.com/';
 @Injectable({
@@ -7,7 +9,35 @@ const BASE_URL = 'https://fruitkha.herokuapp.com/';
 })
 export class SharedService {
   isLogedin: boolean = false;
-  constructor(private router: Router) {}
+
+  cart: { fruit: fruit; quantity: number }[] = [] ;
+
+
+  constructor(private router: Router, private cardService: CardService) {
+    this.cardService.addFruit.subscribe((res) => {
+      // check if the cart is empty or this item not exist in it
+      if (
+        this.cart.length == 0 ||
+        !this.cart.some((x) => x.fruit.fruitId == res.fruit.fruitId)
+      ) {
+        this.cart.push(res);
+      } else {
+        this.cart.find((x) => x.fruit.fruitId == res.fruit.fruitId)!.quantity =
+          res.quantity;
+        // check if any cart items reach 0
+        let IsAnyCartItemQuantityReachZero = this.cart.find(
+          (x) => x.quantity == 0
+        );
+        if (IsAnyCartItemQuantityReachZero) {
+          // findthe index of that item and delete it
+          this.cart.splice(
+            this.cart.indexOf(IsAnyCartItemQuantityReachZero),
+            1
+          );
+        }
+      }
+    });
+  }
 
   getBaseUrl() {
     return `${BASE_URL}`;
@@ -18,5 +48,4 @@ export class SharedService {
       .navigateByUrl('/refresh', { skipLocationChange: true })
       .then(() => this.router.navigate([uri]));
   }
-
 }

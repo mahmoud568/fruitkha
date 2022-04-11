@@ -1,5 +1,13 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { fruit } from '../../Interface/fruit.model';
+import { SharedService } from '../../services/shared.service';
 import { CardService } from './service/card.service';
 
 @Component({
@@ -13,10 +21,20 @@ export class CardComponent implements OnInit {
   @Input() currency!: string;
   @Input() exchangerate!: number;
   @Output() fruitSelected = new EventEmitter<fruit>();
-  constructor(private cardService: CardService) {}
+  constructor(
+    private cardService: CardService,
+    private sharedService: SharedService
+  ) {}
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+    // check  if this fruit exist in cart and if its change the quantity to it
+    let isThisFruitExistInCart = this.sharedService.cart.find(
+      (x) => x.fruit.fruitId == this.fruit.fruitId
+    );
+    if (isThisFruitExistInCart) {
+      this.quantity = isThisFruitExistInCart.quantity;
+    }
+  }
   onAddToCart() {
     this.quantity = 1;
     this.emitToCart();
@@ -30,20 +48,19 @@ export class CardComponent implements OnInit {
 
   onDecreaseQuantity() {
     this.quantity -= 1;
-    if(this.quantity < 0) {
+    if (this.quantity < 0) {
       this.quantity = 0;
     }
     this.emitToCart();
   }
 
   onTypeOnInput() {
-    if(this.quantity < 0) {
+    if (this.quantity < 0) {
       this.quantity = 0;
     }
-    if(this.quantity) {
-      this.emitToCart()
+    if (this.quantity) {
+      this.emitToCart();
     }
-
   }
 
   emitToCart() {
