@@ -395,7 +395,8 @@ let comments = [
   },
 ];
 
-subscribes = []
+let subscribes = [];
+let coupons = ['12345', '0000', '1234', '1111']
 
 app.get("/exchangerate", function (req, res) {
   if (Object.keys(exchangerate).length !== 0) {
@@ -492,12 +493,27 @@ app.get("/comment", function (req, res) {
 
 // edit customer by id
 app.post("/subscribe", function (req, res) {
-  var email = JSON.parse(req.body.email);
+  const email = JSON.parse(req.body.email);
   subscribes.push(email)
   return res.json({
     status: "success",
     details: "user subscribe successfuly",
   });
+});
+
+app.post("/coupon", function (req, res) {
+  const coupon = JSON.parse(req.body.coupon);
+  if(coupons.find(item => item === coupon)) {
+    return res.json({
+      status: "success",
+      discount: 10,
+    });
+  } else {
+    return res.json({
+      status: "error",
+      discount: 0,
+    });
+  }
 });
 
 app.get("/", function (req, res) {

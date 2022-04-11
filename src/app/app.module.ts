@@ -21,10 +21,8 @@ import { StaticHomeComponent } from './pages/home/static-home/static-home.compon
 import { SliderHomeComponent } from './pages/home/slider-home/slider-home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { NewsComponent } from './pages/news/news.component';
-import { SingleNewsComponent } from './pages/news/single-news/single-news.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ShopComponent } from './pages/shop/shop.component';
-import { SingleProductComponent } from './pages/shop/single-product/single-product.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { SearchComponent } from './pages/search/search.component';
@@ -34,6 +32,9 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { NewsCardComponent } from './shared/component/news-card/news-card.component';
 import { MomentPipe } from './shared/pipe/MomentPipe';
 import { BrandsComponent } from './pages/brands/brands.component';
+import { NgbdModalConfirmComponent } from './shared/component/ngbd-modal-confirm/ngbd-modal-confirm.component';
+import { SingleProductComponent } from './pages/single-product/single-product.component';
+import { SingleNewsComponent } from './pages/single-news/single-news.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -63,7 +64,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     NewsCardComponent,
     MomentPipe,
-    BrandsComponent
+    BrandsComponent,
+    NgbdModalConfirmComponent
   ],
   imports: [
     BrowserModule,

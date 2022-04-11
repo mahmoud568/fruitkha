@@ -119,6 +119,21 @@
     "FRESH-AND-ORGANIC": "طازج و عضوي",
     "Prev": "السابق",
     "Next": "التالي"
-
+  },
+  "CART": {
+    "FRESH-AND-ORGANIC": "طازجة وعضوية",
+    "Cart": "ربة التسوق",
+    "Product-Image": "صورة المنتج",
+    "Name": "اسم",
+    "Price": "السعر",
+    "Quantity": "كمية",
+    "Total": "إجمالي",
+    "Subtotal": "حاصل الجمع",
+    "Shipping": "شحن",
+    "Update-Cart": "تحديث سلة التسوق",
+    "Check-Out": "الدفع",
+    "Apply-Coupon": "تطبيق القسيمة",
+    "Shop-Now": "تسوق الآن",
+    "APPLY": "طبق"
   }
 }

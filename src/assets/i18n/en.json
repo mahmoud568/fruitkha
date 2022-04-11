@@ -119,5 +119,21 @@
     "FRESH-AND-ORGANIC": "FRESH AND ORGANIC",
     "Prev": "Prev",
     "Next": "Next"
+  },
+  "CART": {
+    "FRESH-AND-ORGANIC": "FRESH AND ORGANIC",
+    "Cart": "Cart",
+    "Product-Image": "Product Image",
+    "Name": "Name",
+    "Price": "Price",
+    "Quantity": "Quantity",
+    "Total": "Total",
+    "Subtotal": "Subtotal",
+    "Shipping": "Shipping",
+    "Update-Cart": "Update Cart",
+    "Check-Out": "Check Out",
+    "Apply-Coupon": "Apply Coupon",
+    "Shop-Now": "Shop Now",
+    "APPLY": "APPLY"
   }
 }

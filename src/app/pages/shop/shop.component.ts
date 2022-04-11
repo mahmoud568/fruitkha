@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { fruit } from 'src/app/shared/Interface/fruit.model';
 import { currencyexchange } from 'src/app/shared/Interface/option.model';
@@ -20,7 +21,8 @@ export class ShopComponent implements OnInit {
   subscrition!: Subscription;
   constructor(
     private shopService: ShopService,
-    private headerService: HeaderService
+    private headerService: HeaderService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -53,5 +55,8 @@ export class ShopComponent implements OnInit {
         }
       });
     }
+  }
+  onFruitSelect(fruit: fruit) {
+    this.router.navigate(['../Single-Product', fruit.fruitId]);
   }
 }

@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   // use function instead of router link to listen to special event not every click
   onFruitSelect(fruit: fruit) {
-    this.router.navigate(['../Shop/Single-Product', fruit.fruitId]);
+    this.router.navigate(['../Single-Product', fruit.fruitId]);
   }
 
   getFruits() {
@@ -159,6 +159,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   // use function instead of router link to listen to special event not every click
   ongSingleNewsSelected(singleNews: News) {
-    this.router.navigate(['../Shop/Single-Product', singleNews.id]);
+    this.router.navigate(['../Single-Product', singleNews.id]);
   }
 }

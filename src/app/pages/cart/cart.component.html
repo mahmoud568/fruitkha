@@ -1,33 +1,38 @@
 <div class="cart" id="cart">
   <div class="header header-background">
-    <p class="text-header" translate>FRESH AND ORGANIC</p>
-    <p class="page" translate>Cart</p>
+    <p class="text-header" translate>CART.FRESH-AND-ORGANIC</p>
+    <p class="page" translate>CART.Cart</p>
   </div>
   <div class="main-content primary-background">
-    <div class="cart-content" *ngIf="cart">
+    <div class="cart-content" *ngIf="this.cart">
       <div class="items-table">
-        <table class="table table-bordered">
-          <thead>
+        <table class="table table-borderless">
+          <thead class="secondary-background">
             <tr>
               <th scope="col"></th>
-              <th scope="col">Product Image</th>
-              <th scope="col">Name</th>
-              <th scope="col">Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Total</th>
+              <th scope="col" translate>CART.Product-Image</th>
+              <th scope="col" translate>CART.Name</th>
+              <th scope="col" translate>CART.Price</th>
+              <th scope="col" translate>CART.Quantity</th>
+              <th scope="col" translate>CART.Total</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="primary-background">
             <tr *ngFor="let item of cart">
-              <th scope="row">x</th>
-              <td><img src={{item.fruit.fruitImg}} alt=""></td>
-              <td>{{ item.fruit.fruitName }}</td>
-              <td>{{ item.fruit.fruitPrice * exchangerate | currency: currency :"symbol" }}</td>
-              <td>
-                <input class="input secondary-background" type="number" [(ngModel)]="item.quantity " min="0"
-                  (keyup)="onTypeOnInput()">
+              <th class="delete" scope="col">
+                <span class="material-icons" (click)="onDelete(item)">
+                  delete_forever
+                </span>
+              </th>
+              <td><span translate>CART.Product-Image<span> :</span></span><img src={{item.fruit.fruitImg}} alt=""></td>
+              <td translate><span translate>CART.Name<span> :</span></span>Fruits.{{ item.fruit.fruitName }}</td>
+              <td><span translate>CART.Price<span> :</span></span>{{ item.fruit.fruitPrice * exchangerate | currency: currency :"symbol" }}</td>
+              <td><span translate>CART.Quantity<span> :</span></span>
+                <input class="input form-control" type="number" [(ngModel)]="item.quantity " min="0"
+                  (keyup)="onTypeOnInput(item)">
               </td>
-              <td>{{ item.fruit.fruitPrice * item.quantity * exchangerate | currency: currency :"symbol" }}</td>
+              <td>
+                <span translate>CART.Total<span> :</span></span>{{ item.fruit.fruitPrice * item.quantity * exchangerate | currency: currency :"symbol" }}</td>
             </tr>
           </tbody>
         </table>
@@ -35,35 +40,47 @@
 
       <div class="submitting">
         <div class="check-out">
-          <table class="table table-bordered">
-            <thead>
+          <table class="table table-borderless">
+            <thead class="secondary-background">
               <tr>
-                <th scope="col">Total</th>
-                <th scope="col">Price</th>
+                <th scope="col" translate>CART.Total</th>
+                <th scope="col" translate>CART.Price</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="primary-background">
               <tr>
-                <th scope="row">Subtotal:</th>
+                <th scope="row" translate>CART.Subtotal <span>:</span></th>
                 <th scope="row">{{ Subtotal * exchangerate | currency: currency :"symbol"  }}</th>
               </tr>
               <tr>
-                <th scope="row">Shipping:</th>
+                <th scope="row" translate>CART.Shipping <span>:</span></th>
                 <th scope="row">{{ Shipping * exchangerate | currency: currency :"symbol"  }}</th>
               </tr>
               <tr>
-                <th scope="row">Total:</th>
-                <th scope="row">{{ (Subtotal + Shipping) * exchangerate | currency: currency :"symbol"  }}</th>
+                <th scope="row" translate>CART.Total <span>:</span></th>
+                <th *ngIf="discount == 0" scope="row">{{ (Subtotal + Shipping) * exchangerate | currency: currency :"symbol"  }}</th>
               </tr>
             </tbody>
           </table>
           <div class="check-out-btns">
-            <div class="btn collection text-color button-hover" routerLink="/Shop" translate>Home.Fruit-Collection</div>
-            <div class="btn contact-us text-color" routerLink="/Contact" translate>Home.Contact-Us</div>
+            <button class="btn text-color button-hover" (click)="onUpadeCart()" translate>CART.Update-Cart</button>
+            <button class="btn text-color button-hover"  [disabled]="cart.length == 0" routerLink="/Checkout" translate>CART.Check-Out</button>
           </div>
+        </div>
+        <div class="coupon">
+          <p translate>CART.Apply-Coupon</p>
+          <input class="input form-control primary-background" #Coupon type="string" placeholder="Coupon">
+          <button
+          class="btn button-hover"
+          (click)="submitCoupon(Coupon.value)"
+          [disabled]="cart.length == 0 || Coupon.value.length < 4"
+          translate>CART.APPLY</button>
         </div>
       </div>
     </div>
-    <div class="cart-empty" *ngIf="!cart">cart empty</div>
+    <div class="cart-empty" *ngIf="this.cart.length <= 0">
+      <p>cart is empty</p>
+      <button class="btn text-color button-hover" routerLink="/Shop" translate>Shop Now</button>
+    </div>
   </div>
 </div>
