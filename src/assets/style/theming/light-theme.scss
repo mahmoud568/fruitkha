@@ -140,6 +140,15 @@ $Firefly: #0c1923;
     }
   }
   }
+}
 
+#single-product {
+
+    .decrease,
+  .increase {
+    &:hover {
+      color: $Black-solid;
+    }
+  }
 
 }

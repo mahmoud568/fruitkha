@@ -8,20 +8,11 @@
       padding-right: 10%;
     }
   }
-
-  .sales {
-    .quantity-container {
-      .decrease {
-        border-radius: 0 10px 10px 0;
-      }
-      .increase {
-        border-radius: 10px 0 0 10px;
-      }
-    }
-  }
 }
 
-#card {
+#card,
+#home,
+#single-product {
   .quantity-container {
     .decrease {
       border-radius: 0 10px 10px 0;

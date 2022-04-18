@@ -63,7 +63,8 @@
     "Sale!": "تخفيض السعر!",
     "Upto": "يصل إلى",
     "off": "خصم",
-    "Shop-Now": "تسوق الآن"
+    "Shop-Now": "تسوق الآن",
+    "More-News": "اخبار اكثر"
   },
   "News-Card": {
     "You will vainly look for fruit on it in autumn.": ".سوف تبحث عبثًا عن الفاكهة عليها في الخريف.",
@@ -135,5 +136,13 @@
     "Apply-Coupon": "تطبيق القسيمة",
     "Shop-Now": "تسوق الآن",
     "APPLY": "طبق"
+  },
+  "SINGLE-PRODUCT": {
+    "SEE-MORE-DETAILS": "انظر المزيد من التفاصيل",
+    "Single-Product": "منتج واحد",
+    "Per-Kg": "لكل ك ج",
+    "Add-to-Cart": "اضف اللي العربة",
+    "Share": "شارك",
+    "Shop-Now": "تسوق الآن"
   }
 }

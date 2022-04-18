@@ -63,7 +63,8 @@
     "Sale!": "Sale!",
     "Upto": "Upto",
     "off": "off",
-    "Shop-Now": "Shop Now"
+    "Shop-Now": "Shop Now",
+    "More-News": "More News"
   },
   "News-Card": {
     "You will vainly look for fruit on it in autumn.": "You will vainly look for fruit on it in autumn.",
@@ -135,5 +136,13 @@
     "Apply-Coupon": "Apply Coupon",
     "Shop-Now": "Shop Now",
     "APPLY": "APPLY"
+  },
+  "SINGLE-PRODUCT": {
+    "SEE-MORE-DETAILS": "SEE MORE DETAILS",
+    "Single-Product": "Single Product",
+    "Per-Kg": "Per Kg",
+    "Add-to-Cart": "Add to Cart",
+    "Share": "Share",
+    "Shop-Now": "Shop Now"
   }
 }
