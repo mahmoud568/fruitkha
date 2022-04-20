@@ -597,7 +597,7 @@ app.get("/team", function (req, res) {
 app.get("/news", function (req, res) {
   let pageSize = req.query.pageSize;
   let pageNumber = req.query.pageNumber;
-  let pagesCount = Math.ceil(fruits.length / pageSize);
+  let pagesCount = Math.ceil(news.length / pageSize);
   let newsArrayStart = pageSize * (pageNumber - 1);
   let newsArrayend = pageSize * pageNumber;
   if (pageNumber > pagesCount) {
@@ -614,18 +614,20 @@ app.get("/news", function (req, res) {
   }
 });
 
-app.get("/comment", function (req, res) {
+app.get("/single-news", function (req, res) {
   const newsID = parseInt(req.query.id);
   let comment = comments.find((x) => x.newsID === newsID);
+  let singleNews = news.find((x) => x.id === newsID);
   if (comment) {
     res.json({
       status: "success",
+      singleNews: singleNews,
       comment: comment,
     });
   } else {
     res.json({
       status: "error",
-      comment: "there is not comments",
+      singleNews: "there is not singleNews",
     });
   }
 });

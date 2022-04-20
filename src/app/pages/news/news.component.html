@@ -1,10 +1,24 @@
 <div class="news" id="news">
     <div class="header header-background">
-        <p class="text-header">ORGANIC INFORMATION</p>
-        <p class="page">News Article</p>
+        <p class="text-header" translate>NEWS.ORGANIC-INFORMATION</p>
+        <p class="page" translate>NEWS.News-Article</p>
       </div>
 
       <div class="main-content primary-background">
-        this page still under development please chack main page and shoping and cart pages
+        <div class="cards">
+          <app-news-card
+          *ngFor="let singleNews of pages[activePageNumber-1]"
+          [singleNews]="singleNews"
+          (singleNewsSelected)="onSingleNewsSelect($event)">
+          </app-news-card>
+        </div>
+        <div class="pagenator">
+          <button class="btn" (click)="getNews(activePageNumber-1)" [disabled]="activePageNumber === 1" translate>NEWS.Prev</button>
+          <button class="btn" [ngClass]="{'active': page === activePageNumber}"
+            *ngFor="let page of pagesCount" (click)="getNews(page)">
+            {{ page }}
+          </button>
+          <button class="btn" (click)="getNews(activePageNumber+1)" [disabled]="activePageNumber === pagesCount.length" translate>NEWS.Next</button>
+        </div>
       </div>
 </div>

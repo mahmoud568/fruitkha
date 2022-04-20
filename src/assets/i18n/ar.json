@@ -144,5 +144,11 @@
     "Add-to-Cart": "اضف اللي العربة",
     "Share": "شارك",
     "Shop-Now": "تسوق الآن"
+  },
+  "NEWS": {
+    "ORGANIC-INFORMATION": "المعلومات العضوية",
+    "News-Article": "مقال إخباري",
+    "Prev": "السابق",
+    "Next": "التالي"
   }
 }

@@ -144,5 +144,11 @@
     "Add-to-Cart": "Add to Cart",
     "Share": "Share",
     "Shop-Now": "Shop Now"
+  },
+  "NEWS": {
+    "ORGANIC-INFORMATION": "ORGANIC INFORMATION",
+    "News-Article": "News Article",
+    "Prev": "Prev",
+    "Next": "Next"
   }
 }
