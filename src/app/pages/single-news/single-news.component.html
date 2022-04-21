@@ -1,10 +1,90 @@
 <div class="single-news" id="single-news">
-    <div class="header header-background">
-        <p class="text-header">READ THE DETAILS</p>
-        <p class="page">Single Article</p>
-      </div>
+  <div class="header header-background">
+    <p class="text-header">READ THE DETAILS</p>
+    <p class="page">Single Article</p>
+  </div>
 
-      <div class="main-content primary-background">
-        this page still under development please chack main page and shoping and cart pages
+  <div class="main-content primary-background">
+    <div class="news" *ngIf="singleNews">
+      <div class="img">
+        <img [src]=singleNews.img alt="">
+        <h6>
+          <span translate>
+            <span class="material-icons">
+              person
+            </span>
+            News-Card.{{ singleNews.createdBy }}
+          </span>
+          <span>
+            <span class="material-icons">
+              calendar_today
+            </span>
+            {{ singleNews.date | dateFormat: 'Do MMMM YYYY': lang }}
+          </span>
+        </h6>
       </div>
+      <div class="description">
+        <p class="title">{{ singleNews.title }}</p>
+        <h6 class="title" translate>{{ singleNews.text }}</h6>
+      </div>
+    </div>
+    <div class="comments-container" *ngIf="comments">
+      <header >{{ comments.length }} <span>Comments</span></header>
+      <div class="comments" *ngFor="let comment of comments">
+        <div class="img">
+          <img [src] = comment.img alt="">
+        </div>
+        <div class="comment">
+          <p>
+            <span class="name">{{ comment.createdBy }}</span>
+            <span class="date">{{ comment.date | dateFormat: 'Do MMMM YYYY': lang }}</span>
+            <button class="btn btn-primary" (click)="reply = comment.id">reply</button>
+          </p>
+          <p class="text">{{ comment.text }}</p>
+        </div>
+        <p class="text-warning"> -------------- replays --------------</p>
+        <div class="replys">
+          <div class="reply" *ngFor="let reply of comment.reply">
+            <div class="img">
+              <img [src] = reply.img alt="">
+            </div>
+            <div class="reply">
+              <p>
+                <span class="name">{{ reply.createdBy }}</span>
+                <span class="date">{{ reply.date | dateFormat: 'Do MMMM YYYY': lang }}</span>
+              </p>
+              <p class="text">{{ reply.text }}</p>
+            </div>
+          </div>
+          <div class="leave-reply" *ngIf="reply === comment.id">
+            <header >Leave a reply</header>
+            <p class="description">If you have a reply dont feel hesitate to send us your opinion.</p>
+            <form class="reply" (ngSubmit)="onSubmitReply(f.value, comment.id)" #f="ngForm">
+              <input type="text" class="form-control" placeholder="Your Name" id="Name" ngModel name="Name" required
+              #Name="ngModel">
+              <input type="email" class="form-control" placeholder="Your Email"  id="Email" ngModel name="Email" required
+              #Email="ngModel">
+              <textarea class="form-control" placeholder="Your Message"  id="Message" ngModel name="Message" required
+              #Message="ngModel"></textarea>
+              <button class="btn btn-primary" type="submit" [disabled]="f.invalid">submit</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="leave-comment">
+      <header >Leave a comment</header>
+      <p class="description">If you have a comment dont feel hesitate to send us your opinion.</p>
+      <form class="comment" (ngSubmit)="onSubmitComment(f.value)" #f="ngForm">
+        <input type="text" class="form-control" placeholder="Your Name" id="Name" ngModel name="Name" required
+        #Name="ngModel">
+        <input type="email" class="form-control" placeholder="Your Email"  id="Email" ngModel name="Email" required
+        #Email="ngModel">
+        <textarea class="form-control" placeholder="Your Message"  id="Message" ngModel name="Message" required
+        #Message="ngModel"></textarea>
+        <button class="btn btn-primary" type="submit" [disabled]="f.invalid">submit</button>
+      </form>
+    </div>
+  </div>
 </div>

@@ -163,7 +163,7 @@
         </div>
       </div>
       <div class="news">
-        <app-news-card *ngFor="let singleNews of news" [singleNews]="singleNews" (singleNewsSelected)="ongSingleNewsSelected($event)" [lang]="lang"></app-news-card>
+        <app-news-card *ngFor="let singleNews of news" [singleNews]="singleNews" (singleNewsSelected)="ongSingleNewsSelected($event)"></app-news-card>
       </div>
       <div class="btn-wrapper">
         <div class="btn button-hover" routerLink="/News" translate>Home.More-News</div>

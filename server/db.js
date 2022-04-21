@@ -361,12 +361,14 @@ let comments = [
     newsID: 1,
     comment: [
       {
+        id:'1',
         createdBy: "Jenny Joe",
         img: `${baseURL}Saira-Hakim.png`,
         date: "Thu Mar 24 2022 00:48:31",
         text: "news-Lorem",
-        replay: [
+        reply: [
           {
+            id:'1',
             createdBy: "Simon Soe",
             img: `${baseURL}Jacob-Sikim.png`,
             date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
@@ -375,11 +377,12 @@ let comments = [
         ],
       },
       {
+        id:'2',
         createdBy: "Addy Aoe",
         img: `${baseURL}David-Niph.png`,
         date: Date(),
         text: "news-Lorem",
-        replay: [],
+        reply: [],
       },
     ],
   },
@@ -387,12 +390,14 @@ let comments = [
     newsID: 2,
     comment: [
       {
+        id:'1',
         createdBy: "Alvena Conroy",
         img: `${baseURL}Saira-Hakim.png`,
         date: "Thu Mar 24 2022 00:48:31",
         text: "news-Lorem",
-        replay: [
+        reply: [
           {
+            id:'1',
             createdBy: "Armand Pagac",
             img: `${baseURL}Jacob-Sikim.png`,
             date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
@@ -401,11 +406,12 @@ let comments = [
         ],
       },
       {
+        id:'2',
         createdBy: "Ross Predovic",
         img: `${baseURL}David-Niph.png`,
         date: Date(),
         text: "news-Lorem",
-        replay: [],
+        reply: [],
       },
     ],
   },
@@ -413,12 +419,14 @@ let comments = [
     newsID: 3,
     comment: [
       {
+        id:'1',
         createdBy: "Chelsey Krajcik",
         img: `${baseURL}Saira-Hakim.png`,
         date: "Thu Mar 24 2022 00:48:31",
         text: "news-Lorem",
-        replay: [
+        reply: [
           {
+            id:'1',
             createdBy: "Emil Murphy",
             img: `${baseURL}Jacob-Sikim.png`,
             date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
@@ -427,11 +435,12 @@ let comments = [
         ],
       },
       {
+        id:'2',
         createdBy: "Allie Lebsack",
         img: `${baseURL}David-Niph.png`,
         date: Date(),
         text: "news-Lorem",
-        replay: [],
+        reply: [],
       },
     ],
   },
@@ -439,12 +448,14 @@ let comments = [
     newsID: 4,
     comment: [
       {
+        id:'1',
         createdBy: "Jenny Joe",
         img: `${baseURL}Saira-Hakim.png`,
         date: "Thu Mar 24 2022 00:48:31",
         text: "news-Lorem",
-        replay: [
+        reply: [
           {
+            id:'1',
             createdBy: "Simon Soe",
             img: `${baseURL}Jacob-Sikim.png`,
             date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
@@ -453,11 +464,12 @@ let comments = [
         ],
       },
       {
+        id:'2',
         createdBy: "Addy Aoe",
         img: `${baseURL}David-Niph.png`,
         date: Date(),
         text: "news-Lorem",
-        replay: [],
+        reply: [],
       },
     ],
   },
@@ -465,12 +477,14 @@ let comments = [
     newsID: 5,
     comment: [
       {
+        id:'1',
         createdBy: "Alvena Conroy",
         img: `${baseURL}Saira-Hakim.png`,
         date: "Thu Mar 24 2022 00:48:31",
         text: "news-Lorem",
-        replay: [
+        reply: [
           {
+            id:'1',
             createdBy: "Armand Pagac",
             img: `${baseURL}Jacob-Sikim.png`,
             date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
@@ -479,11 +493,12 @@ let comments = [
         ],
       },
       {
+        id:'2',
         createdBy: "Ross Predovic",
         img: `${baseURL}David-Niph.png`,
         date: Date(),
         text: "news-Lorem",
-        replay: [],
+        reply: [],
       },
     ],
   },
@@ -491,12 +506,14 @@ let comments = [
     newsID: 6,
     comment: [
       {
+        id:'1',
         createdBy: "Chelsey Krajcik",
         img: `${baseURL}Saira-Hakim.png`,
         date: "Thu Mar 24 2022 00:48:31",
         text: "news-Lorem",
-        replay: [
+        reply: [
           {
+            id:'1',
             createdBy: "Emil Murphy",
             img: `${baseURL}Jacob-Sikim.png`,
             date: "Tue Jun 11 2019 05:23:59 GMT+0200 (Eastern European Standard Time)",
@@ -505,11 +522,12 @@ let comments = [
         ],
       },
       {
+        id:'2',
         createdBy: "Allie Lebsack",
         img: `${baseURL}David-Niph.png`,
         date: Date(),
         text: "news-Lorem",
-        replay: [],
+        reply: [],
       },
     ],
   },
@@ -622,7 +640,7 @@ app.get("/single-news", function (req, res) {
     res.json({
       status: "success",
       singleNews: singleNews,
-      comment: comment,
+      comments: comment,
     });
   } else {
     res.json({

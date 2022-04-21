@@ -23,9 +23,11 @@ export class SingleProductComponent implements OnInit {
   ngDoCheck(): void {
     this.lang = localStorage.getItem('lang');
   }
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     private singleProductService: SingleProductService,
-    private headerService: HeaderService) { }
+    private headerService: HeaderService
+    ) { }
 
   ngOnInit(): void {
     const fruitId = parseInt(this.route.snapshot.paramMap.get('id')!);

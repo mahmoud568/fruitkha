@@ -13,7 +13,7 @@ export class SingleNewsService {
   }
 
   // get Fruits by size and page number
-  singleNews(id: number) {
+  getSingleNews(id: number) {
     return this.http.get(`${this.baseURL}single-news?id=${id}`);
   }
 }

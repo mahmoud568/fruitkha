@@ -1,5 +1,5 @@
 {
-  "Lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolorum, inventore eos laudantium nulla ad placeat ipsum.",
+  "Lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolorum, inventore eos laudantium nulla ad placeat ipsu",
   "Header": {
     "Home": "Home",
     "About": "About",
@@ -150,5 +150,8 @@
     "News-Article": "News Article",
     "Prev": "Prev",
     "Next": "Next"
+  },
+  "SINGLE-NEWS": {
+
   }
 }

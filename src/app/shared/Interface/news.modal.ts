@@ -8,14 +8,16 @@ export interface News {
 }
 
 export interface Comment {
-    newsID: number;
+    id: number;
+    createdBy: string;
     img: string;
     date: Date;
     text: string;
-    replay: Replay[]
+    reply: Reply[]
 }
 
-export interface Replay {
+export interface Reply {
+    id: number;
     createdBy: string;
     img: string;
     date: Date;

@@ -13,8 +13,10 @@ export class NewsComponent implements OnInit {
   pages: News[][] = [];
   pagesCount: number[] = [];
   activePageNumber: number = 1;
-  constructor(private newsService: NewsService,
-    private router: Router) { }
+  constructor(
+    private newsService: NewsService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.getNews(1);
