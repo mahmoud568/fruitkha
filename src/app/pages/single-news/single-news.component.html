@@ -1,7 +1,7 @@
 <div class="single-news" id="single-news">
   <div class="header header-background">
-    <p class="text-header">READ THE DETAILS</p>
-    <p class="page">Single Article</p>
+    <p class="text-header" translate>SINGLE-NEWS.READ-THE-DETAILS</p>
+    <p class="page" translate>SINGLE-NEWS.Single-Article</p>
   </div>
 
   <div class="main-content primary-background">
@@ -9,81 +9,96 @@
       <div class="img">
         <img [src]=singleNews.img alt="">
         <h6>
-          <span translate>
+          <span class="person" translate>
             <span class="material-icons">
               person
             </span>
             News-Card.{{ singleNews.createdBy }}
           </span>
-          <span>
+          <span class="calendar">
             <span class="material-icons">
               calendar_today
             </span>
-            {{ singleNews.date | dateFormat: 'Do MMMM YYYY': lang }}
+            <span *ngIf="singleNews.dateCount === 0">{{ singleNews.date | dateFormat: 'Do MMMM YYYY': lang }}</span>
+            <span *ngIf="singleNews.dateCount !== 0">{{ singleNews.dateCount }}</span>
           </span>
         </h6>
       </div>
       <div class="description">
-        <p class="title">{{ singleNews.title }}</p>
-        <h6 class="title" translate>{{ singleNews.text }}</h6>
+        <p class="title" translate>SINGLE-NEWS.{{ singleNews.title }}</p>
+        <h6 class="text" translate>SINGLE-NEWS.{{ singleNews.text }}</h6>
       </div>
     </div>
     <div class="comments-container" *ngIf="comments">
-      <header >{{ comments.length }} <span>Comments</span></header>
-      <div class="comments" *ngFor="let comment of comments">
-        <div class="img">
-          <img [src] = comment.img alt="">
-        </div>
-        <div class="comment">
-          <p>
-            <span class="name">{{ comment.createdBy }}</span>
-            <span class="date">{{ comment.date | dateFormat: 'Do MMMM YYYY': lang }}</span>
-            <button class="btn btn-primary" (click)="reply = comment.id">reply</button>
-          </p>
-          <p class="text">{{ comment.text }}</p>
-        </div>
-        <p class="text-warning"> -------------- replays --------------</p>
-        <div class="replys">
-          <div class="reply" *ngFor="let reply of comment.reply">
-            <div class="img">
-              <img [src] = reply.img alt="">
-            </div>
-            <div class="reply">
-              <p>
-                <span class="name">{{ reply.createdBy }}</span>
-                <span class="date">{{ reply.date | dateFormat: 'Do MMMM YYYY': lang }}</span>
-              </p>
-              <p class="text">{{ reply.text }}</p>
-            </div>
+      <header class="comments-container-header">{{ comments.length }} <span translate>SINGLE-NEWS.Comments</span>
+      </header>
+      <div *ngFor="let comment of comments">
+        <div class="comments">
+          <div class="img">
+            <img [src]=comment.img alt="">
+            <span class="material-icons" *ngIf="comment.img === ''">
+              account_circle
+            </span>
           </div>
-          <div class="leave-reply" *ngIf="reply === comment.id">
-            <header >Leave a reply</header>
-            <p class="description">If you have a reply dont feel hesitate to send us your opinion.</p>
-            <form class="reply" (ngSubmit)="onSubmitReply(f.value, comment.id)" #f="ngForm">
-              <input type="text" class="form-control" placeholder="Your Name" id="Name" ngModel name="Name" required
-              #Name="ngModel">
-              <input type="email" class="form-control" placeholder="Your Email"  id="Email" ngModel name="Email" required
-              #Email="ngModel">
-              <textarea class="form-control" placeholder="Your Message"  id="Message" ngModel name="Message" required
-              #Message="ngModel"></textarea>
-              <button class="btn btn-primary" type="submit" [disabled]="f.invalid">submit</button>
-            </form>
+          <div class="content">
+            <p>
+              <span class="name">{{ comment.createdBy }}</span>
+            </p>
+            <span>-</span>
+            <p>
+              <span class="date"
+                *ngIf="comment.dateCount === 0">{{ comment.date | dateFormat: 'Do MMMM YYYY': lang }}</span>
+              <span class="date" *ngIf="comment.dateCount !== 0">{{ comment.dateCount }}</span>
+              <button class="primary-background" (click)="reply = comment.id" translate>SINGLE-NEWS.reply</button>
+            </p>
+            <p class="text">{{ comment.text }}</p>
           </div>
         </div>
-
+        <div class="replys" *ngFor="let reply of comment.reply">
+          <div class="img">
+            <img [src]=reply.img alt="">
+            <span class="material-icons" *ngIf="reply.img === ''">
+              account_circle
+            </span>
+          </div>
+          <div class="content">
+            <p>
+              <span class="name">{{ reply.createdBy }}</span>
+            </p>
+            <span>-</span>
+            <p>
+              <span class="date"
+                *ngIf="reply.dateCount === 0">{{ reply.date | dateFormat: 'Do MMMM YYYY': lang }}</span>
+              <span class="date" *ngIf="reply.dateCount !== 0">{{ reply.dateCount }}</span>
+            </p>
+            <p class="text">{{ reply.text }}</p>
+          </div>
+        </div>
+        <div class="leave-reply" *ngIf="reply === comment.id">
+          <header class="Header" translate>SINGLE-NEWS.Leave-reply</header>
+          <form class="content" (ngSubmit)="onSubmitReply(f.value, comment.id)" #f="ngForm">
+            <input type="text" class="form-control input" placeholder="{{ 'SINGLE-NEWS.Your-Name' | translate }}"
+              id="Name" ngModel name="Name" required #Name="ngModel">
+            <input type="email" class="form-control input" placeholder="{{ 'SINGLE-NEWS.Your-Email' | translate }}"
+              id="Email" ngModel name="Email" required #Email="ngModel">
+            <textarea class="form-control input" placeholder="{{ 'SINGLE-NEWS.Your-Message' | translate }}" id="Message"
+              ngModel name="Message" required #Message="ngModel"></textarea>
+            <button class="btn button-hover" type="submit" [disabled]="f.invalid" translate>SINGLE-NEWS.SUBMIT</button>
+          </form>
+        </div>
       </div>
     </div>
     <div class="leave-comment">
-      <header >Leave a comment</header>
-      <p class="description">If you have a comment dont feel hesitate to send us your opinion.</p>
-      <form class="comment" (ngSubmit)="onSubmitComment(f.value)" #f="ngForm">
-        <input type="text" class="form-control" placeholder="Your Name" id="Name" ngModel name="Name" required
-        #Name="ngModel">
-        <input type="email" class="form-control" placeholder="Your Email"  id="Email" ngModel name="Email" required
-        #Email="ngModel">
-        <textarea class="form-control" placeholder="Your Message"  id="Message" ngModel name="Message" required
-        #Message="ngModel"></textarea>
-        <button class="btn btn-primary" type="submit" [disabled]="f.invalid">submit</button>
+      <header class="Header" translate>SINGLE-NEWS.Leave-comment</header>
+      <p class="description" translate>SINGLE-NEWS.dont-hesitate</p>
+      <form class="content" (ngSubmit)="onSubmitComment(f.value)" #f="ngForm">
+        <input type="text" class="form-control input" placeholder="{{ 'SINGLE-NEWS.Your-Name' | translate }}" id="Name"
+          ngModel name="Name" required #Name="ngModel">
+        <input type="email" class="form-control input" placeholder="{{ 'SINGLE-NEWS.Your-Email' | translate }}"
+          id="Email" ngModel name="Email" required #Email="ngModel">
+        <textarea class="form-control input" placeholder="{{ 'SINGLE-NEWS.Your-Message' | translate }}" id="Message"
+          ngModel name="Message" required #Message="ngModel"></textarea>
+        <button class="btn button-hover" type="submit" [disabled]="f.invalid" translate>SINGLE-NEWS.SUBMIT</button>
       </form>
     </div>
   </div>

@@ -16,4 +16,16 @@ export class SingleNewsService {
   getSingleNews(id: number) {
     return this.http.get(`${this.baseURL}single-news?id=${id}`);
   }
+
+  submitComment(newsID: number, comment: any) {
+    return this.http.post(`${this.baseURL}submit-comment?newsID=${newsID}`, {
+      comment: JSON.stringify(comment),
+    });
+  }
+
+  submitReply(newsID: number,commentID: number, reply: any) {
+    return this.http.post(`${this.baseURL}submit-reply?newsID=${newsID}&commentID=${commentID}`, {
+      reply: JSON.stringify(reply),
+    });
+  }
 }

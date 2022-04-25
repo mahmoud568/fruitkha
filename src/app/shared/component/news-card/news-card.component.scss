@@ -5,7 +5,13 @@
   border: 0;
   border-radius: 10px 10px 0 0;
   max-width: 360px;
-  height: 524px;
+  min-height: 524px;
+  @media screen and (max-width: 1200px) {
+    max-width: 320px;
+  }
+  @media screen and (max-width: 767px) {
+    min-height: fit-content;
+  }
   &:hover {
     box-shadow: none;
   }

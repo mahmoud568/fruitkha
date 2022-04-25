@@ -5,6 +5,7 @@ export interface News {
     img: string;
     date: Date;
     text: string;
+    dateCount?: string | 0;
 }
 
 export interface Comment {
@@ -13,7 +14,8 @@ export interface Comment {
     img: string;
     date: Date;
     text: string;
-    reply: Reply[]
+    reply: Reply[];
+    dateCount?: string | 0;
 }
 
 export interface Reply {
@@ -22,4 +24,5 @@ export interface Reply {
     img: string;
     date: Date;
     text: string;
+    dateCount?: string | 0;
 }
