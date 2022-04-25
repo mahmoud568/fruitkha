@@ -33,7 +33,6 @@ export class SingleNewsComponent implements OnInit {
       this.singleNews = res.singleNews;
       this.comments = res.comments.comment;
       this.singleNews.dateCount = this.countTime(this.singleNews.date);
-      console.log(res)
       this.comments.map(comment=> {
         comment.dateCount = this.countTime(comment.date);
         comment.reply.map(reply => {
