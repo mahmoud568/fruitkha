@@ -9,21 +9,14 @@
     }
   }
 
-  .quantity-container {
 
-    .decrease {
-      border-radius: 10px 0 0 10px;
-    }
-
-    .increase {
-      border-radius: 0 10px 10px 0;
-    }
-  }
 
 
 }
 
-#card {
+#card,
+#home,
+#single-product {
   .quantity-container {
     .decrease {
       border-radius: 10px 0 0 10px;

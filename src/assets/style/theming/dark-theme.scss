@@ -52,8 +52,6 @@ $Wild-Sand: #f5f5f5;
 $Black-solid: #000000;
 $Firefly: #0c1923;
 
-
-
 .primary-background {
   background-color: $Black-solid;
   color: $White-solid;
@@ -76,10 +74,18 @@ $Firefly: #0c1923;
 }
 
 .header-background {
-  background-color: #CCD6DD;
-  color: #292F33;
+  background-color: #ccd6dd;
+  color: #292f33;
 }
 
+.input {
+  background-color: #012738;
+  color: #fff;
+  &:focus {
+    background-color: #012738;
+    color: #fff;
+  }
+}
 
 #card {
   border: none;
@@ -137,6 +143,15 @@ $Firefly: #0c1923;
           color: #012738;
         }
       }
+    }
+  }
+}
+
+#single-product {
+  .decrease,
+  .increase {
+    &:hover {
+      color: $White-solid;
     }
   }
 }

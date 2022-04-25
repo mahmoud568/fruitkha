@@ -63,7 +63,8 @@
     "Sale!": "تخفيض السعر!",
     "Upto": "يصل إلى",
     "off": "خصم",
-    "Shop-Now": "تسوق الآن"
+    "Shop-Now": "تسوق الآن",
+    "More-News": "اخبار اكثر"
   },
   "News-Card": {
     "You will vainly look for fruit on it in autumn.": ".سوف تبحث عبثًا عن الفاكهة عليها في الخريف.",
@@ -135,5 +136,43 @@
     "Apply-Coupon": "تطبيق القسيمة",
     "Shop-Now": "تسوق الآن",
     "APPLY": "طبق"
+  },
+  "SINGLE-PRODUCT": {
+    "SEE-MORE-DETAILS": "انظر المزيد من التفاصيل",
+    "Single-Product": "منتج واحد",
+    "Per-Kg": "لكل ك ج",
+    "Add-to-Cart": "اضف اللي العربة",
+    "Share": "شارك",
+    "Shop-Now": "تسوق الآن"
+  },
+  "NEWS": {
+    "ORGANIC-INFORMATION": "المعلومات العضوية",
+    "News-Article": "مقال إخباري",
+    "Prev": "السابق",
+    "Next": "التالي"
+  },
+  "SINGLE-NEWS": {
+    "news-Lorem": "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم.",
+    "READ-THE-DETAILS": "اقرأ التفاصيل",
+    "Single-Article": "مقالة واحدة",
+    "Comments": "تعليقات",
+    "reply": "الرد",
+    "Leave-reply": "اترك رد",
+    "SUBMIT": "إرسال",
+    "Leave-comment": "اترك تعليقا",
+    "dont-hesitate": "إذا كان لديك تعليق فلا تتردد في إرسال رأيك إلينا.",
+    "Your-Name": "اسمك",
+    "Your-Email": "بريدك الالكتروني",
+    "Your-Message": "رسالتك",
+    "Days-Ago": " أيام مضت",
+    "Hours-Ago": " ساعات مضت",
+    "Mins-Ago": " دقائق مضت",
+    "Secs-Ago": " ثواني مضت",
+    "You will vainly look for fruit on it in autumn.": ".سوف تبحث عبثًا عن الفاكهة عليها في الخريف.",
+    "A man's worth has its season, like tomato.": ".للرجل موسمه مثل الطماطم.",
+    "Good thoughts bear good fresh juicy fruit.": ".الأفكار الجيدة تؤتي ثمارها الطازجة الجيدة.",
+    "Fall in love with the fresh orange": "تقع في حب البرتقال الطازج",
+    "Why the berries always look delecious": "لماذا تبدو التوت دائما لذيذة",
+    "Love for fruits are genuine of John Doe": "حب الفاكهة حقيقي من جون دو"
   }
 }

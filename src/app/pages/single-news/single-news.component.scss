@@ -1,29 +1,180 @@
 .single-news {
-    .header {
-      height: 451px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      .text-header {
-        color: #f28123;
-        font-weight: 700;
-        letter-spacing: 7px;
+  .header {
+    height: 451px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .text-header {
+      color: #f28123;
+      font-weight: 700;
+      letter-spacing: 7px;
+    }
+    .page {
+      font-size: 50px;
+      font-weight: 900;
+      letter-spacing: 7px;
+      @media screen and (max-width: 767px) {
+        font-size: 30px;
       }
-      .page {
-        font-size: 50px;
-        font-weight: 900;
-        letter-spacing: 7px;
-        @media screen and (max-width: 767px) {
-          font-size: 30px;
+    }
+  }
+  .main-content {
+    width: 100%;
+    padding: 0 50px;
+    @media screen and (max-width: 767px) {
+      padding: 0 20px;
+    }
+    .news {
+      max-width: 45rem;
+      margin: auto;
+      padding: 50px 0;
+      @media screen and (max-width: 767px) {
+        max-width: 35rem;
+      }
+      .img {
+        margin-bottom: 25px;
+        img {
+          border-radius: 10px;
+          width: 100%;
+        }
+
+        // to make all the items in the same line and aligned center
+        h6 {
+          display: flex;
+          opacity: 0.6;
+          color: #051922;
+          font-size: 0.85em;
+          gap: 15px;
+          margin: 10px 0;
+          span {
+            display: flex;
+            gap: 5px;
+            .material-icons {
+              font-size: 1.2em;
+            }
+          }
+        }
+      }
+      .description {
+        .title {
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 1.4;
+          margin-bottom: 10px;
+        }
+        .text {
+          font-size: 15px;
+          line-height: 1.6;
         }
       }
     }
-
-    .main-content {
-      padding: 5%;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: 700;
+    .comments-container {
+      max-width: 45rem;
+      margin: 50px auto;
+      @media screen and (max-width: 767px) {
+        max-width: 35rem;
+      }
+      .comments-container-header {
+        font-size: 25px;
+        font-weight: 600;
+        margin-bottom: 50px;
+      }
+      .comments,
+      .replys {
+        display: flex;
+        img {
+          margin: 7px 0;
+          width: 60px;
+          border-radius: 50%;
+        }
+        .material-icons {
+          margin: 7px 0;
+          font-size: 60px;
+        }
+        .content {
+          margin: 0 20px;
+          p {
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-block;
+            &.text {
+              display: block;
+            }
+            .date {
+              opacity: 0.5;
+              font-size: 80%;
+              font-weight: 700;
+              margin-left: 5px;
+            }
+            button {
+              border: 0;
+              &:hover {
+                color: #f28123;
+              }
+            }
+          }
+        }
+      }
+      .comments {
+        margin: 50px 0;
+        @media screen and (max-width: 767px) {
+          margin: 20px 0;
+        }
+      }
+      .replys {
+        margin: 0 50px;
+        @media screen and (max-width: 767px) {
+          margin: 0 20px;
+        }
+      }
+      .leave-reply {
+        margin: 0 50px;
+        @media screen and (max-width: 767px) {
+          margin: 0 20px;
+        }
+      }
+    }
+    .leave-comment {
+      max-width: 45rem;
+      margin: auto;
+      padding-bottom: 100px;
+    }
+    .leave-comment,
+    .leave-reply {
+      .Header {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: space-between;
+        flex-wrap: wrap;
+        height: 170px;
+        button {
+          height: fit-content;
+        }
+        input {
+          flex-basis: 48%;
+          height: fit-content;
+        }
+        textarea {
+          flex-basis: 100%;
+          height: fit-content;
+        }
+      }
+      .btn {
+        background-color: #f28123;
+        font-weight: 700;
+        font-size: 15px;
+        padding: 10px 25px;
+        border-radius: 50px;
+        &:hover {
+          color: #f28123;
+        }
+      }
     }
   }
+}
