@@ -14,12 +14,23 @@
       </app-card>
     </div>
     <div class="pagenator">
-      <button class="btn" (click)="getFruits(activePageNumber-1)" [disabled]="activePageNumber === 1" translate>SHOP.Prev</button>
-      <button class="btn" [ngClass]="{'active': page === activePageNumber}"
-        *ngFor="let page of pagesCount" (click)="getFruits(page)">
+      <button
+      class="btn"
+      (click)="getFruits(activePageNumber-1)"
+      [disabled]="activePageNumber === 1"
+      translate>SHOP.Prev</button>
+      <button
+      class="btn"
+      [ngClass]="{'active': page === activePageNumber}"
+        *ngFor="let page of pagesCount"
+        (click)="getFruits(page)">
         {{ page }}
       </button>
-      <button class="btn" (click)="getFruits(activePageNumber+1)" [disabled]="activePageNumber === pagesCount.length" translate>SHOP.Next</button>
+      <button
+      class="btn"
+      (click)="getFruits(activePageNumber+1)"
+      [disabled]="activePageNumber === pagesCount.length"
+      translate>SHOP.Next</button>
     </div>
   </div>
 </div>
