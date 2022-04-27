@@ -7,3 +7,12 @@ export interface fruit {
   secondSaleImg?: string;
   fruitSale?: number;
 }
+
+export interface fruitBenefit {
+  fruitId: number;
+  benefitHeaderEN: string;
+  benefitDescriptionEN: string;
+  benefitHeaderAR: string;
+  benefitDescriptionAR: string;
+}
+

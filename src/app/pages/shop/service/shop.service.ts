@@ -5,15 +5,15 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class ShopService {
   baseURL: string = "";
   constructor(private http: HttpClient, private sharedService: SharedService) {
     this.baseURL = this.sharedService.getBaseUrl();
   }
 
-  submitCoupon(coupon: string) {
-    return this.http.post(`${this.baseURL}coupon`, {
-      coupon: JSON.stringify(coupon),
-    });
+  // get Fruits by size and page number
+  getFruits(pageSize: number,pageNumber: number) {
+    return this.http.get(`${this.baseURL}fruits?pageSize=${pageSize}&pageNumber=${pageNumber}`);
   }
+
 }

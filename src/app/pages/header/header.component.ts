@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
+
 import { TranslateService } from '@ngx-translate/core';
+import { filter } from 'rxjs';
 
 import { option } from 'src/app/shared/Interface/option.model';
 import { scaleAnimation } from 'src/app/shared/animation/animation';
-
 import * as options from './options';
 import { HeaderService } from './service/header.service';
-import { NavigationStart, Router } from '@angular/router';
-import { filter } from 'rxjs';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

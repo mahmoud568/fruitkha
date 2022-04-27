@@ -8,9 +8,12 @@ import { News } from '../../Interface/news.modal';
 })
 export class NewsCardComponent implements OnInit {
   @Input() singleNews!: News;
-  @Input() lang!: string | null;
+  lang!: string | null;
   @Output() singleNewsSelected = new EventEmitter<News>()
   constructor() { }
   ngOnInit(): void {}
 
+  ngDoCheck() {
+    this.lang = localStorage.getItem('lang');
+  }
 }

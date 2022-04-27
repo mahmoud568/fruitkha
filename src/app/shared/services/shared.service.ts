@@ -10,7 +10,41 @@ const BASE_URL = 'http://localhost:3000/';
 export class SharedService {
   isLogedin: boolean = false;
 
-  cart: { fruit: fruit; quantity: number }[] = [];
+  // cart: { fruit: fruit; quantity: number }[] = [] ;
+
+  // for development
+  cart: { fruit: fruit; quantity: number }[] = [
+    {
+        "fruit": {
+            "fruitId": 1,
+            "fruitName": "Apple",
+            "fruitPrice": 1.32,
+            "fruitImg": "http://localhost:3000/Apple.jpg",
+            "fruitSale": 0
+        },
+        "quantity": 1
+    },
+    {
+        "fruit": {
+            "fruitId": 3,
+            "fruitName": "Avocado",
+            "fruitPrice": 1.7,
+            "fruitImg": "http://localhost:3000/avocado.jpg",
+            "fruitSale": 0
+        },
+        "quantity": 4
+    },
+    {
+        "fruit": {
+            "fruitId": 4,
+            "fruitName": "Banana",
+            "fruitPrice": 0.62,
+            "fruitImg": "http://localhost:3000/banana.jpg",
+            "fruitSale": 0
+        },
+        "quantity": 1.5
+    }
+];
 
   constructor(private router: Router, private cardService: CardService) {
     this.cardService.addFruit.subscribe((res) => {

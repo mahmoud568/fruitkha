@@ -1,0 +1,70 @@
+.news {
+    .header {
+      height: 451px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .text-header {
+        color: #f28123;
+        font-weight: 700;
+        letter-spacing: 7px;
+      }
+      .page {
+        font-size: 50px;
+        font-weight: 900;
+        letter-spacing: 7px;
+        @media screen and (max-width: 767px) {
+          font-size: 30px;
+        }
+      }
+    }
+
+    .main-content {
+      padding: 5%;
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      app-news-card {
+        margin-bottom: 3%;
+        flex-basis: 30%;
+        display: flex;
+        justify-content: center;
+        @media screen and (max-width: 1200px) {
+          flex-basis: 48%;
+        }
+        @media screen and (max-width: 767px) {
+          flex-basis: 95%;
+        }
+      }
+    }
+
+    .pagenator {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      .btn {
+        color: #6f6f6f;
+        font-size: 15px;
+        background-color: #f3f3f3;
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 5px;
+        margin: 3px;
+        font-weight: 600;
+        border-radius: 50px;
+        &:active,
+        &:hover,
+        &.active {
+          background-color: #f28123;
+        }
+      }
+    }
+    }
+  }

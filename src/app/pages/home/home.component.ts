@@ -1,14 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+
 import { CardService } from 'src/app/shared/component/card/service/card.service';
 import { fruit } from 'src/app/shared/Interface/fruit.model';
 import { News } from 'src/app/shared/Interface/news.modal';
-
 import { currencyexchange } from 'src/app/shared/Interface/option.model';
 import { team } from 'src/app/shared/Interface/team.model';
 import { SharedService } from 'src/app/shared/services/shared.service';
-
 import { HeaderService } from '../header/service/header.service';
 import { HomeService } from './service/home.service';
 
@@ -45,8 +44,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // this.http.get('http://localhost:3000/all-fruits').subscribe((res: any) => this.fruits = res.fruits);
-    // this.http.get('http://localhost:3000/fruits?pageSize=10&pageNumber=3').subscribe((res: any) => console.log(res));
     this.subscrition = this.headerService.currencyChanged.subscribe(
       (res: currencyexchange) => {
         this.currency = res.currency;
@@ -57,7 +54,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.getSaleFruit();
     this.getTeam();
     this.getNews();
-    // this.cardService.addFruit.subscribe((res) => console.log(res));
   }
 
   ngDoCheck() {
@@ -70,7 +66,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   // use function instead of router link to listen to special event not every click
   onFruitSelect(fruit: fruit) {
-    this.router.navigate(['../Shop/Single-Product', fruit.fruitId]);
+    this.router.navigate(['../Single-Product', fruit.fruitId]);
   }
 
   getFruits() {
@@ -163,6 +159,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   // use function instead of router link to listen to special event not every click
   ongSingleNewsSelected(singleNews: News) {
-    this.router.navigate(['../Shop/Single-Product', singleNews.id]);
+    this.router.navigate(['../Single-Product', singleNews.id]);
   }
 }
