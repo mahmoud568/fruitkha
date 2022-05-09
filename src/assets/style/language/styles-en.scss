@@ -1,17 +1,21 @@
 * {
   text-align: left;
 }
-
+#table {
+  .tr {
+    td {
+      .title {
+        padding-left: 35px;
+      }
+    }
+  }
+}
 #home {
-  .benfits{
+  .benfits {
     @media screen and (max-width: 700px) {
       padding-left: 10%;
     }
   }
-
-
-
-
 }
 
 #card,

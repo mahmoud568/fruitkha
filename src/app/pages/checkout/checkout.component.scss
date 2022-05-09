@@ -21,9 +21,80 @@
   }
 
   .main-content {
-    padding: 5%;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 700;
+    padding: 10%;
+    .check-out {
+      display: flex;
+      justify-content: space-around;
+      @media screen and (max-width: 991px) {
+        gap: 1rem;
+        flex-direction: column;
+      }
+      .customer-inf {
+        flex-basis: 60%;
+        @media screen and (max-width: 991px) {
+          flex-basis: 100%;
+        }
+        .Header {
+          display: flex;
+          align-items: center;
+          font-size: 1.1rem;
+          width: 100%;
+          padding: 20px 30px;
+          font-weight: 600;
+          .material-icons {
+            padding: 5px;
+            font-size: 20px;
+            font-weight: 600;
+            visibility: visible;
+            color: #f28123;
+          }
+        }
+        .customer-form {
+          padding: 5% 5%;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          .input {
+            height: 3.5rem;
+          }
+          .textarea {
+            height: 7rem;
+          }
+        }
+      }
+      .order-details {
+        flex-basis: 30%;
+        @media screen and (max-width: 991px) {
+          flex-basis: 100%;
+        }
+
+        th,
+        td {
+          font-size: 1rem;
+          padding: 10px 30px;
+          font-weight: 600;
+        }
+
+        .place-order {
+          background-color: #f28123;
+          border-radius: 50px;
+          line-height: 2rem;
+          width: 7rem;
+          &:hover {
+            color: #f28123;
+          }
+        }
+      }
+    }
   }
+}
+
+.before-discount {
+  text-decoration: line-through;
+  text-decoration-style: double;
+  text-decoration-thickness: 1.5px;
+}
+.after-discount {
+  color: red;
+  padding: 0 10px;
 }

@@ -55,6 +55,7 @@
         <span class="material-icons hide-md" routerLinkActive="active">
           shopping_cart
         </span>
+        <sup class="cart-counter hide-md">{{ cartCounter }}</sup>
       </a>
       <a class="btn search" routerLink="/Search">
         <span class="material-icons" routerLinkActive="active">search</span>
@@ -75,9 +76,9 @@
     <table *ngIf="isMenuBarOpen" id="table" [@scaleAnimation]>
       <tbody>
         <tr class="tr">
-          <td routerLink="/Home/Static" (click)="openMenuBar()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+          <td  (click)="onToggleDropdown('homeOptions');$event.stopPropagation();" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
             <span class="title" translate>Header.Home</span>
-            <button class="btn dropdownToggler" (click)="onToggleDropdown('homeOptions');$event.stopPropagation();">
+            <button class="btn dropdownToggler">
               <span *ngIf="showToggleDropdown !== 'homeOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
@@ -92,9 +93,9 @@
           </td>
         </tr>
         <tr class="tr">
-          <td>
+          <td (click)="onToggleDropdown('pagesOptions')">
             <span class="title" translate>Header.Pages</span>
-            <button class="btn dropdownToggler" (click)="onToggleDropdown('pagesOptions')">
+            <button class="btn dropdownToggler">
               <span *ngIf="showToggleDropdown !== 'pagesOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
@@ -114,9 +115,9 @@
           </td>
         </tr>
         <tr class="tr">
-          <td routerLink="/Shop" (click)="openMenuBar()" routerLinkActive="active">
+          <td (click)="onToggleDropdown('shopOptions')" routerLinkActive="active">
             <span class="title" translate>Header.Shop</span>
-            <button class="btn dropdownToggler" (click)="onToggleDropdown('shopOptions')">
+            <button class="btn dropdownToggler">
               <span *ngIf="showToggleDropdown !== 'shopOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
@@ -126,9 +127,9 @@
           </div>
         </tr>
         <tr class="tr">
-          <td>
+          <td (click)="onToggleDropdown('paidOptions')">
             <span class="material-icons title">paid</span>
-            <button class="btn dropdownToggler" (click)="onToggleDropdown('paidOptions')">
+            <button class="btn dropdownToggler">
               <span *ngIf="showToggleDropdown !== 'paidOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
@@ -140,9 +141,9 @@
           </div>
         </tr>
         <tr class="tr">
-          <td>
+          <td (click)="onToggleDropdown('languageOptions')">
             <span class="material-icons title">language</span>
-            <button class="btn dropdownToggler" (click)="onToggleDropdown('languageOptions')">
+            <button class="btn dropdownToggler">
               <span *ngIf="showToggleDropdown !== 'languageOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
@@ -153,9 +154,9 @@
           </div>
         </tr>
         <tr class="tr">
-          <td>
+          <td (click)="onToggleDropdown('invert_colorsOptions')">
             <span class="material-icons title">invert_colors</span>
-            <button class="btn dropdownToggler" (click)="onToggleDropdown('invert_colorsOptions')">
+            <button class="btn dropdownToggler">
               <span *ngIf="showToggleDropdown !== 'invert_colorsOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
@@ -167,7 +168,10 @@
         </tr>
         <tr class="tr">
           <td class="clickable" routerLink="/Cart" (click)="openMenuBar()" routerLinkActive="active">
-            <span class="material-icons title">shopping_cart</span>
+            <div class="cart">
+              <span class="material-icons title">shopping_cart</span>
+              <sub class="cart-counter">{{ cartCounter }}</sub>
+            </div>
           </td>
         </tr>
       </tbody>

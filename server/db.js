@@ -690,11 +690,11 @@ app.post("/submit-comment", function (req, res) {
   const Name = body.Name;
   // const Email = body.Email;
   const Message = body.Message;
-  const targetedComment = comments.find((comment) => comment.newsID == req.query.newsID).comment;
+  const targetedComment = comments.find(
+    (comment) => comment.newsID == req.query.newsID
+  ).comment;
   const comment = {
-    id: (
-      targetedComment.length + 1
-    ).toString(),
+    id: (targetedComment.length + 1).toString(),
     createdBy: Name,
     img: "",
     date: new Date(),
@@ -715,11 +715,11 @@ app.post("/submit-reply", function (req, res) {
   const Name = body.Name;
   // const Email = body.Email;
   const Message = body.Message;
-  const targetedReply = comments.find((comment) => comment.newsID == newsID).comment.find(cmt => cmt.id === commentID).reply;
+  const targetedReply = comments
+    .find((comment) => comment.newsID == newsID)
+    .comment.find((cmt) => cmt.id === commentID).reply;
   const reply = {
-    id: (
-      targetedReply.length + 1
-    ).toString(),
+    id: (targetedReply.length + 1).toString(),
     createdBy: Name,
     img: "",
     date: new Date(),
@@ -756,6 +756,12 @@ app.post("/coupon", function (req, res) {
       discount: 0,
     });
   }
+});
+
+app.post("/placeOrder", function (req, res) {
+  return res.json({
+    status: "success",
+  });
 });
 
 app.get("/", function (req, res) {
