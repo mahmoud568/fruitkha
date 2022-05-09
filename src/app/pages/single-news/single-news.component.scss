@@ -83,6 +83,9 @@
       .comments,
       .replys {
         display: flex;
+        @media screen and (max-width: 767px) {
+          display: inline-block;
+        }
         img {
           margin: 7px 0;
           width: 60px;
@@ -94,6 +97,9 @@
         }
         .content {
           margin: 0 20px;
+          @media screen and (max-width: 767px) {
+            margin: 0 10px;
+          }
           p {
             font-size: 18px;
             font-weight: 600;

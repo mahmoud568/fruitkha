@@ -52,16 +52,9 @@ export class CartComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.subscrition.unsubscribe();
-
   }
 
   onTypeOnInput(item: { fruit: fruit; quantity: number }) {
-    // this.Subtotal = this.cart.reduce(
-    //   //@ts-ignore
-    //   (previousValue, currentValue) => previousValue + (currentValue.fruit.fruitPrice * currentValue.quantity),
-    //   this.SubtotalInitialValue
-    // );
-    // not allowing quantity less than zero
     if (this.cart[this.cart.indexOf(item)].quantity < 0) {
       this.cart[this.cart.indexOf(item)].quantity = 0;
     }
@@ -103,13 +96,17 @@ export class CartComponent implements OnInit {
     modalRef.result.then((res) => {
       if (res === 'ok') {
         this.sharedService.cart = this.cart;
-        console.log(this.sharedService.cart)
+        localStorage.setItem("cart", JSON.stringify(this.cart));
+        this.cart = JSON.parse(JSON.stringify(this.sharedService.cart));
       }
     });
   }
 
   submitCoupon(coupon: string) {
-    this.cartService.submitCoupon(coupon).subscribe((res: any) => this.discount = res.discount)
+    this.cartService.submitCoupon(coupon).subscribe((res: any) => {
+      this.discount = res.discount
+      if(this.discount > 0) this.sharedService.discount = this.discount
+    })
   }
 
 }

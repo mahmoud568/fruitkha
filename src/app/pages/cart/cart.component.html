@@ -27,12 +27,15 @@
               <td><span translate>CART.Product-Image<span> :</span></span><img src={{item.fruit.fruitImg}} alt=""></td>
               <td translate><span translate>CART.Name<span> :</span></span>Fruits.{{ item.fruit.fruitName }}</td>
               <td><span translate>CART.Price<span> :</span></span>{{ item.fruit.fruitPrice * exchangerate | currency: currency :"symbol" }}</td>
-              <td><span translate>CART.Quantity<span> :</span></span>
+              <td>
+                <span translate>CART.Quantity<span> :</span></span>
                 <input class="input form-control" type="number" [(ngModel)]="item.quantity " min="0"
                   (keyup)="onTypeOnInput(item)">
               </td>
               <td>
-                <span translate>CART.Total<span> :</span></span>{{ item.fruit.fruitPrice * item.quantity * exchangerate | currency: currency :"symbol" }}</td>
+                <span translate>CART.Total<span> :</span></span>
+                {{ item.fruit.fruitPrice * item.quantity * exchangerate | currency: currency :"symbol" }}
+              </td>
             </tr>
           </tbody>
         </table>
@@ -58,7 +61,14 @@
               </tr>
               <tr>
                 <th scope="row" translate>CART.Total <span>:</span></th>
-                <th *ngIf="discount == 0" scope="row">{{ (Subtotal + Shipping) * exchangerate | currency: currency :"symbol"  }}</th>
+                <th *ngIf="discount == 0" scope="row">
+                  {{ (Subtotal + Shipping) * exchangerate | currency: currency :"symbol"  }}
+                </th>
+                <th *ngIf="discount != 0" scope="row">
+                  <span class="before-discount">{{ (Subtotal + Shipping) * exchangerate | currency: currency :"symbol"  }}</span>
+                  <span class="after-discount primary-background">
+                    {{ (Subtotal + Shipping) * exchangerate - ((Subtotal + Shipping) * exchangerate * discount / 100) | currency: currency :"symbol"  }}</span>
+                </th>
               </tr>
             </tbody>
           </table>

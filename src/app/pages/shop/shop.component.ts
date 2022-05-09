@@ -41,6 +41,7 @@ export class ShopComponent implements OnInit {
 
   getFruits(pageNumber: number) {
     this.activePageNumber = pageNumber;
+    this.onActivate();
     // only call new data  if it not called before
     // not the different between pages and array index
     if (!this.pages[pageNumber - 1]) {
@@ -59,4 +60,14 @@ export class ShopComponent implements OnInit {
   onFruitSelect(fruit: fruit) {
     this.router.navigate(['../Single-Product', fruit.fruitId]);
   }
+
+  // scroll up
+  onActivate() {
+    // window.scroll(0,0);
+    window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+     });
+ }
 }

@@ -55,6 +55,7 @@
         <span class="material-icons hide-md" routerLinkActive="active">
           shopping_cart
         </span>
+        <sup class="cart-counter hide-md">{{ cartCounter }}</sup>
       </a>
       <a class="btn search" routerLink="/Search">
         <span class="material-icons" routerLinkActive="active">search</span>
@@ -75,99 +76,102 @@
     <table *ngIf="isMenuBarOpen" id="table" [@scaleAnimation]>
       <tbody>
         <tr class="tr">
-          <td routerLink="/Home/Static" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+          <td  (click)="onToggleDropdown('homeOptions');$event.stopPropagation();" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
             <span class="title" translate>Header.Home</span>
-            <button class="btn dropdownToggler" (click)="onToggleDropdown('homeOptions');$event.stopPropagation();">
+            <button class="btn dropdownToggler">
               <span *ngIf="showToggleDropdown !== 'homeOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'homeOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of homeOptions" [routerLink]="['/Home/' + option.value]" translate>Custom-Dropdown-Options.{{ option.title }}</a>
+            <a *ngFor="let option of homeOptions" [routerLink]="['/Home/' + option.value]" (click)="openMenuBar()" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
-          <td class="clickable" routerLink="/About" routerLinkActive="active" >
+          <td class="clickable" routerLink="/About" routerLinkActive="active" (click)="openMenuBar()">
             <span class="title" translate>Header.About</span>
           </td>
         </tr>
         <tr class="tr">
-          <td>
+          <td (click)="onToggleDropdown('pagesOptions')">
             <span class="title" translate>Header.Pages</span>
-            <button class="btn dropdownToggler" (click)="onToggleDropdown('pagesOptions')">
+            <button class="btn dropdownToggler">
               <span *ngIf="showToggleDropdown !== 'pagesOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'pagesOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of pagesOptions" [routerLink]="[option.value]" translate>Custom-Dropdown-Options.{{ option.title }}</a>
+            <a *ngFor="let option of pagesOptions" [routerLink]="[option.value]" (click)="openMenuBar()" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
-          <td class="clickable" routerLink="/News" routerLinkActive="active" >
+          <td class="clickable" routerLink="/News" routerLinkActive="active" (click)="openMenuBar()">
             <span class="title" translate>Header.News</span>
           </td>
         </tr>
         <tr class="tr">
-          <td class="clickable" routerLink="/Contact" routerLinkActive="active">
+          <td class="clickable" routerLink="/Contact" (click)="openMenuBar()" routerLinkActive="active">
             <span class="title" translate>Header.Contact</span>
           </td>
         </tr>
         <tr class="tr">
-          <td routerLink="/Shop" routerLinkActive="active">
+          <td (click)="onToggleDropdown('shopOptions')" routerLinkActive="active">
             <span class="title" translate>Header.Shop</span>
-            <button class="btn dropdownToggler" (click)="onToggleDropdown('shopOptions')">
+            <button class="btn dropdownToggler">
               <span *ngIf="showToggleDropdown !== 'shopOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'shopOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of shopOptions" [routerLink]="[option.value]" translate>Custom-Dropdown-Options.{{ option.title }}</a>
+            <a *ngFor="let option of shopOptions" (click)="openMenuBar()" [routerLink]="[option.value]" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
-          <td>
+          <td (click)="onToggleDropdown('paidOptions')">
             <span class="material-icons title">paid</span>
-            <button class="btn dropdownToggler" (click)="onToggleDropdown('paidOptions')">
+            <button class="btn dropdownToggler">
               <span *ngIf="showToggleDropdown !== 'paidOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'paidOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of paidOptions" [ngClass]="{'selected': option.selected == true}"
+            <a *ngFor="let option of paidOptions" (click)="openMenuBar()" [ngClass]="{'selected': option.selected == true}"
               (click)="onCurrencyChange(option.value)"
               onCurrencyChange translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
-          <td>
+          <td (click)="onToggleDropdown('languageOptions')">
             <span class="material-icons title">language</span>
-            <button class="btn dropdownToggler" (click)="onToggleDropdown('languageOptions')">
+            <button class="btn dropdownToggler">
               <span *ngIf="showToggleDropdown !== 'languageOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'languageOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of languageOptions" (click)="changeLangage(option.value)"
+            <a *ngFor="let option of languageOptions" (click)="changeLangage(option.value)" (click)="openMenuBar()"
               [ngClass]="{'selected': option.selected == true}" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
-          <td>
+          <td (click)="onToggleDropdown('invert_colorsOptions')">
             <span class="material-icons title">invert_colors</span>
-            <button class="btn dropdownToggler" (click)="onToggleDropdown('invert_colorsOptions')">
+            <button class="btn dropdownToggler">
               <span *ngIf="showToggleDropdown !== 'invert_colorsOptions';else close">+</span>
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'invert_colorsOptions'" [@scaleAnimation]>
             <a *ngFor="let option of invert_colorsOptions" [ngClass]="{'selected': option.selected == true}"
-              (click)="changeThemeCssFile(option.value)" translate>Custom-Dropdown-Options.{{ option.title }}</a>
+              (click)="changeThemeCssFile(option.value)" (click)="openMenuBar()" translate>Custom-Dropdown-Options.{{ option.title }}</a>
           </div>
         </tr>
         <tr class="tr">
-          <td class="clickable" routerLink="/Cart" routerLinkActive="active">
-            <span class="material-icons title">shopping_cart</span>
+          <td class="clickable" routerLink="/Cart" (click)="openMenuBar()" routerLinkActive="active">
+            <div class="cart">
+              <span class="material-icons title">shopping_cart</span>
+              <sub class="cart-counter">{{ cartCounter }}</sub>
+            </div>
           </td>
         </tr>
       </tbody>

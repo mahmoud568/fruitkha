@@ -11,9 +11,10 @@ export class SharedService {
   isLogedin: boolean = false;
 
   cart: { fruit: fruit; quantity: number }[] = [] ;
-
+  discount: number = 0;
 
   constructor(private router: Router, private cardService: CardService) {
+    this.cart = JSON.parse(localStorage.getItem("cart")!);
     this.cardService.addFruit.subscribe((res) => {
       // check if the cart is empty or this item not exist in it
       if (
@@ -36,6 +37,7 @@ export class SharedService {
           );
         }
       }
+      localStorage.setItem("cart", JSON.stringify(this.cart));
     });
   }
 

@@ -13,7 +13,9 @@
     .material-icons {
       color: whitesmoke;
     }
-
+    .cart-counter {
+      color: whitesmoke;
+    }
     @media screen and (max-width: 991px) {
       .navbar-toggler {
         span {
@@ -87,6 +89,13 @@ $Firefly: #0c1923;
     color: #012738;
   }
 }
+
+// over reading bootstrap default values
+.border {
+  border-color: $Wild-Sand !important;
+}
+
+
 #card {
   border: none;
   &:hover {

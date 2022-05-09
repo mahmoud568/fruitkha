@@ -1,10 +1,72 @@
 <div class="check-out" id="check-out">
-    <div class="header header-background">
-        <p class="text-header">FRESH AND ORGANIC</p>
-        <p class="page">Check Out Product</p>
-      </div>
+  <div class="header header-background">
+    <p class="text-header">FRESH AND ORGANIC</p>
+    <p class="page">Check Out Product</p>
+  </div>
 
-      <div class="main-content primary-background">
-        this page still under development please chack main page and shoping and cart pages
+  <div class="main-content primary-background">
+    <div class="check-out" *ngIf="cart.length > 0">
+      <form class="customer-inf" #f="ngForm">
+        <div class="Header secondary-background">
+          <span [ngStyle]="{'visibility': f.valid ? 'visible' : 'hidden'}" class="material-icons">
+            check_circle
+          </span>
+          Customer Informations</div>
+        <div class="customer-form border">
+          <input class="input form-control" type="string" placeholder="Name" id="Name" ngModel name="Name" required
+            #Name="ngModel">
+          <input class="input form-control" type="email" placeholder="Email" id="Email" ngModel name="Email" required
+            #Email="ngModel">
+          <input class="input form-control" type="string" placeholder="Address" id="Address" ngModel name="Address" required
+            #Address="ngModel">
+          <input class="input form-control" type="string" placeholder="Phone" id="Phone" ngModel name="Phone" required
+            #Phone="ngModel">
+          <textarea class="input form-control textarea" type="string" placeholder="Say Something" id="textarea" ngModel
+            name="textarea" #textarea="ngModel"></textarea>
+        </div>
+      </form>
+      <div class="order-details">
+        <table class="table table-borderless">
+          <thead class="secondary-background">
+            <tr>
+              <th scope="col">Your order Details</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody class="primary-background" *ngIf="cart">
+            <tr>
+              <th class="border" scope="col">Product</th>
+              <td class="border" >Total</td>
+            </tr>
+            <tr *ngFor="let item of cart">
+              <th class="border"  scope="col">{{ item.fruit.fruitName }}</th>
+              <td class="border" >{{ item.fruit.fruitPrice * item.quantity * exchangerate | currency: currency :"symbol" }}</td>
+            </tr>
+            <tr>
+              <th class="border"  scope="col">Subtotal</th>
+              <td>{{ Subtotal * exchangerate | currency: currency :"symbol"  }}</td>
+            </tr>
+            <tr>
+              <th class="border"  scope="col">Shipping</th>
+              <td class="border">{{ Shipping * exchangerate | currency: currency :"symbol"  }}</td>
+            </tr>
+            <tr>
+              <th class="border"  scope="col">Total</th>
+              <td class="border"  *ngIf="discount == 0">{{ (Subtotal + Shipping) * exchangerate | currency: currency :"symbol"  }}</td>
+              <td class="border"  *ngIf="discount != 0" scope="row">
+                <span
+                  class="before-discount">{{ (Subtotal + Shipping) * exchangerate | currency: currency :"symbol"  }}</span>
+                <span class="after-discount primary-background">
+                  {{ (Subtotal + Shipping) * exchangerate - ((Subtotal + Shipping) * exchangerate * discount / 100) | currency: currency :"symbol"  }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn place-order button-hover" (click)="onPlaceOrder(f)" [disabled]="f.invalid">Place Order</button>
       </div>
+    </div>
+    <div *ngIf="cart.length <= 0">
+      <button  routerLink="/Shop">shop now</button>
+    </div>
+  </div>
 </div>

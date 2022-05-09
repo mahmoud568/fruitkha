@@ -8,6 +8,7 @@ import { option } from 'src/app/shared/Interface/option.model';
 import { scaleAnimation } from 'src/app/shared/animation/animation';
 import * as options from './options';
 import { HeaderService } from './service/header.service';
+import { SharedService } from 'src/app/shared/services/shared.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -20,7 +21,7 @@ export class HeaderComponent implements OnInit {
   showToggleDropdown: string = '';
   baseCurrency!: string;
   currencyExchangerate!: any;
-
+  cartCounter: number = 0;
   routeLinkString: string = '';
 
   homeOptions: option[] = options.homeOptions;
@@ -38,9 +39,10 @@ export class HeaderComponent implements OnInit {
   constructor(
     private translateService: TranslateService,
     private headerService: HeaderService,
-    private router: Router
-  ) {
+    private router: Router,
+    private sharedService: SharedService,
 
+  ) {
   }
 
   ngOnInit(): void {
@@ -57,7 +59,7 @@ export class HeaderComponent implements OnInit {
       else this.onCurrencyChange('USD');
     }, 500);
 
-
+    this.cartCounter = this.sharedService.cart.length;
     //call currance on changes so the currancy pipe dont break on route changes
     //@ts-ignore
     this.router.events.pipe(filter(event => event instanceof NavigationStart)).subscribe((event: NavigationStart) => {
@@ -69,7 +71,9 @@ export class HeaderComponent implements OnInit {
     });
 
   }
-
+  ngDoCheck() {
+    this.cartCounter = this.sharedService.cart.length;
+  }
   // @ViewChild('navbar') navbar!: ElementRef;
   // @HostListener("window:scroll", []) onWindowScroll() {
   //   // do some stuff here when the window is scrolled
