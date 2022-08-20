@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable, Output } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { currencyexchange } from 'src/app/shared/Interface/option.model';
 
