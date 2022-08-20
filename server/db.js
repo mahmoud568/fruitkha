@@ -27,6 +27,7 @@ const path = require("path");
 app.use(express.static(path.join(__dirname, "fruits")));
 app.use(express.static(path.join(__dirname, "team")));
 app.use(express.static(path.join(__dirname, "news")));
+app.use(express.static(path.join(__dirname, "farmers")));
 
 const baseURL = "http://localhost:3000/";
 const fruits = [
@@ -571,6 +572,36 @@ let comments = [
 let subscribes = [];
 let coupons = ["12345", "0000", "1234", "1111"];
 
+let farmers =[
+  {
+    id: 1,
+    name: "Jimmy-Doe",
+    title: "farmer",
+    img: `${baseURL}Jimmy-Doe.jpg`,
+    facebook: "#",
+    twitter: "#",
+    instagram: "#",
+  },
+  {
+    id: 2,
+    name: "Marry-Doe",
+    title: "farmer",
+    img: `${baseURL}Marry-Doe.jpg`,
+    facebook: "#",
+    twitter: "#",
+    instagram: "#",
+  },
+  {
+    id: 3,
+    name: "Simon-Joe",
+    title: "farmer",
+    img: `${baseURL}Simon-Joe.jpg`,
+    facebook: "#",
+    twitter: "#",
+    instagram: "#",
+  },
+]
+
 app.get("/exchangerate", function (req, res) {
   if (Object.keys(exchangerate).length !== 0) {
     res.json({
@@ -761,6 +792,13 @@ app.post("/coupon", function (req, res) {
 app.post("/placeOrder", function (req, res) {
   return res.json({
     status: "success",
+  });
+});
+
+app.get("/farmers", function (req, res) {
+  return res.json({
+    status: "success",
+    farmers: farmers
   });
 });
 

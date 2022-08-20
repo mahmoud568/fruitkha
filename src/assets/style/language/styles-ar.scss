@@ -5,7 +5,7 @@
   .tr {
     td {
       .title {
-        padding-right: 35px;
+        margin-right: 35px;
       }
     }
   }
@@ -36,5 +36,11 @@
     .material-icons {
       transform: rotate(180deg);
     }
+  }
+}
+
+#about {
+  .why-fruitkha {
+    padding: 15% 15% 15% 0;
   }
 }
