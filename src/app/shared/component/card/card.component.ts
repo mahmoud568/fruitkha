@@ -66,6 +66,6 @@ export class CardComponent implements OnInit {
   emitToCart() {
     let fruit = this.fruit;
     let quantity = this.quantity;
-    this.cardService.addFruit.emit({ fruit, quantity });
+    this.cardService.addFruit.next({ fruit, quantity });
   }
 }

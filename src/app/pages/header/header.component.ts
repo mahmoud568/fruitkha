@@ -170,7 +170,7 @@ export class HeaderComponent implements OnInit {
     window.localStorage.setItem('currency', currency);
     this.baseCurrency = currency;
     let exchangerate = this.currencyExchangerate[currency];
-    this.headerService.currencyChanged.emit({ currency, exchangerate });
+    this.headerService.currencyChanged.next({ currency, exchangerate });
     this.changeSelectedDesignstyle(currency, this.paidOptions);
   }
 }

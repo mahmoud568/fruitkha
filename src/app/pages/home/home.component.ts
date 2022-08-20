@@ -146,7 +146,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   emitToCart() {
     let fruit = this.saleFruit;
     let quantity = this.saleQuantity;
-    this.cardService.addFruit.emit({ fruit, quantity });
+    this.cardService.addFruit.next({ fruit, quantity });
   }
 
   getTeam() {

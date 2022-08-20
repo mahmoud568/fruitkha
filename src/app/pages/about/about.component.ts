@@ -37,7 +37,6 @@ export class AboutComponent implements OnInit {
   getFarmers() {
     this.aboutService.getFarmers().subscribe((res: any) => {
       this.farmers = res.farmers;
-      console.log(this.farmers)
     });
   }
 
