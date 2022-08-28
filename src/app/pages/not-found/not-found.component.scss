@@ -1,29 +1,55 @@
 .not-found {
-    .header {
-      height: 451px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      .text-header {
-        color: #f28123;
-        font-weight: 700;
-        letter-spacing: 7px;
-      }
-      .page {
-        font-size: 50px;
-        font-weight: 900;
-        letter-spacing: 7px;
-        @media screen and (max-width: 767px) {
-          font-size: 30px;
-        }
-      }
-    }
-
-    .main-content {
-      padding: 5%;
-      text-align: center;
-      font-size: 1.5rem;
+  .header {
+    height: 451px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .text-header {
+      color: #f28123;
       font-weight: 700;
+      letter-spacing: 7px;
+    }
+    .page {
+      font-size: 50px;
+      font-weight: 900;
+      letter-spacing: 7px;
+      @media screen and (max-width: 767px) {
+        font-size: 30px;
+      }
     }
   }
+
+  .main-content {
+    padding: 20% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    .emoji span {
+      font-size: 5rem;
+    }
+    .desc {
+      h1,
+       h6 {
+        text-align: center;
+       }
+       @media screen and (max-width: 767px) {
+        h1 {
+          font-size: 25px;
+       }
+
+      }
+    }
+    .back-home .btn {
+      border-radius: 50px;
+      line-height: 1.6rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background-color: #f28123;
+      &:hover {
+        color: #f28123;
+      }
+    }
+  }
+}

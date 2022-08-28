@@ -199,5 +199,12 @@
     "David-Niph": "David Niph",
     "Jacob-Sikim": "Jacob Sikim",
     "Local-shop-owner": "Local shop owner"
+  },
+  "Not-Found": {
+    "FRESH-ADN-ORGANIC": "FRESH ADN ORGANIC",
+    "404": "404 - Not Found",
+    "Oops!-Not-Found.": "Oops! Not Found.",
+    "The-page-you-requested": "The page you requested for is not found.",
+    "Back-to-Home": "Back to Home"
   }
 }

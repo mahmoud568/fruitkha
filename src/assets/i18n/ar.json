@@ -199,5 +199,12 @@
     "David-Niph": "ديفيد نيف",
     "Jacob-Sikim": "يعقوب سيكيم",
     "Local-shop-owner": "صاحب متجر محلي"
+  },
+  "Not-Found": {
+    "FRESH-ADN-ORGANIC": "طازجة وعضوية",
+    "404": "404 غير موجود",
+    "Oops!-Not-Found.": "أُووبس! لم يتم العثور على.",
+    "The-page-you-requested": "الصفحة التي طلبتها غير موجودة.",
+    "Back-to-Home": "العودة إلى الصفحة الرئيسية"
   }
 }
