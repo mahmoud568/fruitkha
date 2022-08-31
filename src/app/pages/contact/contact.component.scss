@@ -1,29 +1,175 @@
 .contact {
-    .header {
-      height: 451px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      .text-header {
-        color: #f28123;
-        font-weight: 700;
-        letter-spacing: 7px;
+  .header {
+    height: 451px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .text-header {
+      color: #f28123;
+      font-weight: 700;
+      letter-spacing: 7px;
+    }
+    .page {
+      font-size: 50px;
+      font-weight: 900;
+      letter-spacing: 7px;
+      @media screen and (max-width: 767px) {
+        font-size: 30px;
       }
-      .page {
-        font-size: 50px;
-        font-weight: 900;
-        letter-spacing: 7px;
-        @media screen and (max-width: 767px) {
-          font-size: 30px;
+    }
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .reach-us {
+      display: flex;
+
+      gap: 40px;
+      padding: 15% 10px;
+      @media screen and (max-width: 991px) {
+        flex-direction: column;
+      }
+      .any-question {
+
+        @media screen and (max-width: 991px) {
+          width: 100%;
+        }
+        .head {
+          h2 {
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 3.25rem;
+          }
+          p {
+            font-size: 15px;
+            line-height: 1.8;
+            font-weight: 400;
+            letter-spacing: 0.1px;
+            max-width: 610px;
+          }
+        }
+
+        .question-form {
+          .inputs {
+            display: grid;
+            grid-template-areas:
+              "input-1 input-2"
+              "input-3 input-4"
+              "input-5 input-5";
+            gap: 10px;
+            margin-bottom: 16px;
+            @media screen and (max-width: 991px) {
+              display: flex;
+              flex-direction: column;
+            }
+            .input {
+              padding: 15px;
+            }
+            .input-1 {
+              grid-area: input-1;
+            }
+            .input-2 {
+              grid-area: input-2;
+            }
+            .input-3 {
+              grid-area: input-3;
+            }
+            .input-4 {
+              grid-area: input-4;
+            }
+            .input-5 {
+              grid-area: input-5;
+            }
+          }
+
+          .send-qusetion {
+            background-color: #f28123;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 15px 25px;
+            transition: 0.3s;
+            border-radius: 50px;
+
+            &:hover {
+              color: #f28123;
+            }
+          }
+        }
+      }
+
+      .contact-inf {
+        padding: 45px 30px;
+        border-radius: 5px;
+        width: 350px;
+        @media screen and (max-width: 1200px) {
+          width: 290px;
+        }
+        @media screen and (max-width: 991px) {
+          width: 100%;
+        }
+        .item {
+          display: flex;
+          gap: 5px;
+          .icon {
+            color: #f28123;
+            margin-top: 2px;
+          }
+          .inf {
+            h2 {
+              font-size: 20px;
+              font-weight: 600;
+              position: relative;
+              margin-bottom: 10px;
+            }
+            .h6 {
+              line-height: 1.8;
+              opacity: 0.8;
+              font-weight: 400;
+              font-size: 1rem;
+              letter-spacing: 0.1px;
+              color: #051922;
+            }
+          }
         }
       }
     }
 
-    .main-content {
-      padding: 5%;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: 700;
+    .location {
+      width: 100%;
+      .head {
+        .text {
+          font-size: 40px;
+          font-weight: 600;
+          padding: 95px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin: 0;
+          @media screen and (max-width: 767px) {
+            font-size: 20px;
+            gap: 5px;
+          }
+          .material-icons {
+            color: #f28123;
+            font-size: 3rem;
+            @media screen and (max-width: 767px) {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+
+      .embed-responsive-item {
+        width: 100%;
+        height: 600px;
+        border: 0;
+        margin: 0;
+        padding: 0;
+      }
     }
   }
+}
