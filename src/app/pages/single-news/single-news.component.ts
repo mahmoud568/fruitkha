@@ -67,15 +67,11 @@ export class SingleNewsComponent implements OnInit {
   }
 
   onSubmitComment(f: NgForm) {
-    // console.log(f);
-    // this.singleNews.id
     this.singleNewsService.submitComment(this.singleNews.id, f).subscribe(res => this.getSingleNews());
 
   }
 
   onSubmitReply(f: NgForm, commentId: number) {
-    // console.log(f);
-    // this.singleNews.id
     this.singleNewsService.submitReply(this.singleNews.id,commentId , f).subscribe(res => this.getSingleNews());
   }
 }

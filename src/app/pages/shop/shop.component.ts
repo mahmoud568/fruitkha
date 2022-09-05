@@ -63,8 +63,6 @@ export class ShopComponent implements OnInit {
             this.pagesCount.push(i);
           }
         }
-        } else {
-          console.log("here")
         }
       });
     }
