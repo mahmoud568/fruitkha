@@ -1,10 +1,128 @@
 <div class="contact" id="contact">
-    <div class="header header-background">
-        <p class="text-header">GET 24/7 SUPPORT</p>
-        <p class="page">Contact us</p>
-      </div>
+  <div class="header header-background">
+    <p class="text-header" translate>CONTACT.GET-SUPPORT</p>
+    <p class="page" translate>CONTACT.Contact-us</p>
+  </div>
 
-      <div class="main-content primary-background">
-        this page still under development please chack main page and shoping and cart pages
+  <div class="main-content primary-background">
+    <div class="reach-us">
+      <div class="any-question">
+        <div class="head">
+          <h2 translate>CONTACT.Have-you-any-question?</h2>
+          <p translate>Lorem</p>
+        </div>
+        <form class="question-form" #f="ngForm">
+          <div class="inputs">
+            <input
+              class="input form-control input-1"
+              type="string"
+              placeholder="{{ 'CONTACT.Name' | translate }}"
+              id="Name"
+              ngModel
+              name="Name"
+              required
+              #Name="ngModel"
+            />
+            <input
+              class="input form-control input-2"
+              type="email"
+              placeholder="{{ 'CONTACT.Email' | translate }}"
+              id="Email"
+              ngModel
+              name="Email"
+              required
+              #Email="ngModel"
+            />
+            <input
+              class="input form-control input-3"
+              type="string"
+              placeholder="{{ 'CONTACT.Phone' | translate }}"
+              id="Phone"
+              ngModel
+              name="Phone"
+              required
+              #Phone="ngModel"
+            />
+            <input
+              class="input form-control input-4"
+              type="string"
+              placeholder="{{ 'CONTACT.Subject' | translate }}"
+              id="Subject"
+              ngModel
+              name="Subject"
+              #Subject="ngModel"
+            />
+            <textarea
+              class="input form-control textarea input-5"
+              type="string"
+              placeholder="{{ 'CONTACT.Message' | translate }}"
+              id="Message"
+              ngModel
+              name="Message"
+              #Message="ngModel"
+              required
+            ></textarea>
+          </div>
+          <button
+            class="btn send-qusetion text-color button-hover"
+            (click)="onQuestion(f)"
+            [disabled]="f.invalid"
+            translate>
+            CONTACT.SUBMIT
+          </button>
+        </form>
       </div>
+      <div class="contact-inf secondary-background">
+        <div class="address item">
+          <div class="icon">
+            <span class="material-icons"> map </span>
+          </div>
+          <div class="inf">
+            <h2 translate>CONTACT.Shop-Address</h2>
+            <h6>
+              <p translate>CONTACT.East-Hukupara</p>
+              <p translate>CONTACT.Gifirtok-Sadan.</p>
+              <p translate>CONTACT.Country-Name</p>
+            </h6>
+          </div>
+        </div>
+        <div class="Shop-Hours item">
+          <div class="icon">
+            <span class="material-icons"> schedule </span>
+          </div>
+          <div class="inf">
+            <h2 translate>CONTACT.Shop-Hours</h2>
+            <h6>
+              <p translate>CONTACT.MON-FRIDAY</p>
+              <p translate>CONTACT.SAT-SUN</p>
+            </h6>
+          </div>
+        </div>
+        <div class="Contact item">
+          <div class="icon">
+            <span class="material-icons"> contact_page </span>
+          </div>
+          <div class="inf">
+            <h2 translate>CONTACT.Contact</h2>
+            <h6>
+              <p translate>CONTACT.Phone: <span> +00 111 222 3333</span></p>
+              <p translate>CONTACT.Email: <span> support@fruitkha.com</span></p>
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="location">
+      <div class="head ">
+        <p class="text">
+          <span class="material-icons"> location_on </span>
+          <span translate>CONTACT.Find-Our-Location </span>
+        </p>
+      </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26432.42324808999!2d-118.34398767954286!3d34.09378509738966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf07045279bf%3A0xf67a9a6797bdfae4!2sHollywood%2C%20Los%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1576846473265!5m2!1sen!2sbd"
+        class="embed-responsive-item"
+      ></iframe>
+    </div>
+  </div>
 </div>

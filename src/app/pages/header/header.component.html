@@ -1,53 +1,124 @@
 <section class="header" id="header">
   <nav appScroll class="navbar navbar-expand-lg navbar-light">
-    <a class="item-1" id="navbar-brand" routerLink="/Home/Static" ><img class="logoImg" src="assets\img\logo.png" alt="logo"></a>
+    <a class="item-1" id="navbar-brand" routerLink="/Home/Static"
+      ><img class="logoImg" src="assets\img\logo.png" alt="logo"
+    /></a>
     <ul class="navbar-nav item-2 hide-md">
-      <li class="nav-item" (mouseover)="onHoverDropdown('homeOptions', $event.type)"
-        (mouseleave)="onHoverDropdown('homeOptions', $event.type)">
-        <a class="nav-link" routerLink="/Home" routerLinkActive="active" translate>Header.Home</a>
-        <app-custom-dropdown *ngIf="showHoverDropdown === 'homeOptions'" [options]="homeOptions"
-          (optionSelected)="routeLinkString = $event.value" [routerLink]="['/Home/' + routeLinkString]"></app-custom-dropdown>
+      <li
+        class="nav-item"
+        (mouseover)="onHoverDropdown('homeOptions', $event.type)"
+        (mouseleave)="onHoverDropdown('homeOptions', $event.type)"
+      >
+        <a
+          class="nav-link"
+          routerLink="/Home"
+          routerLinkActive="active"
+          translate
+          >Header.Home</a
+        >
+        <app-custom-dropdown
+          *ngIf="showHoverDropdown === 'homeOptions'"
+          [options]="homeOptions"
+          (optionSelected)="routeLinkString = $event.value"
+          [routerLink]="['/Home/' + routeLinkString]"
+        ></app-custom-dropdown>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/About" routerLinkActive="active" translate>Header.About</a>
+        <a
+          class="nav-link"
+          routerLink="/About"
+          routerLinkActive="active"
+          translate
+          >Header.About</a
+        >
       </li>
-      <li class="nav-item" (mouseover)="onHoverDropdown('pagesOptions', $event.type)"
-        (mouseleave)="onHoverDropdown('pagesOptions', $event.type)">
+      <li
+        class="nav-item"
+        (mouseover)="onHoverDropdown('pagesOptions', $event.type)"
+        (mouseleave)="onHoverDropdown('pagesOptions', $event.type)"
+      >
         <a class="nav-link" translate>Header.Pages</a>
-        <app-custom-dropdown *ngIf="showHoverDropdown === 'pagesOptions'" [options]="pagesOptions"
-        (optionSelected)="routeLinkString = $event.value" [routerLink]="[routeLinkString]"></app-custom-dropdown>
+        <app-custom-dropdown
+          *ngIf="showHoverDropdown === 'pagesOptions'"
+          [options]="pagesOptions"
+          (optionSelected)="routeLinkString = $event.value"
+          [routerLink]="[routeLinkString]"
+        ></app-custom-dropdown>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/News" routerLinkActive="active" translate>Header.News</a>
+        <a
+          class="nav-link"
+          routerLink="/News"
+          routerLinkActive="active"
+          translate
+          >Header.News</a
+        >
       </li>
-      <li class="nav-item" >
-        <a class="nav-link" routerLink="/Contact" routerLinkActive="active" translate>Header.Contact</a>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/Contact"
+          routerLinkActive="active"
+          translate
+          >Header.Contact</a
+        >
       </li>
-      <li class="nav-item"  (mouseover)="onHoverDropdown('shopOptions', $event.type)"
-        (mouseleave)="onHoverDropdown('shopOptions', $event.type)">
-        <a class="nav-link" routerLink="/Shop" routerLinkActive="active" translate>Header.Shop</a>
-        <app-custom-dropdown *ngIf="showHoverDropdown === 'shopOptions'" [options]="shopOptions"
-        (optionSelected)="routeLinkString = $event.value" [routerLink]="[routeLinkString]"></app-custom-dropdown>
+      <li
+        class="nav-item"
+        (mouseover)="onHoverDropdown('shopOptions', $event.type)"
+        (mouseleave)="onHoverDropdown('shopOptions', $event.type)"
+      >
+        <a
+          class="nav-link"
+          routerLink="/Shop"
+          routerLinkActive="active"
+          translate
+          >Header.Shop</a
+        >
+        <app-custom-dropdown
+          *ngIf="showHoverDropdown === 'shopOptions'"
+          [options]="shopOptions"
+          (optionSelected)="routeLinkString = $event.value"
+          [routerLink]="[routeLinkString]"
+        ></app-custom-dropdown>
       </li>
     </ul>
     <ul class="item-3 hide-md">
-      <li class="nav-item" (mouseover)="onHoverDropdown('paidOptions', $event.type)"
-        (mouseleave)="onHoverDropdown('paidOptions', $event.type)">
+      <li
+        class="nav-item"
+        (mouseover)="onHoverDropdown('paidOptions', $event.type)"
+        (mouseleave)="onHoverDropdown('paidOptions', $event.type)"
+      >
         <span class="material-icons">paid</span>
-        <app-custom-dropdown *ngIf="showHoverDropdown === 'paidOptions'" [options]="paidOptions"
-          (optionSelected)="onCurrencyChange($event.value)"></app-custom-dropdown>
+        <app-custom-dropdown
+          *ngIf="showHoverDropdown === 'paidOptions'"
+          [options]="paidOptions"
+          (optionSelected)="onCurrencyChange($event.value)"
+        ></app-custom-dropdown>
       </li>
-      <li class="nav-item" (mouseover)="onHoverDropdown('languageOptions', $event.type)"
-        (mouseleave)="onHoverDropdown('languageOptions', $event.type)">
+      <li
+        class="nav-item"
+        (mouseover)="onHoverDropdown('languageOptions', $event.type)"
+        (mouseleave)="onHoverDropdown('languageOptions', $event.type)"
+      >
         <span class="material-icons">language</span>
-        <app-custom-dropdown *ngIf="showHoverDropdown === 'languageOptions'" [options]="languageOptions"
-          (optionSelected)="changeLangage($event.value)"></app-custom-dropdown>
+        <app-custom-dropdown
+          *ngIf="showHoverDropdown === 'languageOptions'"
+          [options]="languageOptions"
+          (optionSelected)="changeLangage($event.value)"
+        ></app-custom-dropdown>
       </li>
-      <li class="nav-item" (mouseover)="onHoverDropdown('invert_colorsOptions', $event.type)"
-        (mouseleave)="onHoverDropdown('invert_colorsOptions', $event.type)">
+      <li
+        class="nav-item"
+        (mouseover)="onHoverDropdown('invert_colorsOptions', $event.type)"
+        (mouseleave)="onHoverDropdown('invert_colorsOptions', $event.type)"
+      >
         <span class="material-icons">invert_colors</span>
-        <app-custom-dropdown *ngIf="showHoverDropdown === 'invert_colorsOptions'" [options]="invert_colorsOptions"
-          (optionSelected)="changeThemeCssFile($event.value)"></app-custom-dropdown>
+        <app-custom-dropdown
+          *ngIf="showHoverDropdown === 'invert_colorsOptions'"
+          [options]="invert_colorsOptions"
+          (optionSelected)="changeThemeCssFile($event.value)"
+        ></app-custom-dropdown>
       </li>
     </ul>
     <div class="item-4">
@@ -57,7 +128,7 @@
         </span>
         <sup class="cart-counter hide-md">{{ cartCounter }}</sup>
       </a>
-      <a class="btn search" routerLink="/Search">
+      <a class="btn search" (click)="this.isSearch = true">
         <span class="material-icons" routerLinkActive="active">search</span>
       </a>
     </div>
@@ -65,9 +136,7 @@
       <span class="material-icons" *ngIf="!isMenuBarOpen">
         density_medium
       </span>
-      <span class="material-icons" *ngIf="isMenuBarOpen">
-        close
-      </span>
+      <span class="material-icons" *ngIf="isMenuBarOpen"> close </span>
     </div>
   </nav>
 
@@ -76,19 +145,36 @@
     <table *ngIf="isMenuBarOpen" id="table" [@scaleAnimation]>
       <tbody>
         <tr class="tr">
-          <td  (click)="onToggleDropdown('homeOptions');$event.stopPropagation();" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+          <td
+            (click)="onToggleDropdown('homeOptions'); $event.stopPropagation()"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
             <span class="title" translate>Header.Home</span>
             <button class="btn dropdownToggler">
-              <span *ngIf="showToggleDropdown !== 'homeOptions';else close">+</span>
+              <span *ngIf="showToggleDropdown !== 'homeOptions'; else close"
+                >+</span
+              >
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'homeOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of homeOptions" [routerLink]="['/Home/' + option.value]" (click)="openMenuBar()" translate>Custom-Dropdown-Options.{{ option.title }}</a>
+            <a
+              *ngFor="let option of homeOptions"
+              [routerLink]="['/Home/' + option.value]"
+              (click)="openMenuBar()"
+              translate
+              >Custom-Dropdown-Options.{{ option.title }}</a
+            >
           </div>
         </tr>
         <tr class="tr">
-          <td class="clickable" routerLink="/About" routerLinkActive="active" (click)="openMenuBar()">
+          <td
+            class="clickable"
+            routerLink="/About"
+            routerLinkActive="active"
+            (click)="openMenuBar()"
+          >
             <span class="title" translate>Header.About</span>
           </td>
         </tr>
@@ -96,78 +182,146 @@
           <td (click)="onToggleDropdown('pagesOptions')">
             <span class="title" translate>Header.Pages</span>
             <button class="btn dropdownToggler">
-              <span *ngIf="showToggleDropdown !== 'pagesOptions';else close">+</span>
+              <span *ngIf="showToggleDropdown !== 'pagesOptions'; else close"
+                >+</span
+              >
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'pagesOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of pagesOptions" [routerLink]="[option.value]" (click)="openMenuBar()" translate>Custom-Dropdown-Options.{{ option.title }}</a>
+            <a
+              *ngFor="let option of pagesOptions"
+              [routerLink]="[option.value]"
+              (click)="openMenuBar()"
+              translate
+              >Custom-Dropdown-Options.{{ option.title }}</a
+            >
           </div>
         </tr>
         <tr class="tr">
-          <td class="clickable" routerLink="/News" routerLinkActive="active" (click)="openMenuBar()">
+          <td
+            class="clickable"
+            routerLink="/News"
+            routerLinkActive="active"
+            (click)="openMenuBar()"
+          >
             <span class="title" translate>Header.News</span>
           </td>
         </tr>
         <tr class="tr">
-          <td class="clickable" routerLink="/Contact" (click)="openMenuBar()" routerLinkActive="active">
+          <td
+            class="clickable"
+            routerLink="/Contact"
+            (click)="openMenuBar()"
+            routerLinkActive="active"
+          >
             <span class="title" translate>Header.Contact</span>
           </td>
         </tr>
         <tr class="tr">
-          <td (click)="onToggleDropdown('shopOptions')" routerLinkActive="active">
+          <td
+            (click)="onToggleDropdown('shopOptions')"
+            routerLinkActive="active"
+          >
             <span class="title" translate>Header.Shop</span>
             <button class="btn dropdownToggler">
-              <span *ngIf="showToggleDropdown !== 'shopOptions';else close">+</span>
+              <span *ngIf="showToggleDropdown !== 'shopOptions'; else close"
+                >+</span
+              >
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'shopOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of shopOptions" (click)="openMenuBar()" [routerLink]="[option.value]" translate>Custom-Dropdown-Options.{{ option.title }}</a>
+            <a
+              *ngFor="let option of shopOptions"
+              (click)="openMenuBar()"
+              [routerLink]="[option.value]"
+              translate
+              >Custom-Dropdown-Options.{{ option.title }}</a
+            >
           </div>
         </tr>
         <tr class="tr">
           <td (click)="onToggleDropdown('paidOptions')">
             <span class="material-icons title">paid</span>
             <button class="btn dropdownToggler">
-              <span *ngIf="showToggleDropdown !== 'paidOptions';else close">+</span>
+              <span *ngIf="showToggleDropdown !== 'paidOptions'; else close"
+                >+</span
+              >
               <ng-template #close>-</ng-template>
             </button>
           </td>
           <div *ngIf="showToggleDropdown === 'paidOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of paidOptions" (click)="openMenuBar()" [ngClass]="{'selected': option.selected == true}"
+            <a
+              *ngFor="let option of paidOptions"
+              (click)="openMenuBar()"
+              [ngClass]="{ selected: option.selected == true }"
               (click)="onCurrencyChange(option.value)"
-              onCurrencyChange translate>Custom-Dropdown-Options.{{ option.title }}</a>
+              onCurrencyChange
+              translate
+              >Custom-Dropdown-Options.{{ option.title }}</a
+            >
           </div>
         </tr>
         <tr class="tr">
           <td (click)="onToggleDropdown('languageOptions')">
             <span class="material-icons title">language</span>
             <button class="btn dropdownToggler">
-              <span *ngIf="showToggleDropdown !== 'languageOptions';else close">+</span>
+              <span *ngIf="showToggleDropdown !== 'languageOptions'; else close"
+                >+</span
+              >
               <ng-template #close>-</ng-template>
             </button>
           </td>
-          <div *ngIf="showToggleDropdown === 'languageOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of languageOptions" (click)="changeLangage(option.value)" (click)="openMenuBar()"
-              [ngClass]="{'selected': option.selected == true}" translate>Custom-Dropdown-Options.{{ option.title }}</a>
+          <div
+            *ngIf="showToggleDropdown === 'languageOptions'"
+            [@scaleAnimation]
+          >
+            <a
+              *ngFor="let option of languageOptions"
+              (click)="changeLangage(option.value)"
+              (click)="openMenuBar()"
+              [ngClass]="{ selected: option.selected == true }"
+              translate
+              >Custom-Dropdown-Options.{{ option.title }}</a
+            >
           </div>
         </tr>
         <tr class="tr">
           <td (click)="onToggleDropdown('invert_colorsOptions')">
             <span class="material-icons title">invert_colors</span>
             <button class="btn dropdownToggler">
-              <span *ngIf="showToggleDropdown !== 'invert_colorsOptions';else close">+</span>
+              <span
+                *ngIf="
+                  showToggleDropdown !== 'invert_colorsOptions';
+                  else close
+                "
+                >+</span
+              >
               <ng-template #close>-</ng-template>
             </button>
           </td>
-          <div *ngIf="showToggleDropdown === 'invert_colorsOptions'" [@scaleAnimation]>
-            <a *ngFor="let option of invert_colorsOptions" [ngClass]="{'selected': option.selected == true}"
-              (click)="changeThemeCssFile(option.value)" (click)="openMenuBar()" translate>Custom-Dropdown-Options.{{ option.title }}</a>
+          <div
+            *ngIf="showToggleDropdown === 'invert_colorsOptions'"
+            [@scaleAnimation]
+          >
+            <a
+              *ngFor="let option of invert_colorsOptions"
+              [ngClass]="{ selected: option.selected == true }"
+              (click)="changeThemeCssFile(option.value)"
+              (click)="openMenuBar()"
+              translate
+              >Custom-Dropdown-Options.{{ option.title }}</a
+            >
           </div>
         </tr>
         <tr class="tr">
-          <td class="clickable" routerLink="/Cart" (click)="openMenuBar()" routerLinkActive="active">
+          <td
+            class="clickable"
+            routerLink="/Cart"
+            (click)="openMenuBar()"
+            routerLinkActive="active"
+          >
             <div class="cart">
               <span class="material-icons title">shopping_cart</span>
               <sub class="cart-counter">{{ cartCounter }}</sub>
@@ -177,5 +331,36 @@
       </tbody>
     </table>
   </div>
+</section>
 
+<section
+  class="search-section primary-background"
+  [ngClass]="[isSearch ? 'visible' : 'hidden']"
+>
+  <div class="close-wrapper">
+    <button class="close" (click)="this.isSearch = false">
+      <span class="material-icons"> close </span>
+    </button>
+  </div>
+  <div class="main">
+    <div class="head">
+      <p translate>Header.SEARCH-FOR:</p>
+    </div>
+
+    <input
+    class="input"
+    #SearchInput
+    type="string"
+    (keyup.enter)="onSearch(SearchInput.value)"
+    placeholder="{{ 'Header.Keywords' | translate }}"/>
+
+    <button
+      class="btn input button-hover"
+      (click)="onSearch(SearchInput.value)"
+      [disabled]="SearchInput.value.length < 1"
+      translate>
+      Header.Search
+      <span class="material-icons">search</span>
+    </button>
+  </div>
 </section>

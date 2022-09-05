@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appScroll]'

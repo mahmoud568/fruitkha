@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { CardService } from 'src/app/shared/component/card/service/card.service';
 
 import { fruit, fruitBenefit } from 'src/app/shared/Interface/fruit.model';
 import { currencyexchange } from 'src/app/shared/Interface/option.model';
+import { SharedService } from 'src/app/shared/services/shared.service';
 import { HeaderService } from '../header/service/header.service';
 import { SingleProductService } from './service/single-product.service';
 
 @Component({
   selector: 'app-single-product',
   templateUrl: './single-product.component.html',
-  styleUrls: ['./single-product.component.scss']
+  styleUrls: ['./single-product.component.scss'],
 })
 export class SingleProductComponent implements OnInit {
   fruit!: fruit;
@@ -26,8 +28,10 @@ export class SingleProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private singleProductService: SingleProductService,
-    private headerService: HeaderService
-    ) { }
+    private headerService: HeaderService,
+    private cardService: CardService,
+    private sharedService: SharedService
+  ) {}
 
   ngOnInit(): void {
     const fruitId = parseInt(this.route.snapshot.paramMap.get('id')!);
@@ -38,18 +42,28 @@ export class SingleProductComponent implements OnInit {
         this.exchangerate = res.exchangerate;
       }
     );
+
   }
 
   getFruit(fruitId: number) {
     this.singleProductService.getFruit(fruitId).subscribe((res: any) => {
-      if(res.status == "success") {
+      if (res.status == 'success') {
         this.fruit = res.fruit;
         this.fruitBenefit = res.fruitBenefit;
-        console.log(res);
       }
+      this.isThisFruitExistInCart();
     });
   }
 
+  // check  if this fruit exist in cart and if its change the quantity to it
+  isThisFruitExistInCart() {
+    let isThisFruitExistInCart = this.sharedService.cart.find(
+      (x) => x.fruit.fruitId == this.fruit.fruitId
+    );
+    if (isThisFruitExistInCart) {
+      this.quantity = isThisFruitExistInCart.quantity;
+    }
+  }
 
   onAddToCart() {
     this.quantity = 1;
@@ -80,8 +94,8 @@ export class SingleProductComponent implements OnInit {
   }
 
   emitToCart() {
-    let fruit = this.quantity;
+    let fruit = this.fruit;
     let quantity = this.quantity;
-    // this.cardService.addFruit.emit({ fruit, quantity });
+    this.cardService.addFruit.next({ fruit, quantity });
   }
 }

@@ -3,8 +3,8 @@
     <p class="text-header" translate>SHOP.FRESH-AND-ORGANIC</p>
     <p class="page" translate>SHOP.Shop</p>
   </div>
-  <div class="main-content primary-background">
-    <div class="cards">
+  <div class="main-content primary-background" *ngIf="pages.length != 0">
+    <div class="cards" >
       <app-card
       *ngFor="let fruit of pages[activePageNumber-1]"
       [currency]="currency"
@@ -32,5 +32,11 @@
       [disabled]="activePageNumber === pagesCount.length"
       translate>SHOP.Next</button>
     </div>
+  </div>
+  <div class="error primary-background" *ngIf="pages.length == 0">
+    <span class="material-icons">
+      sentiment_very_dissatisfied
+      </span>
+    <p>sorry couldn't find any data </p>
   </div>
 </div>

@@ -1,4 +1,5 @@
-import { EventEmitter, Injectable, Output } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 import { fruit } from 'src/app/shared/Interface/fruit.model';
 
 @Injectable({
@@ -8,5 +9,5 @@ export class CardService {
 
   constructor() { }
 
-  @Output() addFruit = new EventEmitter<{fruit: fruit, quantity: number}>();
+  @Output() addFruit = new Subject<{fruit: fruit, quantity: number}>();
 }

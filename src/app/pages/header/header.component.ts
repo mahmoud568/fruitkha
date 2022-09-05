@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   currencyExchangerate!: any;
   cartCounter: number = 0;
   routeLinkString: string = '';
-
+  isSearch: boolean = false;
   homeOptions: option[] = options.homeOptions;
 
   pagesOptions: option[] = options.pagesOptions;
@@ -170,7 +170,12 @@ export class HeaderComponent implements OnInit {
     window.localStorage.setItem('currency', currency);
     this.baseCurrency = currency;
     let exchangerate = this.currencyExchangerate[currency];
-    this.headerService.currencyChanged.emit({ currency, exchangerate });
+    this.headerService.currencyChanged.next({ currency, exchangerate });
     this.changeSelectedDesignstyle(currency, this.paidOptions);
+  }
+
+  onSearch(SearchText: string) {
+    this.isSearch = false;
+    this.router.navigate(['/Shop'], { queryParams: {search: SearchText}});
   }
 }

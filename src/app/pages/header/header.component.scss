@@ -27,7 +27,7 @@
       width: 35rem;
     }
     @media screen and (max-width: 575px) {
-      width: 95%;;
+      width: 95%;
     }
     &.scrolled {
       padding: 15px 0;
@@ -127,7 +127,7 @@
       .tr {
         height: 2.5rem;
         &:nth-child(n + 2) {
-          border-top: 1px solid #68797E;
+          border-top: 1px solid #68797e;
         }
         td {
           display: flex;
@@ -141,7 +141,8 @@
           &:hover {
             background-color: rgb(48, 63, 75);
           }
-          &.clickable:hover,&.active {
+          &.clickable:hover,
+          &.active {
             color: #f28123;
           }
           .btn {
@@ -157,7 +158,8 @@
           &:nth-child(n + 2) {
             border-top: 1px solid rgb(255, 255, 255, 0.3);
           }
-          &:hover, &.selected {
+          &:hover,
+          &.selected {
             color: #f28123;
             background-color: rgb(48, 63, 75);
           }
@@ -167,3 +169,93 @@
   }
 }
 
+.search-section {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.1s linear;
+  }
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.1s, opacity 0.1s linear;
+  }
+  .close-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    border: 0;
+    .close {
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px 20%;
+      width: 30px;
+      height: 30px;
+      border: 0;
+    }
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  .head {
+    margin-top: 10%;
+    p {
+      margin-bottom: 30px;
+      font-weight: 600;
+      letter-spacing: 7px;
+      font-size: 2rem;
+      line-height: 2.25rem;
+      @media screen and (max-width: 767px) {
+        font-size: 1.75rem;
+        line-height: 2rem;
+        letter-spacing: 4px;
+      }
+    }
+  }
+  .input {
+    border: none;
+    padding: 15px;
+    max-width: 90%;
+    background-color: transparent;
+    border-bottom: 1px solid #f28123;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    @media screen and (max-width: 767px) {
+      font-size: 20px;
+    }
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    transition: 0.3s;
+    border: none;
+    background-color: #f28123;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    .material-icons {
+      font-size: 20px;
+    }
+    &:hover {
+      color: #f28123;
+    }
+  }
+}
