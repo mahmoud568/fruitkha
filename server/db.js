@@ -618,9 +618,14 @@ app.get("/exchangerate", function (req, res) {
 
 // get fruits by page size and page number
 app.get("/fruits", function (req, res) {
+  let fruitsCopy = JSON.parse(JSON.stringify(fruits));
   let pageSize = req.query.pageSize;
   let pageNumber = req.query.pageNumber;
-  let pagesCount = Math.ceil(fruits.length / pageSize);
+  let search = req.query.search;;
+  if (search) {
+    fruitsCopy = fruitsCopy.filter(fruit => fruit.fruitName.includes(search))
+  }
+  let pagesCount = Math.ceil(fruitsCopy.length / pageSize);
   let fruitArrayStart = pageSize * (pageNumber - 1);
   let fruitArrayend = pageSize * pageNumber;
   if (pageNumber > pagesCount) {
@@ -632,7 +637,7 @@ app.get("/fruits", function (req, res) {
     res.json({
       status: "success",
       pagesCount: pagesCount,
-      fruits: fruits.slice(fruitArrayStart, fruitArrayend),
+      fruits: fruitsCopy.slice(fruitArrayStart, fruitArrayend),
     });
   }
 });

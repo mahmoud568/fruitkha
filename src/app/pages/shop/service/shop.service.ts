@@ -12,8 +12,13 @@ export class ShopService {
   }
 
   // get Fruits by size and page number
-  getFruits(pageSize: number,pageNumber: number) {
-    return this.http.get(`${this.baseURL}fruits?pageSize=${pageSize}&pageNumber=${pageNumber}`);
+  getFruits(pageSize: number,pageNumber: number, search?: string) {
+    // put this conditio so http doent send undifind as string to backend
+    if(search) {
+      return this.http.get(`${this.baseURL}fruits?pageSize=${pageSize}&pageNumber=${pageNumber}&search=${search}`);
+    } else {
+      return this.http.get(`${this.baseURL}fruits?pageSize=${pageSize}&pageNumber=${pageNumber}`);
+    }
   }
 
 }

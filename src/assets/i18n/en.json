@@ -6,7 +6,10 @@
     "Pages": "Pages",
     "News": "News",
     "Contact": "Contact",
-    "Shop": "Shop"
+    "Shop": "Shop",
+    "SEARCH-FOR:": "SEARCH FOR:",
+    "Keywords": "Keywords",
+    "Search": "Search"
   },
   "Custom-Dropdown-Options": {
     "Static Home": "Static Home",

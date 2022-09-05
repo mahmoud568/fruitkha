@@ -6,7 +6,10 @@
     "Pages": "الصفحات",
     "News": "أخبار",
     "Contact": "اتصل",
-    "Shop": "تسوق"
+    "Shop": "تسوق",
+    "SEARCH-FOR:": "البحث عن:",
+    "Keywords": "الكلمات الدالة",
+    "Search": "يبحث"
   },
   "Custom-Dropdown-Options": {
     "Static Home": "الصفحة الرئيسية ثابتة",

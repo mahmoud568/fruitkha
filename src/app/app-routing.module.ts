@@ -10,7 +10,6 @@ import { StaticHomeComponent } from './pages/home/static-home/static-home.compon
 import { NewsComponent } from './pages/news/news.component';
 import { SingleNewsComponent } from './pages/single-news/single-news.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { SearchComponent } from './pages/search/search.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { SingleProductComponent } from './pages/single-product/single-product.component';
 
@@ -45,7 +44,6 @@ const routes: Routes = [
     path: 'Single-Product/:id',
     component: SingleProductComponent,
   },
-  { path: 'Search', component: SearchComponent },
   { path: '404', component: NotFoundComponent },
 
   { path: '**', component: NotFoundComponent },

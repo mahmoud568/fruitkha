@@ -25,7 +25,6 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CartComponent } from './pages/cart/cart.component';
-import { SearchComponent } from './pages/search/search.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CardComponent } from './shared/component/card/card.component';
 import { FooterComponent } from './pages/footer/footer.component';
@@ -58,7 +57,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     SingleProductComponent,
     CheckoutComponent,
     CartComponent,
-    SearchComponent,
     NotFoundComponent,
     CardComponent,
     FooterComponent,
