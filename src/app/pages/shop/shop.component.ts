@@ -28,12 +28,14 @@ export class ShopComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((res: any) => {
+      // console.log("here")
       // so if user search while in shop page values rest
       if(res.params.search || res.params.search != "") {
         this.pages = [];
         this.pagesCount = [];
       }
-      this.getFruits(1, res.params.search);
+      let lang = localStorage.getItem("lang")!;
+      this.getFruits(1, res.params.search, lang);
     })
     this.subscrition = this.headerService.currencyChanged.subscribe(
       (res: currencyexchange) => {
@@ -47,13 +49,13 @@ export class ShopComponent implements OnInit {
     this.subscrition.unsubscribe();
   }
 
-  getFruits(pageNumber: number, search?: string) {
+  getFruits(pageNumber: number, search?: string, lang?: string) {
     this.activePageNumber = pageNumber;
     this.onActivate();
     // only call new data  if it not called before
     // not the different between pages and array index
     if (!this.pages[pageNumber - 1]) {
-      this.shopService.getFruits(6, pageNumber, search).subscribe((res: any) => {
+      this.shopService.getFruits(6, pageNumber, search, lang).subscribe((res: any) => {
         if(res.status != "error") {
           // for styleing the page number
         this.pages[pageNumber - 1] = res.fruits;

@@ -151,6 +151,179 @@ const fruits = [
     fruitSale: 30,
   },
 ];
+
+let fruitsNamesAR = [
+  {
+    name: "Apple",
+    translate: "تفاح",
+  },
+  {
+    name: "Apricot",
+    translate: "مشمش",
+  },
+  ,
+  {
+    name: "Avocado",
+    translate: "أفوكادو",
+  },
+  ,
+  {
+    name: "Banana",
+    translate: "موز",
+  },
+  ,
+  {
+    name: "Blackberry",
+    translate: "بلاك بيري",
+  },
+  ,
+  {
+    name: "Blueberry",
+    translate: "توت بري",
+  },
+  ,
+  {
+    name: "Boysenberry",
+    translate: "بويزنبيري",
+  },
+  ,
+  {
+    name: "Cantaloupe",
+    translate: "الشمام",
+  },
+  ,
+  {
+    name: "Clementine",
+    translate: "كليمنتين",
+  },
+  ,
+  {
+    name: "Date-Palm",
+    translate: "بلح",
+  },
+  ,
+  {
+    name: "Dragonfruit",
+    translate: "فاكهة التنين",
+  },
+  ,
+  {
+    name: "Elderberry",
+    translate: "إلدربيري",
+  },
+  ,
+  {
+    name: "Fig",
+    translate: "تين",
+  },
+  ,
+  {
+    name: "Grape",
+    translate: "عنب",
+  },
+  ,
+  {
+    name: "Guava",
+    translate: "جوافة",
+  },
+  ,
+  {
+    name: "Kiwi",
+    translate: "كيوي",
+  },
+  ,
+  {
+    name: "strawberry",
+    translate: "فراولة",
+  },
+];
+
+let fruitsNamesEN = [
+  {
+    name: "Apple",
+    translate: "Apple",
+  },
+  {
+    name: "Apricot",
+    translate: "Apricot",
+  },
+  ,
+  {
+    name: "Avocado",
+    translate: "Avocado",
+  },
+  ,
+  {
+    name: "Banana",
+    translate: "Banana",
+  },
+  ,
+  {
+    name: "Blackberry",
+    translate: "Blackberry",
+  },
+  ,
+  {
+    name: "Blueberry",
+    translate: "Blueberry",
+  },
+  ,
+  {
+    name: "Boysenberry",
+    translate: "Boysenberry",
+  },
+  ,
+  {
+    name: "Cantaloupe",
+    translate: "Cantaloupe",
+  },
+  ,
+  {
+    name: "Clementine",
+    translate: "Clementine",
+  },
+  ,
+  {
+    name: "Date-Palm",
+    translate: "Date Palm",
+  },
+  ,
+  {
+    name: "Dragonfruit",
+    translate: "Dragonfruit",
+  },
+  ,
+  {
+    name: "Elderberry",
+    translate: "Elderberry",
+  },
+  ,
+  {
+    name: "Fig",
+    translate: "Fig",
+  },
+  ,
+  {
+    name: "Grape",
+    translate: "Grape",
+  },
+  ,
+  {
+    name: "Guava",
+    translate: "Guava",
+  },
+  ,
+  {
+    name: "Kiwi",
+    translate: "Kiwi",
+  },
+  ,
+  {
+    name: "strawberry",
+    translate: "strawberry",
+  },
+];
+
 let fruitBenefits = [
   {
     fruitId: 1,
@@ -572,7 +745,7 @@ let comments = [
 let subscribes = [];
 let coupons = ["12345", "0000", "1234", "1111"];
 
-let farmers =[
+let farmers = [
   {
     id: 1,
     name: "Jimmy-Doe",
@@ -600,7 +773,7 @@ let farmers =[
     twitter: "#",
     instagram: "#",
   },
-]
+];
 
 app.get("/exchangerate", function (req, res) {
   if (Object.keys(exchangerate).length !== 0) {
@@ -621,9 +794,39 @@ app.get("/fruits", function (req, res) {
   let fruitsCopy = JSON.parse(JSON.stringify(fruits));
   let pageSize = req.query.pageSize;
   let pageNumber = req.query.pageNumber;
-  let search = req.query.search;;
+  let search = req.query.search;
   if (search) {
-    fruitsCopy = fruitsCopy.filter(fruit => fruit.fruitName.includes(search))
+    // take copy of fruit array
+    // then search for the names of fruits to search text based of language
+    // then hold the result on an array
+    // then filter the copy of the fruits array to the result array
+    // then push the result to final array and send it back to user
+    lang = req.query.lang;
+    resultArray = [];
+    if (lang == "ar") {
+      filteredFruitsNamesArrayAR = fruitsNamesAR.filter((fruit) =>
+        fruit.translate.includes(search)
+      );
+      filteredFruitsNamesArrayAR.forEach((element) => {
+        resultArray.push(
+          ...fruitsCopy.filter((fruit) =>
+            fruit.fruitName.includes(element.name)
+          )
+        );
+      });
+    } else {
+      filteredFruitsNamesArrayEN = fruitsNamesEN.filter((fruit) =>
+        fruit.translate.includes(search)
+      );
+      filteredFruitsNamesArrayEN.forEach((element) => {
+        resultArray.push(
+          ...fruitsCopy.filter((fruit) =>
+            fruit.fruitName.includes(element.name)
+          )
+        );
+      });
+    }
+    fruitsCopy = resultArray;
   }
   let pagesCount = Math.ceil(fruitsCopy.length / pageSize);
   let fruitArrayStart = pageSize * (pageNumber - 1);
@@ -803,7 +1006,7 @@ app.post("/placeOrder", function (req, res) {
 app.get("/farmers", function (req, res) {
   return res.json({
     status: "success",
-    farmers: farmers
+    farmers: farmers,
   });
 });
 
