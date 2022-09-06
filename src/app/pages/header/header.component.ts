@@ -176,6 +176,9 @@ export class HeaderComponent implements OnInit {
 
   onSearch(SearchText: string) {
     this.isSearch = false;
-    this.router.navigate(['/Shop'], { queryParams: {search: SearchText}});
+    // reload route in every search so if the user change lang it gives new values
+    this.router.navigateByUrl('../', {skipLocationChange: true}).then(()=>
+    this.router.navigate(['/Shop'], { queryParams: {search: SearchText}}));
+    // this.router.navigate(['/Shop'], { queryParams: {search: SearchText}});
   }
 }

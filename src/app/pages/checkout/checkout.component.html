@@ -135,8 +135,9 @@
         </button>
       </div>
     </div>
-    <div *ngIf="cart.length <= 0">
-      <button routerLink="/Shop">CHECKOUT.shop-now</button>
+    <div class="shop-now" *ngIf="cart.length <= 0">
+      <h1>There is no items in your cart to checkout</h1>
+      <button class="btn button-hover text-color"  routerLink="/Shop" translate>CHECKOUT.shop-now</button>
     </div>
   </div>
 </div>

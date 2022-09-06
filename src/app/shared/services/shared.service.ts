@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { CardService } from '../component/card/service/card.service';
 import { fruit } from '../Interface/fruit.model';
 
-const BASE_URL = 'https://fruitkha.herokuapp.com/';
+const BASE_URL = 'http://localhost:3000/';
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +14,7 @@ export class SharedService {
   discount: number = 0;
 
   constructor(private router: Router, private cardService: CardService) {
-    this.cart = JSON.parse(localStorage.getItem("cart")!);
+    this.cart = JSON.parse(localStorage.getItem("cart")!) || [];
     this.cardService.addFruit.subscribe((res) => {
       // check if the cart is empty or this item not exist in it
       if (
