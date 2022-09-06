@@ -28,7 +28,6 @@ export class ShopComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((res: any) => {
-      // console.log("here")
       // so if user search while in shop page values rest
       if(res.params.search || res.params.search != "") {
         this.pages = [];

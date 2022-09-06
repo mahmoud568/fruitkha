@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { CardService } from '../component/card/service/card.service';
 import { fruit } from '../Interface/fruit.model';
 
-const BASE_URL = 'http://localhost:3000/';
+const BASE_URL = 'https://fruitkha.herokuapp.com/';
 @Injectable({
   providedIn: 'root',
 })
