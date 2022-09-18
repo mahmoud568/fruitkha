@@ -69,7 +69,7 @@ export class ShopComponent implements OnInit {
   }
 
   onFruitSelect(fruit: fruit) {
-    this.router.navigate(['../Single-Product/:search?', fruit.fruitId]);
+    this.router.navigate(['../Single-Product', fruit.fruitId]);
   }
 
   // scroll up
@@ -78,7 +78,8 @@ export class ShopComponent implements OnInit {
     window.scroll({
             top: 0,
             left: 0,
-            behavior: 'smooth'
+            //@ts-ignore
+            behavior: 'instant'
      });
  }
 }

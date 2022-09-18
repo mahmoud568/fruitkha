@@ -41,7 +41,37 @@
 }
 
 #about {
+
   .why-fruitkha {
     padding: 15% 0 15% 15%;
+  }
+}
+
+#slider-home {
+  .carousel-caption {
+    h3 {
+      letter-spacing: 7px;
+    }
+  }
+}
+
+#static-home {
+  .main {
+    .text-header {
+        letter-spacing: .4rem;
+    }
+    .description {
+      letter-spacing: .3rem;
+    }
+  }
+}
+
+// this applys to aall page headers to give it letter spacing only in english
+.header {
+  .text-header {
+    letter-spacing: 7px;
+  }
+  .page {
+    letter-spacing: 7px;
   }
 }

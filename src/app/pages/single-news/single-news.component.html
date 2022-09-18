@@ -30,8 +30,8 @@
       </div>
     </div>
     <div class="comments-container" *ngIf="comments">
-      <header class="comments-container-header">{{ comments.length }} <span translate>SINGLE-NEWS.Comments</span>
-      </header>
+      <p class="comments-container-header">{{ comments.length }} <span translate>SINGLE-NEWS.Comments</span>
+      </p>
       <div *ngFor="let comment of comments">
         <div class="comments">
           <div class="img">
@@ -75,7 +75,7 @@
           </div>
         </div>
         <div class="leave-reply" *ngIf="reply === comment.id">
-          <header class="Header" translate>SINGLE-NEWS.Leave-reply</header>
+          <p class="Header" translate>SINGLE-NEWS.Leave-reply</p>
           <form class="content" (ngSubmit)="onSubmitReply(f.value, comment.id)" #f="ngForm">
             <input type="text" class="form-control input" placeholder="{{ 'SINGLE-NEWS.Your-Name' | translate }}"
               id="Name" ngModel name="Name" required #Name="ngModel">
@@ -89,7 +89,7 @@
       </div>
     </div>
     <div class="leave-comment">
-      <header class="Header" translate>SINGLE-NEWS.Leave-comment</header>
+      <p class="Header" translate>SINGLE-NEWS.Leave-comment</p>
       <p class="description" translate>SINGLE-NEWS.dont-hesitate</p>
       <form class="content" (ngSubmit)="onSubmitComment(f.value)" #f="ngForm">
         <input type="text" class="form-control input" placeholder="{{ 'SINGLE-NEWS.Your-Name' | translate }}" id="Name"
